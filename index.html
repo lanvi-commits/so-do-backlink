@@ -606,9 +606,9 @@ footer.ft{
          duyệt vẫn giải được, nhưng khai riêng thì không phải đánh cược.
          ================================================================== -->
     <div class="canvas">
-      <svg class="dg wheel" viewBox="0 0 1000 1010" role="img" aria-labelledby="w-title w-desc">
+      <svg class="dg wheel" viewBox="0 0 1340 1010" role="img" aria-labelledby="w-title w-desc">
         <title id="w-title">Link wheel 5 site GitHub Pages trỏ về In decal</title>
-        <desc id="w-desc">Năm site GitHub Pages của cụm In decal xếp thành vòng tròn quanh money site, và money site đó chính là bài chính In decal đã xuất hiện ở sơ đồ phía trên, không phải một trang riêng. Theo chiều kim đồng hồ, mỗi site trỏ một link ngang sang site kế tiếp, tạo thành vòng khép kín; đồng thời cả năm đều trỏ một link về In decal ở tâm. Tên năm tài khoản GitHub chưa điền.</desc>
+        <desc id="w-desc">Năm site GitHub Pages vệ tinh của cụm In decal xếp thành vòng tròn quanh một site trung tâm cũng trên GitHub Pages là in-decal.github.io. Site trung tâm này trỏ tiếp một link ra money site nằm bên phải, và money site đó chính là bài chính In decal đã xuất hiện ở sơ đồ phía trên. Theo chiều kim đồng hồ, mỗi site trỏ một link ngang sang site kế tiếp, tạo thành vòng khép kín; đồng thời cả năm đều trỏ một link về site trung tâm ở giữa. Tên sáu tài khoản GitHub chưa điền.</desc>
 
         <defs>
           <marker id="ar-navy-2" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -663,12 +663,23 @@ footer.ft{
       <text class="w-sub"  x="176.6" y="416.9" text-anchor="middle">GitHub Pages</text>
 
         <!-- Tâm: money site. Viền đứt = chưa điền URL, cùng quy ước sơ đồ trên. -->
-        <circle class="hub-ring" cx="500" cy="500" r="138"/>
         <circle class="node-main" cx="500" cy="500" r="124"/>
-        <text class="m-eye"  x="500" y="466" text-anchor="middle">MONEY SITE</text>
-        <text class="m-name" x="500" y="500" text-anchor="middle">In decal</text>
-        <text class="m-slug" x="500" y="528" text-anchor="middle">= bài chính ở sơ đồ trên</text>
-        <text class="m-slug" x="500" y="550" text-anchor="middle">chờ điền URL</text>
+        <text class="m-eye"  x="500" y="476" text-anchor="middle">GITHUB PAGES</text>
+        <text class="m-name" x="500" y="510" text-anchor="middle">in-decal.github.io</text>
+        <text class="m-slug" x="500" y="538" text-anchor="middle">trung tâm vòng</text>
+
+        <!-- Site trung tâm trỏ RA money site. Đường chạy ngang đúng y=500 nên
+             lọt qua khe giữa node 2 (823,395) và node 3 (700,775): khoảng cách
+             từ đường tới tâm node gần nhất là 105 > bán kính node 92. -->
+        <g class="edge-back" marker-end="url(#ar-navy-2)">
+          <line x1="632" y1="500" x2="1032" y2="500"/>
+        </g>
+
+        <rect class="node-main" x="1040" y="430" width="260" height="140" rx="14"/>
+        <text class="m-eye"  x="1170" y="470" text-anchor="middle">MONEY SITE</text>
+        <text class="m-name" x="1170" y="508" text-anchor="middle">In decal</text>
+        <text class="m-slug" x="1170" y="534" text-anchor="middle">= bài chính ở sơ đồ trên</text>
+        <text class="m-slug" x="1170" y="556" text-anchor="middle">chờ điền URL</text>
 
         <text class="spin" x="500" y="1000" text-anchor="middle">CHIỀU VÒNG: THEO KIM ĐỒNG HỒ</text>
       </svg>
@@ -681,7 +692,7 @@ footer.ft{
           <line class="lg-back" x1="1" y1="7" x2="37" y2="7"/>
           <path class="ah-navy" d="M37,2.5 L45,7 L37,11.5 Z"/>
         </svg>
-        <span><b>Nan hoa</b> — mỗi site trỏ 1 link về money site</span>
+        <span><b>Nan hoa</b> — vệ tinh trỏ về site trung tâm, trung tâm trỏ ra money site</span>
       </li>
       <li>
         <svg width="46" height="14" aria-hidden="true" focusable="false">
@@ -695,11 +706,11 @@ footer.ft{
     <div class="note note--warn">
       <h3>Đọc trước khi triển khai</h3>
       <ul>
-        <li>⚠ <b>Năm site phải nằm trên năm tài khoản GitHub khác nhau.</b> Cùng một tài khoản thì
-          cả năm site chung một chủ sở hữu công khai, vòng liên kết lộ ngay từ trang profile.</li>
+        <li>⚠ <b>Sáu site phải nằm trên sáu tài khoản GitHub khác nhau.</b> Cùng một tài khoản thì
+          các site chung một chủ sở hữu công khai, vòng liên kết lộ ngay từ trang profile.</li>
         <li><b>Vòng khép kín là mô hình link wheel cổ điển.</b> Nên lệch nhịp đăng giữa 5 site,
           đổi anchor từng cạnh, và cho mỗi site link ra vài nguồn ngoài hệ.</li>
-        <li><b>Chưa điền:</b> 5 tài khoản GitHub thật · anchor từng cạnh. <b>URL money site dùng chung</b> với bài chính “In decal” ở sơ đồ trên — điền một lần, áp cho cả hai sơ đồ.</li>
+        <li><b>Chưa điền:</b> 6 tài khoản GitHub thật (5 vệ tinh + 1 trung tâm) · anchor từng cạnh. <b>URL money site dùng chung</b> với bài chính “In decal” ở sơ đồ trên — điền một lần, áp cho cả hai sơ đồ.</li>
       </ul>
     </div>
   </section>
