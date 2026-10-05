@@ -232,7 +232,9 @@ code{
 }
 /* Sơ đồ vòng là hình VUÔNG — để nguyên min-width 1000px của sơ đồ ngang thì
    nó cao bằng luôn, chiếm cả màn hình. Ghì lại bằng rule đặc hiệu hơn. */
-.canvas svg.dg.wheel{max-width:680px; min-width:560px; margin:0 auto}
+.canvas svg.dg + svg.dg{margin-top:clamp(20px,3vw,34px)}
+.dg .method-tag{fill:var(--brand-accent); font-family:var(--brand-heading); font-size:17px; font-weight:800; letter-spacing:1.2px}
+.canvas svg.dg.wheel{max-width:760px; min-width:560px; margin:0 auto}
 .dg .panel{fill:var(--brand-bg-elev); stroke:var(--brand-border); stroke-width:1.4}
 .dg .hub-ring{fill:none; stroke:var(--brand-accent); stroke-width:1.8; stroke-dasharray:8 6}
 .dg .w-name{fill:var(--brand-navy);  font-family:var(--brand-heading); font-size:15px;   font-weight:700}
@@ -601,65 +603,7 @@ footer.ft{
         <path d="M1430,616 V672 H227 V610"/>
       </g>
     </svg>
-  </div>
-  <p class="scroll-hint">↔ Cuộn ngang để xem hết sơ đồ.</p>
 
-  <ul class="legend">
-    <li>
-      <svg width="46" height="14" aria-hidden="true" focusable="false">
-        <line class="lg-back" x1="1" y1="7" x2="37" y2="7"/>
-        <path class="ah-navy" d="M37,2.5 L45,7 L37,11.5 Z"/>
-      </svg>
-      <span><b>Backlink</b> — 5 tài sản trỏ lên bài bằng anchor text chính xác</span>
-    </li>
-    <li>
-      <svg width="46" height="14" aria-hidden="true" focusable="false">
-        <line class="lg-chain" x1="1" y1="7" x2="37" y2="7"/>
-        <path class="ah-accent" d="M37,3 L45,7 L37,11 Z"/>
-      </svg>
-      <span><b>Link chuỗi</b> — tài sản trỏ sang tài sản kế tiếp · anchor partial match</span>
-    </li>
-    <li>
-      <svg width="46" height="14" aria-hidden="true" focusable="false">
-        <line class="lg-int" x1="9" y1="7" x2="37" y2="7"/>
-        <path class="ah-muted" d="M37,3 L45,7 L37,11 Z"/>
-        <path class="ah-muted" d="M9,3 L1,7 L9,11 Z"/>
-      </svg>
-      <span><b>Internal link trong cụm chủ đề</b> — giữa 5 bài, và từ cả 5 bài lên thanh ray 3 đích</span>
-    </li>
-    <li>
-      <svg width="46" height="14" aria-hidden="true" focusable="false">
-        <rect class="lg-main" x="4" y="1" width="38" height="12" rx="4"/>
-      </svg>
-      <span><b>Ô nền đậm</b> — bài chính, đích của cả sơ đồ</span>
-    </li>
-  </ul>
-
-  <div class="note">
-    <h3>Mô hình mẫu — dùng lại cho các cụm khác</h3>
-    <ul>
-      <li>Đây là <b>mô hình mô phỏng cho cụm “In decal”</b>. Sáu cụm còn lại triển khai tương tự:
-        In catalogue · In tem nhãn · In hộp giấy · In túi giấy · In tờ rơi · In name card.</li>
-      <li>⚠ <b>Mỗi cụm phải đổi nền tảng parasite và đổi thứ tự chuỗi web 2.0.</b> Bảy cụm dùng
-        chung một bộ nền tảng và một thứ tự chuỗi là một footprint rõ — nó triệt tiêu luôn lợi ích
-        của việc tách cụm.</li>
-    </ul>
-  </div>
-
-  <section class="sec">
-    <h3>Mô hình link wheel GitHub Pages — cụm “In decal”</h3>
-
-    <!-- ==================================================================
-         Vòng tròn 5 node, cách đều 72 độ trên vòng bán kính 340. Cạnh ngang
-         vẽ bằng Bézier bậc 2, điểm điều khiển đặt ở bán kính 450 theo góc
-         giữa 2 node -> đỉnh cung rơi ở bán kính 362,6: ngoài vòng tâm node
-         (340) nhưng trong mép ngoài node (432), nên cung luồn qua khe giữa
-         hai node mà không đè lên node nào.
-         Marker khai RIÊNG (hậu tố -2) thay vì dùng lại marker của sơ đồ
-         trên: tham chiếu chéo giữa hai thẻ svg trong cùng trang thì trình
-         duyệt vẫn giải được, nhưng khai riêng thì không phải đánh cược.
-         ================================================================== -->
-    <div class="canvas">
       <svg class="dg wheel" viewBox="0 0 1340 1010" role="img" aria-labelledby="w-title w-desc">
         <title id="w-title">Link wheel 5 site GitHub Pages trỏ về In decal</title>
         <desc id="w-desc">Năm site GitHub Pages vệ tinh của cụm In decal xếp thành vòng tròn quanh một site trung tâm cũng trên GitHub Pages là in-decal.github.io. Site trung tâm này trỏ tiếp một link đi lên money site nằm ở góc trên bên phải, và money site đó chính là bài chính In decal đã xuất hiện ở sơ đồ phía trên — hai sơ đồ cùng trỏ về một mục tiêu chung. Theo chiều kim đồng hồ, mỗi site trỏ một link ngang sang site kế tiếp, tạo thành vòng khép kín; đồng thời cả năm đều trỏ một link về site trung tâm ở giữa. Tên sáu tài khoản GitHub chưa điền.</desc>
@@ -676,6 +620,9 @@ footer.ft{
         </defs>
 
         <circle class="panel" cx="500" cy="500" r="470"/>
+
+        <text class="method-tag" x="30" y="62">MÔ HÌNH 08METHOD</text>
+        <text class="w-sub"      x="30" y="86">link wheel GitHub Pages · cụm In decal</text>
 
         <!-- Cạnh ngang giữa các site, theo chiều kim đồng hồ -->
         <g class="edge-chain" marker-end="url(#ar-accent-2)">
@@ -740,28 +687,52 @@ footer.ft{
 
         <text class="spin" x="500" y="1000" text-anchor="middle">CHIỀU VÒNG: THEO KIM ĐỒNG HỒ</text>
       </svg>
-    </div>
-    <p class="scroll-hint">↔ Cuộn ngang để xem hết sơ đồ.</p>
+  </div>
+  <p class="scroll-hint">↔ Cuộn ngang để xem hết sơ đồ.</p>
 
-    <ul class="legend">
-      <li>
-        <svg width="46" height="14" aria-hidden="true" focusable="false">
-          <line class="lg-back" x1="1" y1="7" x2="37" y2="7"/>
-          <path class="ah-navy" d="M37,2.5 L45,7 L37,11.5 Z"/>
-        </svg>
-        <span><b>Nan hoa</b> — vệ tinh trỏ về site trung tâm, trung tâm trỏ LÊN money site của sơ đồ trên</span>
-      </li>
-      <li>
-        <svg width="46" height="14" aria-hidden="true" focusable="false">
-          <line class="lg-chain" x1="1" y1="7" x2="37" y2="7"/>
-          <path class="ah-accent" d="M37,3 L45,7 L37,11 Z"/>
-        </svg>
-        <span><b>Vòng ngang</b> — site trỏ sang site kế tiếp, khép kín</span>
-      </li>
+  <ul class="legend">
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <line class="lg-back" x1="1" y1="7" x2="37" y2="7"/>
+        <path class="ah-navy" d="M37,2.5 L45,7 L37,11.5 Z"/>
+      </svg>
+      <span><b>Backlink</b> — tài sản trỏ lên bài · vệ tinh trỏ về site trung tâm · trung tâm trỏ lên money site</span>
+    </li>
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <line class="lg-chain" x1="1" y1="7" x2="37" y2="7"/>
+        <path class="ah-accent" d="M37,3 L45,7 L37,11 Z"/>
+      </svg>
+      <span><b>Link ngang</b> — tài sản trỏ sang tài sản kế tiếp (partial match) · site trỏ sang site kế tiếp trong vòng</span>
+    </li>
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <line class="lg-int" x1="9" y1="7" x2="37" y2="7"/>
+        <path class="ah-muted" d="M37,3 L45,7 L37,11 Z"/>
+        <path class="ah-muted" d="M9,3 L1,7 L9,11 Z"/>
+      </svg>
+      <span><b>Internal link trong cụm chủ đề</b> — giữa 5 bài, và từ cả 5 bài lên thanh ray 3 đích</span>
+    </li>
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <rect class="lg-main" x="4" y="1" width="38" height="12" rx="4"/>
+      </svg>
+      <span><b>Ô nền đậm</b> — bài chính của site, cũng là money site của mô hình 08Method</span>
+    </li>
+  </ul>
+
+  <div class="note">
+    <h3>Mô hình mẫu — dùng lại cho các cụm khác</h3>
+    <ul>
+      <li>Đây là <b>mô hình mô phỏng cho cụm “In decal”</b>. Sáu cụm còn lại triển khai tương tự:
+        In catalogue · In tem nhãn · In hộp giấy · In túi giấy · In tờ rơi · In name card.</li>
+      <li>⚠ <b>Mỗi cụm phải đổi nền tảng parasite và đổi thứ tự chuỗi web 2.0.</b> Bảy cụm dùng
+        chung một bộ nền tảng và một thứ tự chuỗi là một footprint rõ — nó triệt tiêu luôn lợi ích
+        của việc tách cụm.</li>
     </ul>
+  </div>
 
-
-  </section>
+  
 
   </section><!-- /mục 1 -->
 
