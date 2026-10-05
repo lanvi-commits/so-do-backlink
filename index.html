@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sơ đồ backlink — In Siêu Tốc</title>
+<title>Sơ đồ backlink dự án — In Siêu Tốc</title>
 <meta name="description" content="Sơ đồ backlink cho 5 bài In decal của In Siêu Tốc: 5 tài sản web 2.0 nối chuỗi, mỗi tài sản trỏ 1 backlink về 1 bài bằng anchor khớp chính xác, link ngang giữa các tài sản dùng anchor partial match, 5 bài nối chuỗi internal link dồn về bài chính In decal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,13 +74,13 @@ body{
 
 /* Rộng hơn 1100px của 2 sơ đồ trước: bản này 5 cột ngang, khung 1340 đơn
    vị. Chữ vẫn bị giới hạn 62ch riêng nên không bị dài quá tầm mắt. */
-/* Trang live chỉ có 1 hình nên căn giữa theo chiều dọc. BẮT BUỘC có
-   min-width:0 cho flex item: mặc định min-width:auto làm .wrap không co
-   xuống dưới bề rộng nội dung, và khung cuộn ngang của .canvas mất tác
-   dụng -> trang tràn ngang ở 360px. Đã đo thấy thật. */
-.wrap{max-width:1340px; margin:0 auto; padding:clamp(16px,3vw,32px) var(--brand-pad-x);
-      min-width:0; width:100%}
-body{display:flex; align-items:center; min-height:100vh}
+/* Trang đã có tiêu đề nên KHÔNG căn giữa theo chiều dọc nữa — nội dung
+   chạy từ trên xuống như trang thường. Bỏ luôn display:flex trên body, nhờ
+   vậy hết cần vá min-width:0 cho flex item (thiếu nó thì .wrap không co
+   xuống dưới bề rộng nội dung, khung cuộn ngang của .canvas mất tác dụng
+   và trang tràn ngang ở 360px — đã đo thấy thật ở bản chỉ-có-hình). */
+.wrap{max-width:1340px; margin:0 auto;
+      padding:clamp(20px,3.5vw,40px) var(--brand-pad-x) clamp(28px,4vw,48px)}
 
 /* ---------- Header ---------- */
 .hd{margin:0 0 clamp(20px,3vw,30px)}
@@ -94,7 +94,14 @@ body{display:flex; align-items:center; min-height:100vh}
   font-size:clamp(23px,3.4vw,33px); line-height:1.22; letter-spacing:-.015em;
   margin:0; text-wrap:balance;
 }
-.hd h1::after{
+.hd h2{
+  font-family:var(--brand-heading); font-weight:700; color:var(--brand-accent);
+  font-size:clamp(16px,2.1vw,21px); line-height:1.3; letter-spacing:-.005em;
+  margin:8px 0 0; text-wrap:balance;
+}
+/* Vạch cyan đặt sau H2 chứ không sau H1: đặt giữa hai tiêu đề thì nó cắt
+   đôi cặp tiêu đề, đọc thành hai khối rời. */
+.hd h2::after{
   content:""; display:block; width:56px; height:4px; margin-top:14px;
   background:var(--brand-cyan); border-radius:2px;
 }
@@ -234,7 +241,10 @@ footer.ft{
 
 <main class="wrap">
 
-  
+  <header class="hd">
+    <h1>Sơ đồ backlink dự án</h1>
+    <h2>Sơ đồ backlink In Siêu Tốc</h2>
+  </header>
 
   <!-- ==================================================================
        CHANGE #1 — dựng theo nét vẽ tay user gửi 05/10/2026, bốn khác biệt
