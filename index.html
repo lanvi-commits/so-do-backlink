@@ -292,12 +292,6 @@ footer.ft{
 .dg .dot-tumblr{ fill:var(--dg-tumblr) }
 .lg-warn{ fill:none; stroke:var(--brand-alert); stroke-width:1.6; stroke-dasharray:5 3 }
 
-.vb-ratio{ list-style:none; margin:12px 0 0; padding:0; display:grid; gap:8px }
-.vb-ratio li{ display:grid; grid-template-columns:48px 1fr; gap:12px; align-items:center }
-.vb-ratio b{ font-family:var(--brand-heading); color:var(--brand-navy); text-align:right; font-size:15px }
-.vb-bar{ height:28px; border-radius:var(--brand-radius-sm); background:var(--brand-accent);
-  display:flex; align-items:center; padding:0 11px; color:var(--brand-on-accent);
-  font-size:12.5px; font-weight:600; white-space:nowrap; overflow:hidden }
 
 </style>
 </head>
@@ -930,51 +924,6 @@ footer.ft{
         <span><b>Viền đỏ đứt</b> — tài sản chưa có link nào trỏ vào</span>
       </li>
     </ul>
-
-    <div class="note">
-      <h3>Mô hình TAS — đọc thế nào</h3>
-      <ul>
-        <li><b>Ba tầng, năm tài sản.</b> Tầng đích là 5 URL trên money site. Giữa là hệ phantom chia hai tier.
-          Dưới cùng là GSA/PBN, nằm ngoài hệ.</li>
-        <li><b>Phân tier theo tỷ lệ link ra, không theo nền tảng.</b> Tier 1 là tài sản dành <b>từ 2 link trở lên</b>
-          bắn thẳng vào money site. Tier 2 là tài sản dành <b>2 link nuôi Tier 1</b> và chỉ giữ 1 link bắn thẳng.
-          Cách chia này tự kiểm chứng được: cả 4 link stack của Tier 2 đều đáp xuống Tier 1, không có link Tier 2 sang Tier 2.</li>
-        <li><b>Tier 1 nối chuỗi ngang</b> Cloudflare → WordPress → Tumblr. Tumblr đứng cuối chuỗi nên dồn cả 3 link
-          vào money site, không nuôi ai nữa.</li>
-        <li><b>GSA chỉ bắn vào tài sản ẩn danh</b> — GitHub và Cloudflare. WordPress và Tumblr mang danh tính ViBIM,
-          Substack là kênh nội dung, nên không nhận GSA.</li>
-        <li><b>Tổng 15 link</b> = 9 về money site + 6 stack. Phân bổ money:
-          <code>/point-cloud-to-bim-services/</code> 3 · trang chủ 2 · <code>/blog/bim-level-of-development/</code> 2 ·
-          <code>/blog/what-is-scan-to-bim/</code> 1 · <code>/blog/convert-point-cloud-to-revit-model/</code> 1.</li>
-        <li><b>Anchor từng link</b> đã chốt trong sheet kế hoạch — 15 anchor cho link ngoài, 16 anchor nội bộ
-          cho các bài support trỏ về bài target của chính nền tảng đó.</li>
-      </ul>
-    </div>
-
-    <div class="note">
-      <h3>Tỷ lệ anchor GSA → GitHub + Cloudflare</h3>
-      <ul class="vb-ratio">
-        <li><b>50%</b><span class="vb-bar" style="width:50%">URL trần / domain</span></li>
-        <li><b>30%</b><span class="vb-bar" style="width:30%">Generic — this tool · scale calculator · click here</span></li>
-        <li><b>20%</b><span class="vb-bar" style="width:20%">Biến thể phantom</span></li>
-      </ul>
-      <ul style="margin-top:14px">
-        <li>⛔ <b>Tuyệt đối không dùng từ khoá money trong anchor GSA.</b> Tỷ lệ này áp cho cả trang target
-          lẫn các bài support của hai tài sản nhận GSA.</li>
-      </ul>
-    </div>
-
-    <div class="note note--warn">
-      <h3>Đọc trước khi triển khai</h3>
-      <ul>
-        <li>⚠ <b>Substack chưa có link inbound nào.</b> Bốn tài sản còn lại đều được nuôi — hoặc từ phantom khác,
-          hoặc từ GSA. Riêng Substack chỉ có link đi ra, nên hiện chưa rõ nó nhận lực từ đâu.</li>
-        <li><b>GitHub và Cloudflare là tài sản ẩn danh.</b> Không để lộ liên hệ với ViBIM ở bất kỳ đâu:
-          hồ sơ chủ sở hữu, footer, thông tin liên hệ, hay dùng chung tài khoản analytics/ads.</li>
-        <li><b>Chưa điền:</b> khối anchor nội bộ của sheet còn thiếu WordPress — hiện mới có
-          GitHub, Cloudflare, Substack và Tumblr.</li>
-      </ul>
-    </div>
   </section>
 
 </main>
