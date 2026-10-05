@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sơ đồ backlink — In Siêu Tốc</title>
+<meta name="description" content="Sơ đồ backlink cho 5 bài In decal của In Siêu Tốc: 5 tài sản web 2.0 nối chuỗi, mỗi tài sản trỏ 1 backlink về 1 bài bằng anchor khớp chính xác, link ngang giữa các tài sản dùng anchor partial match, 5 bài nối chuỗi internal link dồn về bài chính In decal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   TOKEN — dán nguyên khối từ brand-tokens.css (rule §3: file standalone)
+   ===================================================================== */
+:root{
+  --brand-bg:#FFFFFF; --brand-bg-elev:#F5FAFD; --brand-bg-band:#EAF7FD; --brand-bg-deep:#002E5A;
+  --brand-cyan:#00A1E4; --brand-cyan-soft:rgba(0,161,228,.10); --brand-cyan-line:rgba(0,161,228,.28);
+  --brand-on-cyan:#002E5A;
+  --brand-accent:#0077A8; --brand-accent-hover:#00648F; --brand-accent-active:#005476;
+  --brand-accent-soft:rgba(0,119,168,.10); --brand-accent-line:rgba(0,119,168,.28);
+  --brand-accent-glow:rgba(0,119,168,.30); --brand-accent-select:rgba(0,119,168,.30);
+  --brand-on-accent:#FFFFFF;
+  --brand-navy:#002E5A; --brand-navy-hover:#00254A; --brand-on-navy:#FFFFFF;
+  --brand-navy-muted:#A9C4DA; --brand-navy-link:#00A1E4;
+  --brand-action:#FFE900; --brand-action-hover:#F2DC00; --brand-action-active:#DEC900;
+  --brand-on-action:#002E5A; --brand-action-ring:rgba(0,46,90,.35);
+  --brand-alert:#E60808; --brand-on-alert:#FFFFFF;
+  --brand-text:#333333; --brand-muted:#5A6B7B; --brand-border:#D8E3EA;
+  --brand-radius-sm:4px; --brand-radius-md:8px; --brand-radius-lg:14px; --brand-radius-cta:8px;
+  --brand-heading:'Montserrat','Be Vietnam Pro',system-ui,sans-serif;
+  --brand-body:'Be Vietnam Pro',system-ui,-apple-system,sans-serif;
+  --brand-display:'Montserrat',system-ui,sans-serif;
+  --brand-body-size:17px; --brand-body-lh:1.7;
+  --brand-dur-fast:150ms; --brand-dur-base:200ms; --brand-dur-slow:250ms;
+  --brand-ease:cubic-bezier(.2,0,0,1);
+  --brand-shadow-card:0 10px 26px rgba(0,46,90,.10);
+  --brand-shadow-focus:0 0 0 3px var(--brand-accent-soft);
+  --brand-maxw:1220px; --brand-pad-x:clamp(16px,5vw,48px); --brand-sec-y:clamp(48px,8vw,96px);
+
+  /* -------------------------------------------------------------------
+     TOKEN RIÊNG CỦA SƠ ĐỒ — chấm nhận diện nền tảng. Quy ước giữ nguyên
+     từ 2 sơ đồ backlink cùng ngày: đây là màu thương hiệu của 5 nền tảng,
+     KHÔNG phải màu In Siêu Tốc. Chỉ được làm CHẤM TRÒN 13px cạnh tên —
+     không làm chữ, không làm viền, không làm mảng nền. Để chúng gánh
+     nghĩa là phá hệ 3 vai (§6 anti-pattern). Bỏ hết chấm thì sơ đồ vẫn
+     đọc được 100% vì tên nền tảng đã viết bằng chữ.
+     ------------------------------------------------------------------- */
+  --dg-pinterest:#E60023;
+  --dg-gsites:#4285F4;
+  --dg-behance:#1769FF;
+  --dg-github:#181717;
+  --dg-substack:#FF6719;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--brand-bg); color:var(--brand-text);
+  font-family:var(--brand-body); font-size:var(--brand-body-size); line-height:var(--brand-body-lh);
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--brand-accent-select); color:var(--brand-on-accent)}
+
+.skip-link{
+  position:absolute; left:-9999px; top:0; z-index:99;
+  background:var(--brand-navy); color:var(--brand-on-navy);
+  padding:12px 18px; border-radius:0 0 var(--brand-radius-md) 0; font-weight:600;
+}
+.skip-link:focus{left:0}
+
+:where(a,button,summary):focus-visible{
+  outline:2px solid var(--brand-accent); outline-offset:2px; border-radius:var(--brand-radius-sm);
+}
+
+/* Rộng hơn 1100px của 2 sơ đồ trước: bản này 5 cột ngang, khung 1340 đơn
+   vị. Chữ vẫn bị giới hạn 62ch riêng nên không bị dài quá tầm mắt. */
+/* Trang live chỉ có 1 hình nên căn giữa theo chiều dọc. BẮT BUỘC có
+   min-width:0 cho flex item: mặc định min-width:auto làm .wrap không co
+   xuống dưới bề rộng nội dung, và khung cuộn ngang của .canvas mất tác
+   dụng -> trang tràn ngang ở 360px. Đã đo thấy thật. */
+.wrap{max-width:1340px; margin:0 auto; padding:clamp(16px,3vw,32px) var(--brand-pad-x);
+      min-width:0; width:100%}
+body{display:flex; align-items:center; min-height:100vh}
+
+/* ---------- Header ---------- */
+.hd{margin:0 0 clamp(20px,3vw,30px)}
+.eyebrow{
+  font-family:var(--brand-heading); font-size:12px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--brand-accent);
+  margin:0 0 10px;
+}
+.hd h1{
+  font-family:var(--brand-heading); font-weight:800; color:var(--brand-navy);
+  font-size:clamp(23px,3.4vw,33px); line-height:1.22; letter-spacing:-.015em;
+  margin:0; text-wrap:balance;
+}
+.hd h1::after{
+  content:""; display:block; width:56px; height:4px; margin-top:14px;
+  background:var(--brand-cyan); border-radius:2px;
+}
+.lede{margin:16px 0 0; max-width:66ch; color:var(--brand-muted); font-size:15.5px; line-height:1.65}
+
+/* ---------- Khung sơ đồ ---------- */
+.canvas{
+  margin:clamp(22px,3vw,32px) 0 0;
+  border:1px solid var(--brand-border); border-radius:var(--brand-radius-lg);
+  background:var(--brand-bg); box-shadow:var(--brand-shadow-card);
+  padding:clamp(14px,2.4vw,26px);
+  overflow-x:auto; overscroll-behavior-x:contain;
+}
+.canvas svg.dg{display:block; width:100%; min-width:1000px; height:auto}
+.scroll-hint{display:none; margin:10px 0 0; font-size:12.5px; color:var(--brand-muted)}
+
+/* =====================================================================
+   STYLE CỦA SƠ ĐỒ — ĐỂ TRONG <style>, KHÔNG viết lên thẻ SVG.
+   Lý do giữ nguyên từ 2 sơ đồ trước: var() đặt trong presentation
+   attribute của SVG (fill="var(--x)") là chỗ WebKit có lỗi đã biết.
+   ===================================================================== */
+.dg .band-top{fill:var(--brand-bg-band)}
+.dg .band-bot{fill:var(--brand-bg-elev)}
+
+/* BA loại cạnh. Hai loại đầu giữ nguyên cặp navy/accent của sơ đồ link
+   tier và link wheel để cả bộ đọc như một ngôn ngữ. Loại thứ ba là mới:
+   internal link nằm TRONG site, khác bản chất backlink, nên tách hẳn
+   bằng nét đứt xám. Mỗi loại khác nhau ở 3 tín hiệu (màu + độ dày +
+   liền/đứt), không chỉ khác màu — WCAG 1.4.1. */
+.dg .edge-back{ stroke:var(--brand-navy);   stroke-width:2.6; fill:none; stroke-linecap:round}
+.dg .edge-chain{stroke:var(--brand-accent); stroke-width:1.9; fill:none; stroke-linecap:round}
+.dg .edge-int{  stroke:var(--brand-muted);  stroke-width:2;   fill:none; stroke-linecap:round; stroke-dasharray:7 5}
+
+.ah-navy{fill:var(--brand-navy)}
+.ah-accent{fill:var(--brand-accent)}
+.ah-muted{fill:var(--brand-muted)}
+
+.dg .node-post{fill:var(--brand-bg);   stroke:var(--brand-navy); stroke-width:1.6}
+.dg .node-main{fill:var(--brand-navy)}
+.dg .node-asset{fill:var(--brand-bg);  stroke:var(--brand-navy); stroke-width:1.6}
+.dg .node-ext{ fill:var(--brand-bg);  stroke:var(--brand-navy); stroke-width:1.6}
+.dg .node-sec{ fill:var(--brand-bg);  stroke:var(--brand-navy); stroke-width:1.6}
+.dg .plate{fill:var(--brand-bg); stroke:var(--brand-accent); stroke-width:1.5}
+
+.dg text{paint-order:stroke}
+.dg .p-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:17px;   font-weight:700}
+.dg .p-slug{  fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11.5px; font-weight:500}
+.dg .m-eye{   fill:var(--brand-navy-muted); font-family:var(--brand-heading); font-size:10px;   font-weight:700; letter-spacing:1.5px}
+.dg .m-name{  fill:var(--brand-on-navy);    font-family:var(--brand-heading); font-size:20px;   font-weight:800}
+.dg .m-slug{  fill:var(--brand-navy-muted); font-family:var(--brand-body);    font-size:11.5px; font-weight:500}
+.dg .a-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:17px;   font-weight:700}
+.dg .a-dom{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:12px;   font-weight:500}
+.dg .plate-tx{fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:11.5px; font-weight:700; letter-spacing:.7px}
+.dg .anchor-tag{fill:var(--brand-accent);   font-family:var(--brand-heading); font-size:10px;   font-weight:700; letter-spacing:.5px}
+.dg .ex-tx{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
+.dg .chain-lab{fill:var(--brand-accent);    font-family:var(--brand-heading); font-size:9.5px;  font-weight:700; letter-spacing:.6px}
+.dg .e-eye{   fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:10px;   font-weight:700; letter-spacing:1.4px}
+.dg .x-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:14px;   font-weight:700}
+.dg .cluster-br{stroke:var(--brand-navy); stroke-width:1.6; fill:none; stroke-linecap:round}
+.dg .e-sub{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
+.dg .boost{   fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:10.5px; font-weight:700; letter-spacing:1.1px}
+.dg .lb-tier{ fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:11.5px; font-weight:700; letter-spacing:1.3px}
+.dg .lb-sub{  fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
+
+.dg .dot-pinterest{fill:var(--dg-pinterest)}
+.dg .dot-gsites{fill:var(--dg-gsites)}
+.dg .dot-behance{fill:var(--dg-behance)}
+.dg .dot-github{fill:var(--dg-github)}
+.dg .dot-substack{fill:var(--dg-substack)}
+
+/* ---------- Legend ---------- */
+.legend{
+  list-style:none; margin:22px 0 0; padding:0;
+  display:grid; gap:10px 20px; grid-template-columns:repeat(auto-fit,minmax(246px,1fr));
+}
+.legend li{display:flex; align-items:center; gap:11px; font-size:14px; color:var(--brand-text)}
+.legend svg{flex:0 0 auto}
+.legend b{font-weight:600; color:var(--brand-navy)}
+.lg-back{ stroke:var(--brand-navy);   stroke-width:2.6; stroke-linecap:round; fill:none}
+.lg-chain{stroke:var(--brand-accent); stroke-width:1.9; stroke-linecap:round; fill:none}
+.lg-int{  stroke:var(--brand-muted);  stroke-width:2;   stroke-linecap:round; stroke-dasharray:7 5; fill:none}
+.lg-main{ fill:var(--brand-navy)}
+
+/* ---------- Note ---------- */
+.note{
+  margin:clamp(26px,4vw,38px) 0 0; padding:20px 22px;
+  background:var(--brand-bg-band); border-left:4px solid var(--brand-accent);
+  border-radius:0 var(--brand-radius-md) var(--brand-radius-md) 0;
+  max-width:92ch;
+}
+.note--warn{border-left-color:var(--brand-alert)}
+.note h2{
+  font-family:var(--brand-heading); font-size:15px; font-weight:700; letter-spacing:.02em;
+  color:var(--brand-navy); margin:0 0 10px; text-transform:uppercase;
+}
+.note ul{margin:0; padding-left:20px; font-size:14.5px; line-height:1.7; color:var(--brand-text)}
+.note li+li{margin-top:8px}
+code{
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-size:13px;
+  background:var(--brand-bg); border:1px solid var(--brand-border);
+  border-radius:var(--brand-radius-sm); padding:1px 6px; color:var(--brand-accent-active);
+  overflow-wrap:anywhere;
+}
+
+/* ---------- Bản text của sơ đồ (a11y + copy sang doc) ---------- */
+.alt{margin:26px 0 0; border-top:1px solid var(--brand-border); padding-top:14px; max-width:92ch}
+.alt summary{
+  cursor:pointer; font-family:var(--brand-heading); font-weight:700; font-size:14.5px;
+  color:var(--brand-accent); list-style:none; display:flex; align-items:center; gap:9px;
+  padding:12px 0; min-height:44px;
+}
+.alt summary::-webkit-details-marker{display:none}
+.alt summary::before{content:"▸"; display:inline-block; transition:transform var(--brand-dur-base) var(--brand-ease)}
+.alt[open] summary::before{transform:rotate(90deg)}
+.alt ul{margin:4px 0 0; padding-left:22px; font-size:14.5px; line-height:1.7; color:var(--brand-text)}
+.alt ul ul{margin-top:4px}
+.alt li{margin-bottom:3px}
+
+footer.ft{
+  margin:clamp(34px,5vw,52px) 0 0; padding-top:18px; border-top:1px solid var(--brand-border);
+  font-size:12.5px; color:var(--brand-muted); line-height:1.6;
+}
+
+@media (max-width:980px){ .scroll-hint{display:block} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important; animation-duration:.01ms !important}
+}
+@media print{
+  body{background:var(--brand-bg)}
+  .canvas{box-shadow:none; break-inside:avoid; overflow:visible}
+  .canvas svg.dg{min-width:0}
+  .alt[open] summary::before{transform:none}
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  
+
+  <!-- ==================================================================
+       CHANGE #1 — dựng theo nét vẽ tay user gửi 05/10/2026, bốn khác biệt
+       có chủ đích:
+       (a) 5 cột thay vì 4 (5 bài user chốt). V2: user chốt cả 5 link dọc
+           dùng anchor khớp chính xác và 4 link ngang dùng partial match,
+           bỏ hẳn thang 4 nấc của nét vẽ.
+       (b) Mũi tên hàng trên ĐẢO CHIỀU so với nét vẽ (user chốt): 4 bài phụ
+           dồn về bài chính, không phải bài chính trỏ ra.
+       (c) Bỏ Wixsite khỏi danh sách 6 nền tảng ban đầu (user chốt) → 5 tài
+           sản khớp 1-1 với 5 bài, không còn node nào phải trỏ ghép.
+       (d) Nét vẽ dùng cùng một kiểu nét cho mọi quan hệ. Tách 3 loại:
+           navy liền đậm = backlink về bài · accent liền mảnh = link chuỗi
+           giữa tài sản · xám đứt = internal link trong site.
+       CHANGE #2 — mỗi đường dọc cắt làm 2 đoạn, chừa chỗ cho tấm nhãn loại
+       anchor. Vẽ liền rồi đè nhãn lên thì nét chạy xuyên qua chữ.
+       CHANGE #4 (V2) — chuỗi anchor dời sang BÊN PHẢI mũi tên, neo trái tại
+       x = tâm cột + 12. Nhờ vậy đoạn dưới của mũi tên nối liền 412 lên 298
+       thay vì phải cắt làm hai để né chữ.
+       CHANGE #5 (V2) — ô tài sản thu từ 190 xuống 150 đơn vị, vẫn giữ nguyên
+       tâm cột nên mũi tên dọc không phải tính lại. Mục đích là nới khe giữa
+       hai ô từ 60 lên 100 đơn vị, đủ chỗ đặt nhãn PARTIAL MATCH lên cạnh
+       ngang mà không chạm mép ô. Ô tài sản chỉ chứa 1 dòng tên nên thu hẹp
+       không ảnh hưởng, khác ô bài có tiêu đề 2 dòng.
+       ================================================================== -->
+  <div class="canvas" id="so-do">
+    <svg class="dg" viewBox="0 0 1600 700" role="img" aria-labelledby="dg-title dg-desc">
+      <title id="dg-title">Sơ đồ backlink chuỗi cho 5 bài In decal</title>
+      <desc id="dg-desc">Sơ đồ hai hàng. Hàng dưới là 5 tài sản web 2.0 nối thành chuỗi từ trái sang phải: GitHub Pages, Pinterest, Behance, Substack, Google Sites; node cuối chuỗi là Google Sites được làm mạnh lên. Hàng trên là 5 bài trên insieutoc.vn nối chuỗi internal link từ trái sang phải: In decal trong chữ trắng, In decal cuộn, In decal dán khổ lớn, In decal giấy, và cuối cùng là bài chính In decal. Mỗi tài sản ở hàng dưới trỏ thẳng một backlink lên bài ngay phía trên nó, và cả năm đường đều dùng anchor text khớp chính xác với từ khoá của bài nhận link. Hai nguồn textlink sidebar thì dùng đa dạng các loại anchor text. Bốn link ngang giữa các tài sản dùng anchor partial match. Phía trên hàng bài, vẫn trong phạm vi site, có một thanh ray gom ba đích internal link là Sản phẩm cùng loại, Blog và Bảng giá; cả năm bài đều nối lên thanh ray này bằng internal link trong cụm chủ đề, vẽ bằng mũi tên hai đầu. Bên phải, nằm ngoài phạm vi site, có ba nguồn textlink. Textlink sidebar cùng theme trỏ vào dấu ngoặc ôm toàn bộ cụm site, nghĩa là trỏ về cả năm bài cùng Sản phẩm cùng loại, Blog và Bảng giá. Textlink chuyên mục trỏ ngang vào bài chính In decal. Textlink sidebar ít liên quan trỏ về hai tài sản Google Sites và GitHub Pages, đường tới GitHub Pages vòng xuống dưới dải nền rồi ngoi lên. Bài In decal trong chữ trắng được đánh dấu phantom key. Mọi internal link trong cụm chủ đề đều vẽ bằng mũi tên hai đầu. Bản liệt kê đầy đủ nằm ở mục Đọc sơ đồ bằng chữ ngay bên dưới sơ đồ.</desc>
+
+      <defs>
+        <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
+                markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto">
+          <path class="ah-navy" d="M0,.6 L9.6,5 L0,9.4 Z"/>
+        </marker>
+        <marker id="ar-accent" viewBox="0 0 10 10" refX="9.5" refY="5"
+                markerWidth="8.5" markerHeight="8.5" markerUnits="userSpaceOnUse" orient="auto">
+          <path class="ah-accent" d="M0,.6 L9.6,5 L0,9.4 Z"/>
+        </marker>
+        <marker id="ar-muted" viewBox="0 0 10 10" refX="9.5" refY="5"
+                markerWidth="8.5" markerHeight="8.5" markerUnits="userSpaceOnUse" orient="auto">
+          <path class="ah-muted" d="M0,.6 L9.6,5 L0,9.4 Z"/>
+        </marker>
+        <!-- Mũi tên 2 chiều: marker-start với orient="auto" xoay theo CHIỀU ĐI
+             của đường, nên dùng lại ar-muted thì đầu ở gốc chỉ ngược ra ngoài.
+             Có thuộc tính auto-start-reverse làm được việc này, nhưng vẽ hẳn một
+             marker ngược thì chắc chắn chạy mọi trình duyệt — cùng lý do file này
+             không gắn var() lên presentation attribute của SVG. -->
+        <marker id="ar-muted-rev" viewBox="0 0 10 10" refX="0.5" refY="5"
+                markerWidth="8.5" markerHeight="8.5" markerUnits="userSpaceOnUse" orient="auto">
+          <path class="ah-muted" d="M9.6,.6 L0,5 L9.6,9.4 Z"/>
+        </marker>
+      </defs>
+
+      <!-- ==================================================================
+           CHANGE #6 (V4) — toàn bộ sơ đồ V3 dịch xuống 110 đơn vị bằng MỘT
+           group transform, không sửa lại toạ độ cũ. Khoảng trống phía trên
+           dành cho nguồn ngoài (textlink chuyên mục). Cụm Sản phẩm / Blog
+           thêm ở bên phải, viết theo toạ độ tuyệt đối sau khi đóng group.
+           ================================================================== -->
+      <!-- ==================================================================
+           CHANGE #7 (V5) — cả 5 bài đều nối internal link 2 chiều với
+           "Sản phẩm cùng loại" và "Blog". Vẽ từng cặp cho từng bài là 5 x 2 =
+           10 đường cắt nhau, nên gom thành THANH RAY: một khối đích chung,
+           mỗi bài một cuống ngắn 2 đầu lên ray. 10 đường còn 5, không mất
+           thông tin. Việc này cũng gỡ chỗ không nhất quán của V4 (In decal có
+           cặp Sản phẩm/Blog riêng, 4 bài kia không có).
+           Dải nền site phải ra KHỎI group vì nó bao cả ray lẫn hàng bài, mà
+           ray nằm ngoài hệ toạ độ cũ. Vẽ trước group để nằm dưới cùng.
+           ================================================================== -->
+      <rect class="band-top" x="118" y="20" width="1216" height="244" rx="16"/>
+
+      <!-- ---------- Thanh ray: đích internal link chung của cả 5 bài ------- -->
+      <rect class="node-sec" x="132" y="36" width="1190" height="54" rx="14"/>
+      <text class="e-eye"  x="152" y="68">LIÊN KẾT NỘI BỘ</text>
+      <text class="p-name" x="727" y="62" text-anchor="middle">Sản phẩm cùng loại   ·   Blog   ·   Bảng giá</text>
+      <text class="e-sub"  x="727" y="81" text-anchor="middle">internal link trong cụm chủ đề · cả 5 bài phía dưới đều nối với ba mục này</text>
+
+      <g class="edge-int" marker-end="url(#ar-muted)" marker-start="url(#ar-muted-rev)">
+        <line x1="227"  y1="98" x2="227"  y2="134"/>
+        <line x1="477"  y1="98" x2="477"  y2="134"/>
+        <line x1="727"  y1="98" x2="727"  y2="134"/>
+        <line x1="977"  y1="98" x2="977"  y2="134"/>
+        <line x1="1227" y1="98" x2="1227" y2="134"/>
+      </g>
+
+      <g transform="translate(0,86)">
+
+      <!-- ---------- Dải nền tầng tài sản ---------- -->
+      <rect class="band-bot" x="118" y="400" width="1216" height="148" rx="16"/>
+
+      <!-- ---------- Nhãn tầng (lề trái) ---------- -->
+      <text class="lb-tier" x="14" y="92">5 BÀI</text>
+      <text class="lb-tier" x="14" y="110">CẦN ĐẨY</text>
+      <text class="lb-sub"  x="14" y="130">insieutoc.vn</text>
+
+      <text class="lb-tier" x="14" y="276">LOẠI</text>
+      <text class="lb-tier" x="14" y="294">ANCHOR</text>
+
+      <text class="lb-tier" x="14" y="452">TÀI SẢN</text>
+      <text class="lb-tier" x="14" y="470">WEB 2.0</text>
+      <text class="lb-sub"  x="14" y="490">5 nền tảng</text>
+
+      <!-- ====== CẠNH: internal link giữa 5 bài, dồn về bài chính ========== -->
+      <g class="edge-int" marker-end="url(#ar-muted)" marker-start="url(#ar-muted-rev)">
+        <line x1="330"  y1="106" x2="372"  y2="106"/>
+        <line x1="580"  y1="106" x2="622"  y2="106"/>
+        <line x1="830"  y1="106" x2="872"  y2="106"/>
+        <line x1="1080" y1="106" x2="1122" y2="106"/>
+      </g>
+
+      <!-- ====== CẠNH: chuỗi giữa 5 tài sản, dồn sức về node cuối ========== -->
+      <g class="edge-chain" marker-end="url(#ar-accent)">
+        <line x1="310"  y1="466" x2="392"  y2="466"/>
+        <line x1="560"  y1="466" x2="642"  y2="466"/>
+        <line x1="810"  y1="466" x2="892"  y2="466"/>
+        <line x1="1060" y1="466" x2="1142" y2="466"/>
+      </g>
+      <!-- Nhãn anchor của 4 cạnh ngang. Cả bốn cùng một loại nên viết đủ
+           chữ ở từng cạnh, không viết tắt — khe 100 đơn vị vừa đủ. -->
+      <g class="chain-lab">
+        <text x="351"  y="452" text-anchor="middle">PARTIAL MATCH</text>
+        <text x="601"  y="452" text-anchor="middle">PARTIAL MATCH</text>
+        <text x="851"  y="452" text-anchor="middle">PARTIAL MATCH</text>
+        <text x="1101" y="452" text-anchor="middle">PARTIAL MATCH</text>
+      </g>
+
+      <!-- ====== CẠNH: backlink dọc, tài sản lên bài ======================= -->
+      <!-- Đoạn dưới: từ mép trên ô tài sản lên mép dưới nhãn anchor.
+           V2 nối liền vì chữ anchor đã dời sang phải, không còn cắt ngang. -->
+      <g class="edge-back">
+        <line x1="227"  y1="412" x2="227"  y2="298"/>
+        <line x1="477"  y1="412" x2="477"  y2="298"/>
+        <line x1="727"  y1="412" x2="727"  y2="298"/>
+        <line x1="977"  y1="412" x2="977"  y2="298"/>
+        <line x1="1227" y1="412" x2="1227" y2="298"/>
+      </g>
+      <!-- Đoạn trên: từ mép trên nhãn anchor lên tới dưới ô bài -->
+      <g class="edge-back" marker-end="url(#ar-navy)">
+        <line x1="227"  y1="262" x2="227"  y2="168"/>
+        <line x1="477"  y1="262" x2="477"  y2="168"/>
+        <line x1="727"  y1="262" x2="727"  y2="168"/>
+        <line x1="977"  y1="262" x2="977"  y2="168"/>
+        <line x1="1227" y1="262" x2="1227" y2="168"/>
+      </g>
+
+      <!-- ============ HÀNG TRÊN: 5 bài ===================================== -->
+      <rect class="node-post" x="132" y="56" width="190" height="100" rx="12"/>
+      <text class="e-eye"  x="227" y="76"  text-anchor="middle">PHANTOM KEY</text>
+      <text class="p-name" x="227" y="94"  text-anchor="middle">In decal trong</text>
+      <text class="p-name" x="227" y="118" text-anchor="middle">chữ trắng</text>
+      <text class="p-slug" x="227" y="146" text-anchor="middle">chờ điền URL</text>
+
+      <rect class="node-post" x="382" y="56" width="190" height="100" rx="12"/>
+      <text class="p-name" x="477" y="106" text-anchor="middle">In decal cuộn</text>
+      <text class="p-slug" x="477" y="146" text-anchor="middle">chờ điền URL</text>
+
+      <rect class="node-post" x="632" y="56" width="190" height="100" rx="12"/>
+      <text class="p-name" x="727" y="94"  text-anchor="middle">In decal dán</text>
+      <text class="p-name" x="727" y="118" text-anchor="middle">khổ lớn</text>
+      <text class="p-slug" x="727" y="146" text-anchor="middle">chờ điền URL</text>
+
+      <rect class="node-post" x="882" y="56" width="190" height="100" rx="12"/>
+      <text class="p-name" x="977" y="106" text-anchor="middle">In decal giấy</text>
+      <text class="p-slug" x="977" y="146" text-anchor="middle">chờ điền URL</text>
+
+      <!-- Bài chính: đổ nền navy thay cho vệt tô vàng trong nét vẽ. Vàng
+           --brand-action là màu CHỈ dành cho thứ bấm được (luật cấm 3 & 4),
+           không được mượn làm highlight. -->
+      <rect class="node-main" x="1132" y="56" width="190" height="100" rx="12"/>
+      <text class="m-eye"  x="1227" y="90"  text-anchor="middle">BÀI CHÍNH</text>
+      <text class="m-name" x="1227" y="120" text-anchor="middle">In decal</text>
+      <text class="m-slug" x="1227" y="146" text-anchor="middle">chờ điền URL</text>
+
+      <!-- ============ GIỮA: nhãn loại anchor + ví dụ ======================= -->
+      <rect class="plate" x="122" y="262" width="210" height="36" rx="18"/>
+      <text class="plate-tx" x="227" y="285" text-anchor="middle">ANCHOR TEXT CHÍNH XÁC</text>
+      <text class="ex-tx"    x="239" y="322">“in decal trong chữ trắng”</text>
+
+      <rect class="plate" x="372" y="262" width="210" height="36" rx="18"/>
+      <text class="plate-tx" x="477" y="285" text-anchor="middle">ANCHOR TEXT CHÍNH XÁC</text>
+      <text class="ex-tx"    x="489" y="322">“in decal cuộn”</text>
+
+      <rect class="plate" x="622" y="262" width="210" height="36" rx="18"/>
+      <text class="plate-tx" x="727" y="285" text-anchor="middle">ANCHOR TEXT CHÍNH XÁC</text>
+      <text class="ex-tx"    x="739" y="322">“in decal dán khổ lớn”</text>
+
+      <rect class="plate" x="872" y="262" width="210" height="36" rx="18"/>
+      <text class="plate-tx" x="977" y="285" text-anchor="middle">ANCHOR TEXT CHÍNH XÁC</text>
+      <text class="ex-tx"    x="989" y="322">“in decal giấy”</text>
+
+      <rect class="plate" x="1122" y="262" width="210" height="36" rx="18"/>
+      <text class="plate-tx" x="1227" y="285" text-anchor="middle">ANCHOR TEXT CHÍNH XÁC</text>
+      <text class="ex-tx"    x="1239" y="322">“in decal”</text>
+
+      <!-- ============ HÀNG DƯỚI: 5 tài sản ================================= -->
+      <!-- V3 — thứ tự chuỗi do user chốt: GitHub Pages mở đầu, Google Sites
+           khoá đuôi. Vì cột đứng yên còn nền tảng đổi chỗ, ÁNH XẠ nền tảng
+           sang bài đổi theo: node cuối chuỗi (mạnh nhất) giờ là Google Sites
+           và nó trỏ vào bài chính. -->
+      <rect class="node-asset" x="152" y="420" width="150" height="92" rx="12"/>
+      <circle class="dot-github" cx="227" cy="444" r="6.5"/>
+      <text class="a-name" x="227" y="472" text-anchor="middle">GitHub Pages</text>
+      <text class="a-dom"  x="227" y="496" text-anchor="middle">github.io</text>
+
+      <rect class="node-asset" x="402" y="420" width="150" height="92" rx="12"/>
+      <circle class="dot-pinterest" cx="477" cy="444" r="6.5"/>
+      <text class="a-name" x="477" y="472" text-anchor="middle">Pinterest</text>
+      <text class="a-dom"  x="477" y="496" text-anchor="middle">pinterest.com</text>
+
+      <rect class="node-asset" x="652" y="420" width="150" height="92" rx="12"/>
+      <circle class="dot-behance" cx="727" cy="444" r="6.5"/>
+      <text class="a-name" x="727" y="472" text-anchor="middle">Behance</text>
+      <text class="a-dom"  x="727" y="496" text-anchor="middle">behance.net</text>
+
+      <rect class="node-asset" x="902" y="420" width="150" height="92" rx="12"/>
+      <circle class="dot-substack" cx="977" cy="444" r="6.5"/>
+      <text class="a-name" x="977" y="472" text-anchor="middle">Substack</text>
+      <text class="a-dom"  x="977" y="496" text-anchor="middle">substack.com</text>
+
+      <rect class="node-asset" x="1152" y="420" width="150" height="92" rx="12"/>
+      <circle class="dot-gsites" cx="1227" cy="444" r="6.5"/>
+      <text class="a-name" x="1227" y="472" text-anchor="middle">Google Sites</text>
+      <text class="a-dom"  x="1227" y="496" text-anchor="middle">sites.google.com</text>
+
+      <!-- Ghi chú đỏ "làm mạnh lên" của nét vẽ, đặt ở node cuối chuỗi -->
+      <text class="boost" x="1227" y="534" text-anchor="middle">CUỐI CHUỖI · MẠNH NHẤT</text>
+
+      </g>
+      <!-- ============ NGUỒN NGOÀI — textlink chuyên mục ====================
+           Đặt NGOÀI dải nền insieutoc.vn. Dải nền ở sơ đồ này gánh nghĩa
+           "trong site / ngoài site", nên vị trí so với dải là một phát biểu,
+           không phải chuyện bố cục.
+           V5 chuyển từ phía TRÊN sang phía PHẢI: thanh ray đã chiếm hết chỗ
+           ngay trên hàng bài, đi từ trên xuống sẽ xuyên qua ray. -->
+      <rect class="node-ext" x="1380" y="164" width="190" height="122" rx="12"/>
+      <text class="e-eye"  x="1475" y="198" text-anchor="middle">NGUỒN NGOÀI</text>
+      <text class="x-name" x="1475" y="224" text-anchor="middle">Textlink</text>
+      <text class="x-name" x="1475" y="244" text-anchor="middle">chuyên mục</text>
+      <text class="e-sub"  x="1475" y="267" text-anchor="middle">→ bài chính In decal</text>
+
+      <!-- ============ V6: TEXTLINK SIDEBAR CÙNG THEME =====================
+           Tập đích của nó (5 bài + Sản phẩm + Blog) đúng bằng toàn bộ nội
+           dung dải nền site. Nên vẽ MỘT mũi tên vào dấu ngoặc ôm cả cụm là
+           phát biểu chính xác, không phải rút gọn cho đỡ rối — và cũng đúng
+           bản chất link sidebar: xuất hiện ở mọi trang. -->
+      <!-- V8 — tên đầy đủ "Textlink sidebar ..." dài 27 ký tự, ở 14px rộng
+           khoảng 211 đơn vị trong khi lòng ô chỉ 166 → phải tách 2 dòng và nới
+           ô từ 100 lên 122. Nhãn đích cũng tách 2 dòng vì lý do y hệt. -->
+      <rect class="node-ext" x="1380" y="4" width="190" height="146" rx="12"/>
+      <text class="e-eye"      x="1475" y="30"  text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
+      <text class="x-name"     x="1475" y="56"  text-anchor="middle">Textlink sidebar</text>
+      <text class="x-name"     x="1475" y="76"  text-anchor="middle">cùng theme</text>
+      <text class="e-sub"      x="1475" y="99"  text-anchor="middle">→ 5 bài + Sản phẩm</text>
+      <text class="e-sub"      x="1475" y="116" text-anchor="middle">+ Blog + Bảng giá</text>
+      <text class="anchor-tag" x="1475" y="138" text-anchor="middle">ANCHOR: ĐA DẠNG LOẠI</text>
+
+      <!-- Ngoặc ôm cả cụm site. Chỗ y 184-200 để HỞ vì mũi tên của textlink
+           chuyên mục cắt vuông góc qua đây — quy ước đã chốt ở sơ đồ link
+           tier cùng ngày: hở = cắt qua, không nối. -->
+      <path class="cluster-br" d="M1336,36 H1346 V184 M1346,200 V242 H1336"/>
+
+      <g class="edge-back" marker-end="url(#ar-navy)">
+        <line x1="1372" y1="70"  x2="1354" y2="70"/>
+        <line x1="1372" y1="192" x2="1330" y2="192"/>
+      </g>
+
+      <!-- ============ V6: TEXTLINK SIDEBAR ÍT LIÊN QUAN ===================
+           Hai đích nằm ở hai đầu đối diện của hàng tài sản (GitHub cột 1,
+           Google Sites cột 5). Đi thẳng là cắt ngang cả hàng, nên đường tới
+           GitHub vòng xuống DƯỚI dải nền rồi mới ngoi lên. -->
+      <rect class="node-ext" x="1380" y="474" width="190" height="134" rx="12"/>
+      <text class="e-eye"      x="1475" y="506" text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
+      <text class="x-name"     x="1475" y="532" text-anchor="middle">Textlink sidebar</text>
+      <text class="x-name"     x="1475" y="552" text-anchor="middle">ít liên quan</text>
+      <text class="e-sub"      x="1475" y="575" text-anchor="middle">→ GitHub Pages · Google Sites</text>
+      <text class="anchor-tag" x="1475" y="596" text-anchor="middle">ANCHOR: ĐA DẠNG LOẠI</text>
+
+      <g class="edge-back" marker-end="url(#ar-navy)">
+        <line x1="1372" y1="552" x2="1312" y2="552"/>
+        <path d="M1430,616 V672 H227 V610"/>
+      </g>
+    </svg>
+  </div>
+  <p class="scroll-hint">↔ Cuộn ngang để xem hết sơ đồ.</p>
+
+  <ul class="legend">
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <line class="lg-back" x1="1" y1="7" x2="37" y2="7"/>
+        <path class="ah-navy" d="M37,2.5 L45,7 L37,11.5 Z"/>
+      </svg>
+      <span><b>Backlink</b> — 5 tài sản trỏ lên bài bằng anchor text chính xác</span>
+    </li>
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <line class="lg-chain" x1="1" y1="7" x2="37" y2="7"/>
+        <path class="ah-accent" d="M37,3 L45,7 L37,11 Z"/>
+      </svg>
+      <span><b>Link chuỗi</b> — tài sản trỏ sang tài sản kế tiếp · anchor partial match</span>
+    </li>
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <line class="lg-int" x1="9" y1="7" x2="37" y2="7"/>
+        <path class="ah-muted" d="M37,3 L45,7 L37,11 Z"/>
+        <path class="ah-muted" d="M9,3 L1,7 L9,11 Z"/>
+      </svg>
+      <span><b>Internal link trong cụm chủ đề</b> — giữa 5 bài, và từ cả 5 bài lên thanh ray 3 đích</span>
+    </li>
+    <li>
+      <svg width="46" height="14" aria-hidden="true" focusable="false">
+        <rect class="lg-main" x="4" y="1" width="38" height="12" rx="4"/>
+      </svg>
+      <span><b>Ô nền đậm</b> — bài chính, đích của cả sơ đồ</span>
+    </li>
+  </ul>
+
+  </div>
+
+  
+
+  
+
+  
+
+</main>
+</body>
+</html>
