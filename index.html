@@ -443,6 +443,19 @@ footer.ft{
        242-410 nay là khoảng trống tự do — nhưng đừng thu nó lại, bụng cong
        của 6 cạnh tier 1 nằm trong đó (sâu nhất tới y=355).
        Nhóm edge-chain KHÔNG đụng: nó vốn đã là bezier cùng kiểu.
+
+       V20 (07/10/2026) — Ô TEXTLINK NGOÀI ĐỔI ĐÍCH: Webflow -> Pinterest.
+       Hai đích nay là GitHub Pages + Pinterest. Bỏ cạnh ngang ngắn
+       (x 1372->1320 ở y=488) vốn cắm thẳng vào mép phải ô Webflow.
+       Pinterest ở RÌA TRÁI còn ô textlink ở rìa phải nên không có đường
+       ngắn: phải đi vòng dưới khung hệ tài sản giống đường tới GitHub.
+       Hai đường vòng chạy HAI RÃNH riêng (y=778 cũ cho GitHub, y=802 mới
+       cho Pinterest) và rời ô ở hai x khác nhau (1430 / 1460) — dùng chung
+       một rãnh thì quãng 506-1460 bị vẽ đè, người đọc thấy MỘT link rẽ
+       nhánh thay vì hai link. viewBox 808 -> 832 để chứa rãnh 802.
+       Mũi tên cắm vào Pinterest ở x=200, dừng ở y=532 (mép dưới ô là 528,
+       chừa 4 đơn vị) — cùng quy ước với mũi tên GitHub (712 / mép 708).
+       KHÔNG trùng x với cạnh link stack GitHub->Pinterest (cắm ở x=346).
        Đường vòng của ô textlink ngoài (M1430 ... V778 H506 ...) GIỮ gãy
        vuông: nó đi vòng ngoài khung hệ tài sản, không nằm trong vùng 8 cạnh
        cắt nhau, và bẻ vuông ở đó đọc đúng nghĩa "đi đường vòng".
@@ -483,9 +496,9 @@ footer.ft{
            xuyên ô.
        ================================================================== -->
   <div class="canvas" id="so-do">
-    <svg class="dg" viewBox="0 0 1600 808" role="img" aria-labelledby="dg-title dg-desc">
+    <svg class="dg" viewBox="0 0 1600 832" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal cuộn khớp chính xác và In decal giấy partial match; Behance trỏ In decal dán khổ lớn khớp chính xác và In decal cuộn partial match; Webflow trỏ bài chính In decal khớp chính xác và In decal dán khổ lớn partial match. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal cuộn và Substack lên In decal giấy. Bài In decal trong chữ trắng không nhận link nào từ hệ tài sản. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal cuộn khớp chính xác và In decal giấy partial match; Behance trỏ In decal dán khổ lớn khớp chính xác và In decal cuộn partial match; Webflow trỏ bài chính In decal khớp chính xác và In decal dán khổ lớn partial match. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal cuộn và Substack lên In decal giấy. Bài In decal trong chữ trắng không nhận link nào từ hệ tài sản. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -645,19 +658,22 @@ footer.ft{
            Đặt NGOÀI dải nền insieutoc.vn. Dải nền ở sơ đồ này gánh nghĩa
            "trong site / ngoài site", nên vị trí so với dải là một phát biểu,
            không phải chuyện bố cục. -->
-      <!-- Sidebar ít liên quan: hai đích nay nằm ở hai tier khác nhau —
-           Webflow ở tier 1 (ngay bên trái, đi thẳng) và GitHub Pages ở
-           tier 2 (chìm sâu trong khung). Đường tới GitHub vòng xuống DƯỚI
-           khung hệ tài sản rồi mới ngoi lên, vì đi thẳng là xuyên qua ô. -->
+      <!-- Sidebar ít liên quan: hai đích nay là GitHub Pages (tier 2) và
+           Pinterest (tier 1, ở RÌA TRÁI sơ đồ trong khi ô này ở rìa phải).
+           CẢ HAI đi đường vòng xuống DƯỚI khung hệ tài sản rồi mới ngoi
+           lên — đi thẳng ngang là xuyên qua ô. Hai đường chạy hai rãnh
+           riêng (y=778 và y=802) và rời ô ở hai điểm x khác nhau (1430 và
+           1460); cho chung một rãnh thì đoạn 506-1460 bị vẽ đè, đọc thành
+           MỘT link rẽ nhánh chứ không phải hai link. -->
       <rect class="node-ext" x="1380" y="448" width="190" height="120" rx="12"/>
       <text class="e-eye"      x="1475" y="480" text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
       <text class="x-name"     x="1475" y="506" text-anchor="middle">Textlink sidebar</text>
       <text class="x-name"     x="1475" y="526" text-anchor="middle">ít liên quan</text>
-      <text class="e-sub"      x="1475" y="549" text-anchor="middle">→ GitHub Pages · Webflow</text>
+      <text class="e-sub"      x="1475" y="549" text-anchor="middle">→ GitHub Pages · Pinterest</text>
 
       <g class="edge-back" marker-end="url(#ar-navy)">
-        <line x1="1372" y1="488" x2="1320" y2="488"/>
         <path d="M1430 568V778H506V712"/>
+        <path d="M1460 568V802H200V532"/>
       </g>
 
     </svg>
