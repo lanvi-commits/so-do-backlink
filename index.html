@@ -456,6 +456,23 @@ footer.ft{
        Mũi tên cắm vào Pinterest ở x=200, dừng ở y=532 (mép dưới ô là 528,
        chừa 4 đơn vị) — cùng quy ước với mũi tên GitHub (712 / mép 708).
        KHÔNG trùng x với cạnh link stack GitHub->Pinterest (cắm ở x=346).
+
+       V21 (07/10/2026) — HOÁN CHỖ "In decal" (bài chính) VỚI "In decal
+       giấy": bài chính rời slot 1 sang slot 2, giấy đi ngược lại. Đây là
+       thay đổi THUẦN BỐ CỤC — không link nào đổi nguồn hay đổi đích, tổng
+       vẫn 14. Webflow vẫn trỏ bài chính, Substack và Pinterest vẫn trỏ
+       "In decal giấy"; chỉ ĐIỂM CẮM của 3 cạnh đó dời theo ô.
+       Làm đúng nếp V13: giữ nguyên toạ độ 5 slot, chỉ hoán nội dung — nhờ
+       vậy 5 cạnh còn lại không phải tính lại.
+       ĐIỂM CẮM, và vì sao chọn đúng hai số này: ô 1 nay nhận HAI mũi tên
+       (Substack từ x=999, Pinterest từ x=380). Cho Substack cắm ở 255 và
+       Pinterest ở 195 thì Substack nằm BÊN PHẢI Pinterest suốt chặng nên
+       hai nét KHÔNG cắt nhau lần nào. Đảo lại (Substack 195 / Pinterest
+       255) vẫn hợp lệ nhưng ép thêm một chỗ cắt vô ích — nếu sau này sửa,
+       đừng đảo hai số này. Webflow cắm giữa ô 2 (x=477) vì ô đó chỉ có
+       một mũi tên.
+       Ghi chú V13 ở hàng bài đã sửa theo: câu "bài chính đứng đầu bên
+       TRÁI" của nó nay sai.
        Đường vòng của ô textlink ngoài (M1430 ... V778 H506 ...) GIỮ gãy
        vuông: nó đi vòng ngoài khung hệ tài sản, không nằm trong vùng 8 cạnh
        cắt nhau, và bẻ vuông ở đó đọc đúng nghĩa "đi đường vòng".
@@ -498,7 +515,7 @@ footer.ft{
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 832" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal cuộn khớp chính xác và In decal giấy partial match; Behance trỏ In decal dán khổ lớn khớp chính xác và In decal cuộn partial match; Webflow trỏ bài chính In decal khớp chính xác và In decal dán khổ lớn partial match. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal cuộn và Substack lên In decal giấy. Bài In decal trong chữ trắng không nhận link nào từ hệ tài sản. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal cuộn khớp chính xác và In decal giấy partial match; Behance trỏ In decal dán khổ lớn khớp chính xác và In decal cuộn partial match; Webflow trỏ bài chính In decal khớp chính xác và In decal dán khổ lớn partial match. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal cuộn và Substack lên In decal giấy. Bài In decal trong chữ trắng không nhận link nào từ hệ tài sản. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -543,20 +560,22 @@ footer.ft{
       <text class="lb-sub"  x="14" y="680">nuôi tier 1 · 2</text>
 
       <!-- ============ HÀNG TRÊN: 5 bài =====================================
-           V13: thứ tự ĐẢO LẠI — bài chính đứng đầu bên TRÁI, phantom key
-           lùi về cuối bên PHẢI. Năm slot giữ nguyên toạ độ (tâm 227 · 477 ·
-           727 · 977 · 1227), chỉ hoán nội dung giữa các slot. -->
+           V13: thứ tự ĐẢO LẠI — phantom key lùi về cuối bên PHẢI. Năm slot
+           giữ nguyên toạ độ (tâm 227 · 477 · 727 · 977 · 1227), chỉ hoán
+           nội dung giữa các slot.
+           V21: bài chính KHÔNG còn đứng đầu bên trái nữa — nó đổi chỗ với
+           "In decal giấy" nên nay ở slot 2 (tâm 477). -->
+      <rect class="node-post" x="132" y="142" width="190" height="100" rx="12"/>
+      <text class="p-name" x="227" y="192" text-anchor="middle">In decal giấy</text>
+      <text class="p-slug" x="227" y="232" text-anchor="middle">chờ điền URL</text>
+
       <!-- Bài chính: đổ nền navy thay cho vệt tô vàng trong nét vẽ. Vàng
            --brand-action là màu CHỈ dành cho thứ bấm được (luật cấm 3 & 4),
            không được mượn làm highlight. -->
-      <rect class="node-main" x="132" y="142" width="190" height="100" rx="12"/>
-      <text class="m-eye"  x="227" y="176" text-anchor="middle">BÀI CHÍNH</text>
-      <text class="m-name" x="227" y="206" text-anchor="middle">In decal</text>
-      <text class="m-slug" x="227" y="232" text-anchor="middle">chờ điền URL</text>
-
-      <rect class="node-post" x="382" y="142" width="190" height="100" rx="12"/>
-      <text class="p-name" x="477" y="192" text-anchor="middle">In decal giấy</text>
-      <text class="p-slug" x="477" y="232" text-anchor="middle">chờ điền URL</text>
+      <rect class="node-main" x="382" y="142" width="190" height="100" rx="12"/>
+      <text class="m-eye"  x="477" y="176" text-anchor="middle">BÀI CHÍNH</text>
+      <text class="m-name" x="477" y="206" text-anchor="middle">In decal</text>
+      <text class="m-slug" x="477" y="232" text-anchor="middle">chờ điền URL</text>
 
       <rect class="node-post" x="632" y="142" width="190" height="100" rx="12"/>
       <text class="p-name" x="727" y="180" text-anchor="middle">In decal dán</text>
@@ -603,14 +622,14 @@ footer.ft{
       <g class="edge-back" marker-end="url(#ar-navy)">
         <!-- Tier 1: bezier một mạch, dy=206 -> lệch điểm điều khiển 113.3 -->
         <path d="M286,448 C286,334.7 920,355.3 920,242"/>
-        <path d="M380,448 C380,334.7 440,355.3 440,242"/>
+        <path d="M380,448 C380,334.7 195,355.3 195,242"/>
         <path d="M727,448 C727,334.7 727,355.3 727,242"/>
         <path d="M820,448 C820,334.7 1030,355.3 1030,242"/>
-        <path d="M1166,448 C1166,334.7 227,355.3 227,242"/>
+        <path d="M1166,448 C1166,334.7 477,355.3 477,242"/>
         <path d="M1060,448 C1060,334.7 790,355.3 790,242"/>
         <!-- Tier 2: leo hành lang tới y=430 rồi cong, dy=188 -> lệch 103.4 -->
         <path d="M559,628 L559,430 C559,326.6 977,345.4 977,242"/>
-        <path d="M999,628 L999,430 C999,326.6 505,345.4 505,242"/>
+        <path d="M999,628 L999,430 C999,326.6 255,345.4 255,242"/>
       </g>
 
       <!-- ====== CẠNH: link stack ==========================================
