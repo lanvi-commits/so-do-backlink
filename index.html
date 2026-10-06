@@ -46,7 +46,7 @@
      đọc được 100% vì tên nền tảng đã viết bằng chữ.
      ------------------------------------------------------------------- */
   --dg-pinterest:#E60023;
-  --dg-gsites:#4285F4;
+  --dg-webflow:#4353FF;
   --dg-behance:#1769FF;
   --dg-github:#181717;
   --dg-substack:#FF6719;
@@ -142,7 +142,6 @@ body{
 .dg .node-main{fill:var(--brand-navy)}
 .dg .node-asset{fill:var(--brand-bg);  stroke:var(--brand-navy); stroke-width:1.6}
 .dg .node-ext{ fill:var(--brand-bg);  stroke:var(--brand-navy); stroke-width:1.6}
-.dg .node-sec{ fill:var(--brand-bg);  stroke:var(--brand-navy); stroke-width:1.6}
 
 .dg text{paint-order:stroke}
 .dg .p-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:17px;   font-weight:700}
@@ -170,7 +169,7 @@ body{
 .dg .grp-tx{  fill:var(--brand-muted);      font-family:var(--brand-heading); font-size:10.5px; font-weight:700; letter-spacing:1.2px}
 
 .dg .dot-pinterest{fill:var(--dg-pinterest)}
-.dg .dot-gsites{fill:var(--dg-gsites)}
+.dg .dot-webflow{fill:var(--dg-webflow)}
 .dg .dot-behance{fill:var(--dg-behance)}
 .dg .dot-github{fill:var(--dg-github)}
 .dg .dot-substack{fill:var(--dg-substack)}
@@ -324,7 +323,7 @@ footer.ft{
 
        Đổi gì và vì sao:
        (a) Hàng tài sản phẳng (cả 5 cùng một tầng, nối chuỗi ngang) tách làm
-           2 tier. Tier 1 = Pinterest · Behance · Google Sites, trỏ thẳng lên
+           2 tier. Tier 1 = Pinterest · Behance · Webflow, trỏ thẳng lên
            bài. Tier 2 = GitHub Pages · Substack, nuôi tier 1 VÀ mỗi node vẫn
            giữ đúng MỘT link thẳng lên bài — đây là điểm nhận dạng của TAS,
            không phải tier 2 bị cắt sạch link về money.
@@ -332,9 +331,10 @@ footer.ft{
            mục 2 cũng đặt đúng hai nền tảng này ở tier 2, và thứ tự chuỗi cũ
            do user chốt đã mở đầu bằng GitHub Pages — node mở đầu chuỗi là
            node xa money nhất, đúng vai tier 2.
-       (c) Google Sites GIỮ vai "cuối chuỗi · mạnh nhất" và vẫn là node trỏ
+       (c) Webflow GIỮ vai "cuối chuỗi · mạnh nhất" và vẫn là node trỏ
            vào bài chính. Thứ tự chuỗi cũ còn đúng chiều 3/4 cạnh: GitHub→
-           Pinterest, Pinterest→Behance, Substack→Google Sites. Chỉ cạnh
+           Pinterest, Pinterest→Behance, Substack→Google Sites (nay là Webflow).
+           Chỉ cạnh
            Behance→Substack đảo chiều, vì Substack xuống tier 2.
        (d) Bỏ hàng tấm nhãn "ANCHOR TEXT CHÍNH XÁC" rời ở giữa: ngữ pháp TAS
            đặt anchor NGAY TRONG ô tài sản (mục 2 dùng dòng vb-meta). Không
@@ -345,15 +345,22 @@ footer.ft{
        RÀNG BUỘC HÌNH HỌC phải giữ khi sửa về sau — cùng loại cảnh báo đã ghi
        ở mục 2: hai link tier 2 bắn thẳng lên bài đi qua HAI HÀNH LANG DỌC
        trống giữa các ô tier 1 (x=559 trong khe Pinterest–Behance, x=999
-       trong khe Behance–Google Sites). Kéo ba ô tier 1 sát lại là bịt đường
+       trong khe Behance–Webflow). Kéo ba ô tier 1 sát lại là bịt đường
        đi dây. Và hai nhãn PARTIAL MATCH của cạnh ngang nằm ở NỬA TRÁI của
        khe (tâm x=490 và x=930) chính vì nửa phải đã dành cho hành lang.
        Tiêu chí kiểm: cạnh được phép cắt nhau, KHÔNG cạnh nào xuyên qua ô.
+
+       V10 (06/10/2026) — ĐỔI NỀN TẢNG: Google Sites → Webflow ở ô tier 1
+       cuối chuỗi. Chỉ đổi tên, domain (webflow.io) và chấm màu (#4353FF).
+       Giữ nguyên vai "cuối chuỗi · mạnh nhất", vị trí ô, anchor khớp chính
+       xác "in decal", và cả ba cạnh nối vào nó (Behance→, Substack→, và
+       link thẳng lên bài chính). Không phải tính lại toạ độ vì nội dung ô
+       căn TRÁI — chữ ngắn hơn chỉ co phần đuôi, không lệch mốc neo.
        ================================================================== -->
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 800" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal trong chữ trắng (phantom key), In decal cuộn, In decal dán khổ lớn, In decal giấy, và bài chính In decal; cả năm nối internal link trong cụm chủ đề và cùng nối lên một thanh ray gom ba đích là Sản phẩm cùng loại, Blog và Bảng giá. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng trỏ thẳng lên bài bằng anchor khớp chính xác: Pinterest lên In decal cuộn, Behance lên In decal dán khổ lớn, Google Sites lên bài chính In decal; ba nền tảng nối chuỗi ngang từ Pinterest sang Behance sang Google Sites bằng anchor partial match. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Google Sites; mỗi nền tảng tier 2 còn giữ một link thẳng lên bài, GitHub Pages lên In decal trong chữ trắng và Substack lên In decal giấy. Google Sites ở cuối chuỗi nên mạnh nhất. Tổng cộng mười một link: năm backlink về bài và sáu link stack giữa các tài sản. Bên phải là ba nguồn textlink ngoài: textlink sidebar cùng theme trỏ vào cả cụm site, textlink chuyên mục trỏ vào bài chính, và textlink sidebar ít liên quan trỏ vào GitHub Pages và Google Sites.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal trong chữ trắng (phantom key), In decal cuộn, In decal dán khổ lớn, In decal giấy, và bài chính In decal; cả năm nối internal link hai chiều với nhau trong cụm chủ đề. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng trỏ thẳng lên bài bằng anchor khớp chính xác: Pinterest lên In decal cuộn, Behance lên In decal dán khổ lớn, Webflow lên bài chính In decal; ba nền tảng nối chuỗi ngang từ Pinterest sang Behance sang Webflow bằng anchor partial match. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ một link thẳng lên bài, GitHub Pages lên In decal trong chữ trắng và Substack lên In decal giấy. Webflow ở cuối chuỗi nên mạnh nhất. Tổng cộng mười một link: năm backlink về bài và sáu link stack giữa các tài sản. Bên phải là ba nguồn textlink ngoài: textlink sidebar cùng theme trỏ vào cả cụm site, textlink chuyên mục trỏ vào bài chính, và textlink sidebar ít liên quan trỏ vào GitHub Pages và Webflow.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -389,26 +396,15 @@ footer.ft{
       <text class="w-sub"      x="14" y="96">2 tier · 11 link</text>
 
       <!-- ==================================================================
-           TẦNG ĐÍCH — giữ nguyên từ bản DAS, không đụng một toạ độ nào.
-           Thanh ray: cả 5 bài đều nối internal link 2 chiều với Sản phẩm /
-           Blog / Bảng giá. Vẽ từng cặp cho từng bài là 5 x 2 = 10 đường cắt
-           nhau, nên gom thành một khối đích chung, mỗi bài một cuống ngắn 2
-           đầu lên ray: 10 đường còn 5, không mất thông tin.
+           TẦNG ĐÍCH — 5 bài của insieutoc.vn.
+           V10 (06/10/2026): user bỏ thanh ray "Liên kết nội bộ" (Sản phẩm
+           cùng loại · Blog · Bảng giá) cùng 5 cuống 2 đầu nối lên nó.
+           Dải nền site phải CO THEO: 244 -> 142, mép trên 20 -> 122, nếu
+           không thì còn lại một mảng xanh rỗng cao bằng cả thanh ray cũ.
+           Dải nền co kéo theo cả cột phải — xem ghi chú ở khối NGUỒN NGOÀI.
+           Toạ độ 5 ô bài giữ nguyên để không phải tính lại 5 cạnh backlink.
            ================================================================== -->
-      <rect class="band-top" x="118" y="20" width="1216" height="244" rx="16"/>
-
-      <rect class="node-sec" x="132" y="36" width="1190" height="54" rx="14"/>
-      <text class="e-eye"  x="152" y="68">LIÊN KẾT NỘI BỘ</text>
-      <text class="p-name" x="727" y="62" text-anchor="middle">Sản phẩm cùng loại   ·   Blog   ·   Bảng giá</text>
-      <text class="e-sub"  x="727" y="81" text-anchor="middle">internal link trong cụm chủ đề · cả 5 bài phía dưới đều nối với ba mục này</text>
-
-      <g class="edge-int" marker-end="url(#ar-muted)" marker-start="url(#ar-muted-rev)">
-        <line x1="227"  y1="98" x2="227"  y2="134"/>
-        <line x1="477"  y1="98" x2="477"  y2="134"/>
-        <line x1="727"  y1="98" x2="727"  y2="134"/>
-        <line x1="977"  y1="98" x2="977"  y2="134"/>
-        <line x1="1227" y1="98" x2="1227" y2="134"/>
-      </g>
+      <rect class="band-top" x="118" y="122" width="1216" height="142" rx="16"/>
 
       <!-- ---------- Nhãn tầng (lề trái) ---------- -->
       <text class="lb-tier" x="14" y="178">5 BÀI</text>
@@ -508,14 +504,14 @@ footer.ft{
       <text class="ex-tx"      x="599" y="449">“in decal dán khổ lớn”</text>
 
       <rect class="node-asset" x="1016" y="350" width="300" height="112" rx="12"/>
-      <circle class="dot-gsites" cx="1042" cy="376" r="6.5"/>
-      <text class="a-name"     x="1060" y="382">Google Sites</text>
-      <text class="a-dom"      x="1038" y="404">sites.google.com</text>
+      <circle class="dot-webflow" cx="1042" cy="376" r="6.5"/>
+      <text class="a-name"     x="1060" y="382">Webflow</text>
+      <text class="a-dom"      x="1038" y="404">webflow.io</text>
       <text class="anchor-tag" x="1038" y="430">ANCHOR KHỚP CHÍNH XÁC</text>
       <text class="ex-tx"      x="1038" y="449">“in decal”</text>
 
       <!-- Ghi chú đỏ "làm mạnh lên" của nét vẽ, đặt ở node cuối chuỗi.
-           Neo PHẢI vì cạnh Substack→Google Sites chạy qua x≈1098 ở cao độ
+           Neo PHẢI vì cạnh Substack→Webflow chạy qua x≈1098 ở cao độ
            này; neo giữa ô là chữ bị nét xuyên qua. -->
       <text class="boost" x="1316" y="492" text-anchor="end">CUỐI CHUỖI · MẠNH NHẤT</text>
 
@@ -538,42 +534,49 @@ footer.ft{
            Đặt NGOÀI dải nền insieutoc.vn. Dải nền ở sơ đồ này gánh nghĩa
            "trong site / ngoài site", nên vị trí so với dải là một phát biểu,
            không phải chuyện bố cục. -->
-      <!-- Sidebar cùng theme: tập đích của nó (5 bài + Sản phẩm + Blog +
-           Bảng giá) đúng bằng toàn bộ nội dung dải nền site. Nên vẽ MỘT mũi
-           tên vào dấu ngoặc ôm cả cụm là phát biểu chính xác, không phải rút
-           gọn cho đỡ rối — và cũng đúng bản chất link sidebar: có ở mọi trang. -->
-      <rect class="node-ext" x="1380" y="4" width="190" height="146" rx="12"/>
-      <text class="e-eye"      x="1475" y="30"  text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
-      <text class="x-name"     x="1475" y="56"  text-anchor="middle">Textlink sidebar</text>
-      <text class="x-name"     x="1475" y="76"  text-anchor="middle">cùng theme</text>
-      <text class="e-sub"      x="1475" y="99"  text-anchor="middle">→ 5 bài + Sản phẩm</text>
-      <text class="e-sub"      x="1475" y="116" text-anchor="middle">+ Blog + Bảng giá</text>
-      <text class="anchor-tag" x="1475" y="138" text-anchor="middle">ANCHOR: ĐA DẠNG LOẠI</text>
+      <!-- Sidebar cùng theme: link sidebar có ở MỌI trang nên trỏ vào cả cụm.
+           Vẽ một mũi tên vào dấu ngoặc ôm cả cụm là phát biểu chính xác,
+           không phải rút gọn cho đỡ rối.
+           V10 — dải nền site co còn 122-264 nên ngoặc co theo (36-242 ->
+           130-256). Hai ô phải DỜI XUỐNG 10 đơn vị: mũi tên của mỗi ô bắt
+           buộc phải nằm trong chính ô đó, mà sau khi ngoặc co thì khoảng
+           giao giữa ô "cùng theme" và ngoặc chỉ còn một dải hẹp — mũi tên
+           dời từ y=70 xuống y=140. Đừng kéo hai ô này lên lại.
+           CÒN TREO: nhãn ô vẫn ghi "Sản phẩm + Blog + Bảng giá" trong khi ba
+           mục đó không còn được vẽ ở đâu — đúng về thực tế site, nhưng là
+           tham chiếu lơ lửng trên hình. Đã báo user, chưa có quyết định. -->
+      <rect class="node-ext" x="1380" y="14" width="190" height="146" rx="12"/>
+      <text class="e-eye"      x="1475" y="40"  text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
+      <text class="x-name"     x="1475" y="66"  text-anchor="middle">Textlink sidebar</text>
+      <text class="x-name"     x="1475" y="86"  text-anchor="middle">cùng theme</text>
+      <text class="e-sub"      x="1475" y="109" text-anchor="middle">→ 5 bài + Sản phẩm</text>
+      <text class="e-sub"      x="1475" y="126" text-anchor="middle">+ Blog + Bảng giá</text>
+      <text class="anchor-tag" x="1475" y="148" text-anchor="middle">ANCHOR: ĐA DẠNG LOẠI</text>
 
-      <rect class="node-ext" x="1380" y="164" width="190" height="122" rx="12"/>
-      <text class="e-eye"  x="1475" y="198" text-anchor="middle">NGUỒN NGOÀI</text>
-      <text class="x-name" x="1475" y="224" text-anchor="middle">Textlink</text>
-      <text class="x-name" x="1475" y="244" text-anchor="middle">chuyên mục</text>
-      <text class="e-sub"  x="1475" y="267" text-anchor="middle">→ bài chính In decal</text>
+      <rect class="node-ext" x="1380" y="174" width="190" height="122" rx="12"/>
+      <text class="e-eye"  x="1475" y="208" text-anchor="middle">NGUỒN NGOÀI</text>
+      <text class="x-name" x="1475" y="234" text-anchor="middle">Textlink</text>
+      <text class="x-name" x="1475" y="254" text-anchor="middle">chuyên mục</text>
+      <text class="e-sub"  x="1475" y="277" text-anchor="middle">→ bài chính In decal</text>
 
       <!-- Ngoặc ôm cả cụm site. Chỗ y 184-200 để HỞ vì mũi tên của textlink
            chuyên mục cắt vuông góc qua đây — quy ước: hở = cắt qua, không nối. -->
-      <path class="cluster-br" d="M1336,36 H1346 V184 M1346,200 V242 H1336"/>
+      <path class="cluster-br" d="M1336,130 H1346 V184 M1346,200 V256 H1336"/>
 
       <g class="edge-back" marker-end="url(#ar-navy)">
-        <line x1="1372" y1="70"  x2="1354" y2="70"/>
+        <line x1="1372" y1="140" x2="1354" y2="140"/>
         <line x1="1372" y1="192" x2="1330" y2="192"/>
       </g>
 
       <!-- Sidebar ít liên quan: hai đích nay nằm ở hai tier khác nhau —
-           Google Sites ở tier 1 (ngay bên trái, đi thẳng) và GitHub Pages ở
+           Webflow ở tier 1 (ngay bên trái, đi thẳng) và GitHub Pages ở
            tier 2 (chìm sâu trong khung). Đường tới GitHub vòng xuống DƯỚI
            khung hệ tài sản rồi mới ngoi lên, vì đi thẳng là xuyên qua ô. -->
       <rect class="node-ext" x="1380" y="350" width="190" height="134" rx="12"/>
       <text class="e-eye"      x="1475" y="382" text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
       <text class="x-name"     x="1475" y="408" text-anchor="middle">Textlink sidebar</text>
       <text class="x-name"     x="1475" y="428" text-anchor="middle">ít liên quan</text>
-      <text class="e-sub"      x="1475" y="451" text-anchor="middle">→ GitHub Pages · Google Sites</text>
+      <text class="e-sub"      x="1475" y="451" text-anchor="middle">→ GitHub Pages · Webflow</text>
       <text class="anchor-tag" x="1475" y="472" text-anchor="middle">ANCHOR: ĐA DẠNG LOẠI</text>
 
       <g class="edge-back" marker-end="url(#ar-navy)">
@@ -606,7 +609,7 @@ footer.ft{
         <path class="ah-muted" d="M37,3 L45,7 L37,11 Z"/>
         <path class="ah-muted" d="M9,3 L1,7 L9,11 Z"/>
       </svg>
-      <span><b>Internal link trong cụm chủ đề</b> — giữa 5 bài, và từ cả 5 bài lên thanh ray 3 đích</span>
+      <span><b>Internal link trong cụm chủ đề</b> — hai chiều, giữa 5 bài</span>
     </li>
     <li>
       <svg width="46" height="14" aria-hidden="true" focusable="false">
