@@ -399,11 +399,34 @@ footer.ft{
        khoảng cách phân tầng, không phải chỗ dọn ra để đặt nhãn — vạch
        chia y=530 vẫn đúng giữa khe. Vai trò "cuối chuỗi, mạnh nhất" của
        Webflow vẫn còn trong nhật ký V9(c)/V10, chỉ không vẽ ra nữa.
+       V15 (07/10/2026) — BỎ eyebrow "PHANTOM KEY" trên ô "In decal trong
+       chữ trắng", và chữ "(phantom key)" tương ứng trong <desc>.
+       Không phải dàn lại ô: ba dòng còn lại (y=180, 204, 232) vốn đã
+       trùng khít bố cục ô "In decal dán khổ lớn" — eyebrow chỉ là dòng
+       thứ tư chèn thêm ở y=162, bỏ đi là hai ô giống hệt nhau.
+       CSS .dg .e-eye GIỮ LẠI, vẫn còn ô textlink gọi ("NGUỒN NGOÀI ·
+       SIDEBAR"). Eyebrow "BÀI CHÍNH" của ô bài chính cũng giữ — user chỉ
+       chỉ vào PHANTOM KEY.
+
+       V16 (07/10/2026) — BỎ ĐẦU MŨI TÊN trên 4 nét nối internal link giữa
+       5 bài. Nét đứt xám GIỮ NGUYÊN, chỉ gỡ marker ở hai đầu. Hai marker
+       ar-muted và ar-muted-rev chỉ phục vụ đúng nhóm này nên xoá luôn, kèm
+       đoạn ghi chú vì sao phải vẽ marker ngược riêng thay vì dùng
+       auto-start-reverse — đoạn đó hết đối tượng để nói.
+       Ô mẫu trong LEGEND phải sửa theo, không thì legend vẽ mũi tên mà
+       hình thì không: bỏ 2 path ah-muted, nét đứt nới từ 9-37 ra 1-45 để
+       lấp chỗ hai đầu mũi tên vừa bỏ. Class .ah-muted KHÔNG xoá — legend
+       mục 2 vẫn gọi. Class .edge-int cũng không — mục 2 vẫn gọi.
+       GIỮ chữ "hai chiều" ở cả legend lẫn <desc>: quan hệ internal link
+       vẫn là hai chiều, chỉ thôi không vẽ chiều ra nữa. Người đọc bằng mắt
+       lấy nghĩa đó từ legend, người đọc màn hình lấy từ desc — hai bên
+       nhận cùng một thông tin, nên KHÔNG áp luật "desc chỉ tả thứ nhìn
+       thấy" của V14 vào trường hợp này.
        ================================================================== -->
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 760" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng (phantom key) ngoài cùng bên phải; cả năm nối internal link hai chiều với nhau trong cụm chủ đề. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng trỏ thẳng lên bài bằng anchor khớp chính xác: Pinterest lên In decal cuộn, Behance lên In decal dán khổ lớn, Webflow lên bài chính In decal; ba nền tảng nối chuỗi ngang từ Pinterest sang Behance sang Webflow bằng anchor partial match. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ một link thẳng lên bài, GitHub Pages lên In decal trong chữ trắng và Substack lên In decal giấy. Tổng cộng mười một link: năm backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải; cả năm nối internal link hai chiều với nhau trong cụm chủ đề. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng trỏ thẳng lên bài bằng anchor khớp chính xác: Pinterest lên In decal cuộn, Behance lên In decal dán khổ lớn, Webflow lên bài chính In decal; ba nền tảng nối chuỗi ngang từ Pinterest sang Behance sang Webflow bằng anchor partial match. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ một link thẳng lên bài, GitHub Pages lên In decal trong chữ trắng và Substack lên In decal giấy. Tổng cộng mười một link: năm backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -413,19 +436,6 @@ footer.ft{
         <marker id="ar-accent" viewBox="0 0 10 10" refX="9.5" refY="5"
                 markerWidth="8.5" markerHeight="8.5" markerUnits="userSpaceOnUse" orient="auto">
           <path class="ah-accent" d="M0,.6 L9.6,5 L0,9.4 Z"/>
-        </marker>
-        <marker id="ar-muted" viewBox="0 0 10 10" refX="9.5" refY="5"
-                markerWidth="8.5" markerHeight="8.5" markerUnits="userSpaceOnUse" orient="auto">
-          <path class="ah-muted" d="M0,.6 L9.6,5 L0,9.4 Z"/>
-        </marker>
-        <!-- Mũi tên 2 chiều: marker-start với orient="auto" xoay theo CHIỀU ĐI
-             của đường, nên dùng lại ar-muted thì đầu ở gốc chỉ ngược ra ngoài.
-             Có thuộc tính auto-start-reverse làm được việc này, nhưng vẽ hẳn một
-             marker ngược thì chắc chắn chạy mọi trình duyệt — cùng lý do file này
-             không gắn var() lên presentation attribute của SVG. -->
-        <marker id="ar-muted-rev" viewBox="0 0 10 10" refX="0.5" refY="5"
-                markerWidth="8.5" markerHeight="8.5" markerUnits="userSpaceOnUse" orient="auto">
-          <path class="ah-muted" d="M9.6,.6 L0,5 L9.6,9.4 Z"/>
         </marker>
       </defs>
 
@@ -461,7 +471,7 @@ footer.ft{
       <text class="lb-sub"  x="14" y="632">nuôi tier 1 · 2</text>
 
       <!-- ---------- Internal link giữa 5 bài, hai chiều ---------- -->
-      <g class="edge-int" marker-end="url(#ar-muted)" marker-start="url(#ar-muted-rev)">
+      <g class="edge-int">
         <line x1="330"  y1="192" x2="372"  y2="192"/>
         <line x1="580"  y1="192" x2="622"  y2="192"/>
         <line x1="830"  y1="192" x2="872"  y2="192"/>
@@ -494,7 +504,6 @@ footer.ft{
       <text class="p-slug" x="977" y="232" text-anchor="middle">chờ điền URL</text>
 
       <rect class="node-post" x="1132" y="142" width="190" height="100" rx="12"/>
-      <text class="e-eye"  x="1227" y="162" text-anchor="middle">PHANTOM KEY</text>
       <text class="p-name" x="1227" y="180" text-anchor="middle">In decal trong</text>
       <text class="p-name" x="1227" y="204" text-anchor="middle">chữ trắng</text>
       <text class="p-slug" x="1227" y="232" text-anchor="middle">chờ điền URL</text>
@@ -609,9 +618,7 @@ footer.ft{
     </li>
     <li>
       <svg width="46" height="14" aria-hidden="true" focusable="false">
-        <line class="lg-int" x1="9" y1="7" x2="37" y2="7"/>
-        <path class="ah-muted" d="M37,3 L45,7 L37,11 Z"/>
-        <path class="ah-muted" d="M9,3 L1,7 L9,11 Z"/>
+        <line class="lg-int" x1="1" y1="7" x2="45" y2="7"/>
       </svg>
       <span><b>Internal link trong cụm chủ đề</b> — hai chiều, giữa 5 bài</span>
     </li>
