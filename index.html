@@ -154,7 +154,6 @@ body{
 .dg .e-eye{   fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:10px;   font-weight:700; letter-spacing:1.4px}
 .dg .x-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:14px;   font-weight:700}
 .dg .e-sub{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
-.dg .boost{   fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:10.5px; font-weight:700; letter-spacing:1.1px}
 .dg .lb-tier{ fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:11.5px; font-weight:700; letter-spacing:1.3px}
 .dg .lb-sub{  fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
 
@@ -393,11 +392,18 @@ footer.ft{
            ghi chú tại chỗ ở nhóm edge-back.
        Năm cặp nguồn-đích KHÔNG đổi, chỉ đổi đường đi: Pinterest vẫn trỏ
        "In decal cuộn", Webflow vẫn trỏ bài chính, GitHub vẫn trỏ phantom.
+       V14 (07/10/2026) — BỎ nhãn "CUỐI CHUỖI · MẠNH NHẤT" ở ô Webflow,
+       cùng CSS .dg .boost vì hết nơi gọi, và cùng câu tương ứng trong
+       <desc> (desc mô tả thứ NHÌN THẤY trên hình, không phải mô hình).
+       KHÔNG kéo tầng lại gần nhau: khe 480-580 giữa tier 1 và tier 2 là
+       khoảng cách phân tầng, không phải chỗ dọn ra để đặt nhãn — vạch
+       chia y=530 vẫn đúng giữa khe. Vai trò "cuối chuỗi, mạnh nhất" của
+       Webflow vẫn còn trong nhật ký V9(c)/V10, chỉ không vẽ ra nữa.
        ================================================================== -->
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 760" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng (phantom key) ngoài cùng bên phải; cả năm nối internal link hai chiều với nhau trong cụm chủ đề. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng trỏ thẳng lên bài bằng anchor khớp chính xác: Pinterest lên In decal cuộn, Behance lên In decal dán khổ lớn, Webflow lên bài chính In decal; ba nền tảng nối chuỗi ngang từ Pinterest sang Behance sang Webflow bằng anchor partial match. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ một link thẳng lên bài, GitHub Pages lên In decal trong chữ trắng và Substack lên In decal giấy. Webflow ở cuối chuỗi nên mạnh nhất. Tổng cộng mười một link: năm backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: bài chính In decal đứng đầu bên trái, rồi In decal giấy, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng (phantom key) ngoài cùng bên phải; cả năm nối internal link hai chiều với nhau trong cụm chủ đề. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng trỏ thẳng lên bài bằng anchor khớp chính xác: Pinterest lên In decal cuộn, Behance lên In decal dán khổ lớn, Webflow lên bài chính In decal; ba nền tảng nối chuỗi ngang từ Pinterest sang Behance sang Webflow bằng anchor partial match. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ một link thẳng lên bài, GitHub Pages lên In decal trong chữ trắng và Substack lên In decal giấy. Tổng cộng mười một link: năm backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -551,11 +557,6 @@ footer.ft{
       <circle class="dot-webflow" cx="1042" cy="431" r="6.5"/>
       <text class="a-name"     x="1060" y="437">Webflow</text>
       <text class="a-dom"      x="1038" y="459">webflow.io</text>
-
-      <!-- Ghi chú đỏ "làm mạnh lên" của nét vẽ, đặt ở node cuối chuỗi.
-           Neo PHẢI vì cạnh Substack→Webflow chạy qua x≈1097 ở cao độ
-           này; neo giữa ô là chữ bị nét xuyên qua. -->
-      <text class="boost" x="1316" y="504" text-anchor="end">CUỐI CHUỖI · MẠNH NHẤT</text>
 
       <!-- ============ TIER 2: 2 nền tảng nuôi tier 1 ======================= -->
       <rect class="node-asset" x="356" y="580" width="300" height="80" rx="12"/>
