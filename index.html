@@ -436,6 +436,17 @@ footer.ft{
        CSS .dg .edge-int và .lg-int KHÔNG xoá: cả hai svg đều mang class
        `dg`, mục 2 vẫn gọi hai class này (path 673-674 và legend).
 
+       V19 (07/10/2026) — CẠNH BACKLINK VẼ THEO MÔ HÌNH ViBIM: đổi 8 cạnh
+       từ đường gãy vuông (V13) sang bezier cùng công thức mục 2. Chi tiết
+       công thức và ngoại lệ của 2 cạnh tier 2 ghi ngay tại nhóm edge-back.
+       Hệ quả: 4 làn ngang y=270/294/318/342 của V13 KHÔNG còn, nên khe
+       242-410 nay là khoảng trống tự do — nhưng đừng thu nó lại, bụng cong
+       của 6 cạnh tier 1 nằm trong đó (sâu nhất tới y=355).
+       Nhóm edge-chain KHÔNG đụng: nó vốn đã là bezier cùng kiểu.
+       Đường vòng của ô textlink ngoài (M1430 ... V778 H506 ...) GIỮ gãy
+       vuông: nó đi vòng ngoài khung hệ tài sản, không nằm trong vùng 8 cạnh
+       cắt nhau, và bẻ vuông ở đó đọc đúng nghĩa "đi đường vòng".
+
        V18 (07/10/2026) — TIER 1 LÊN 2 LINK/NỀN TẢNG, và TIER 2 ĐỔI ĐÍCH.
        Backlink về bài: 5 -> 8. Tổng link: 11 -> 14.
        (a) Mỗi nền tảng tier 1 nay có 1 link anchor khớp chính xác (giữ
@@ -556,28 +567,37 @@ footer.ft{
       <text class="grp-tx" x="1318" y="728" text-anchor="end">HỆ TÀI SẢN · 5 WEB 2.0</text>
 
       <!-- ====== CẠNH: backlink về bài =====================================
-           V13 — đảo hàng bài làm 4/5 cặp nguồn-đích lệch nhau, nên đổi từ
-           bezier cong sang ĐƯỜNG GÃY VUÔNG chạy trong LÀN NGANG riêng. Bốn
-           làn ở y = 270 · 294 · 318 · 342, cách nhau 24 đơn vị; gán theo
-           quãng đường đi ngang, cạnh đi xa nhất nằm làn THẤP nhất (xa hàng
-           bài nhất) để đoạn leo cuối của nó không phải cắt qua làn nào:
-             Substack  999 -> 477   (522)  làn 270
-             GitHub    559 -> 1227  (668)  làn 294
-             Pinterest 286 -> 977   (691)  làn 318
-             Webflow   1166 -> 227  (939)  làn 342
-           Khe 242-362 chỉ đủ chứa 4 làn này sau khi hệ tài sản hạ xuống 70.
-           Cạnh Behance vẫn đi thẳng vì nguồn và đích cùng trục x=727.
-           Cạnh cắt nhau là CHẤP NHẬN được, cạnh xuyên qua ô thì không —
-           hai hành lang dọc x=559 và x=999 vẫn là chỗ đi dây của tier 2. -->
+           V19 — vẽ theo ĐÚNG CÁCH CỦA MỤC 2 (ViBIM), bỏ hẳn kiểu đường gãy
+           vuông chạy làn ngang của V13. Công thức bezier của mục 2:
+               M x1,y1  C x1,(y1 - 0.55*dy)  x2,(y2 + 0.55*dy)  x2,y2
+           với dy = y1 - y2. Hai điểm điều khiển nằm ĐÚNG TRỤC x của hai
+           đầu, nên nét rời ô nguồn theo phương dọc và cắm vào ô đích cũng
+           theo phương dọc, phần cong dồn hết vào quãng giữa.
+           Vì sao đổi: 8 cạnh gãy vuông cắt nhau tạo ra một rừng góc vuông
+           đọc như sơ đồ mạch điện — mỗi chỗ cắt trông như một mối nối. Nét
+           cong cắt nhau thì mắt vẫn tách được từng sợi.
+
+           NGOẠI LỆ cho 2 cạnh tier 2: KHÔNG dùng bezier một mạch. Nguồn ở
+           y=628, phải chui qua dãy ô tier 1 (y 448-528) mới lên tới hàng
+           bài, mà bezier một mạch thì bụng cong trôi ra khỏi hành lang và
+           đâm xuyên ô Behance (đo được: tới y=476 nét đã dạt về x=860,
+           trong khi ô Behance chiếm 577-877). Nên giữ nguyên nếp cũ của
+           file: ĐOẠN THẲNG leo hành lang dọc (x=559 và x=999) lên tới
+           y=430 — trên mép ô tier 1 — RỒI mới cong. Nối không gãy góc vì
+           bezier cũng rời điểm đó theo phương dọc.
+           Hai hành lang x=559 / x=999 vẫn là chỗ đi dây, vẫn không được
+           kéo ba ô tier 1 sát lại nhau. -->
       <g class="edge-back" marker-end="url(#ar-navy)">
-        <path d="M1166,448 V386 H227 V242"/>
-        <path d="M286,448 V362 H920 V242"/>
-        <path d="M999,628 V338 H505 V242"/>
-        <path d="M559,628 V314 H977 V242"/>
-        <path d="M1060,448 V290 H790 V242"/>
-        <path d="M820,448 V266 H1030 V242"/>
-        <path d="M380,448 V266 H440 V242"/>
-        <path d="M727,448 V242"/>
+        <!-- Tier 1: bezier một mạch, dy=206 -> lệch điểm điều khiển 113.3 -->
+        <path d="M286,448 C286,334.7 920,355.3 920,242"/>
+        <path d="M380,448 C380,334.7 440,355.3 440,242"/>
+        <path d="M727,448 C727,334.7 727,355.3 727,242"/>
+        <path d="M820,448 C820,334.7 1030,355.3 1030,242"/>
+        <path d="M1166,448 C1166,334.7 227,355.3 227,242"/>
+        <path d="M1060,448 C1060,334.7 790,355.3 790,242"/>
+        <!-- Tier 2: leo hành lang tới y=430 rồi cong, dy=188 -> lệch 103.4 -->
+        <path d="M559,628 L559,430 C559,326.6 977,345.4 977,242"/>
+        <path d="M999,628 L999,430 C999,326.6 505,345.4 505,242"/>
       </g>
 
       <!-- ====== CẠNH: link stack ==========================================
