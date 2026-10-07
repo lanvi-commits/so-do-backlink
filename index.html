@@ -436,6 +436,19 @@ footer.ft{
        CSS .dg .edge-int và .lg-int KHÔNG xoá: cả hai svg đều mang class
        `dg`, mục 2 vẫn gọi hai class này (path 673-674 và legend).
 
+       V23 (07/10/2026) — GitHub Pages đổi đích: bài chính -> In decal dán
+       khổ lớn (user vẽ mũi tên). Phân bố nay ĐỀU hơn hẳn: bài chính 2 ·
+       dán khổ lớn 2 · cuộn 2 · giấy 1 · trong chữ trắng 1.
+       Hai ô bị ảnh hưởng phải rải lại đầu mũi tên: bài chính từ 3 link
+       (427/477/527) xuống 2 nên dãn về 447/507; dán khổ lớn từ 1 link
+       (tâm 727) lên 2 nên tách thành 697/757, GitHub lấy 697 vì nó xuất
+       phát bên trái Behance.
+       Điểm cắt 0 -> 1. Điểm này KHÔNG tránh được: hành lang dọc của GitHub
+       bị kẹp giữa ô Pinterest (hết ở 436) và ô Behance (bắt đầu 577) nên
+       x xuất phát tối đa là 577, luôn nhỏ hơn mọi điểm xuất phát của
+       Behance — trong khi đích của nó (697) lại nằm bên phải đích bài
+       chính của Behance (507). Lý do ghi cả ở nhóm edge-back.
+
        V22 (07/10/2026) — "In decal giấy" từ 3 link xuống CÒN 1, hai link
        kia chuyển sang BÀI CHÍNH. User chỉ định: giấy chỉ trỏ 1 link, 2
        link còn lại qua In decal. Chuyển GitHub và Behance, GIỮ Pinterest
@@ -543,7 +556,7 @@ footer.ft{
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 832" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal giấy và bài chính In decal; Behance trỏ bài chính In decal và In decal dán khổ lớn; Webflow trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên bài chính In decal và Substack lên In decal cuộn. Bài chính In decal nhận nhiều nhất ba link, In decal cuộn hai link, ba bài còn lại mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal giấy và bài chính In decal; Behance trỏ bài chính In decal và In decal dán khổ lớn; Webflow trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -652,36 +665,36 @@ footer.ft{
            Cột "slot" là tâm ô bài theo bố cục HIỆN TẠI, user chỉ định theo
            TÊN BÀI nên nếu sau này lại hoán chỗ ô thì bám tên, đừng bám slot:
              Pinterest -> In decal giấy          246 -> 227   (slot 227)
-             Pinterest -> bài chính In decal     326 -> 427   (slot 477)
-             GitHub    -> bài chính In decal     559 -> 477   (slot 477)
-             Behance   -> bài chính In decal     627 -> 527   (slot 477)
-             Behance   -> In decal dán khổ lớn   777 -> 727   (slot 727)
+             Pinterest -> bài chính In decal     326 -> 447   (slot 477)
+             GitHub    -> In decal dán khổ lớn   559 -> 697   (slot 727)
+             Behance   -> bài chính In decal     627 -> 507   (slot 477)
+             Behance   -> In decal dán khổ lớn   777 -> 757   (slot 727)
              Substack  -> In decal cuộn          999 -> 947   (slot 977)
              Webflow   -> In decal cuộn         1106 -> 1007  (slot 977)
              Webflow   -> In decal trong chữ trắng 1206 -> 1227 (slot 1227)
-           Ô bài chính nhận 3 link nên 3 đầu mũi tên rải cách nhau 50 trong
-           lòng ô (427 · 477 · 527), ô "In decal cuộn" nhận 2 nên cách nhau
-           60 (947 · 1007), ô nhận 1 link thì cắm đúng tâm.
-           0 ĐIỂM CẮT. Giữ được là nhờ dãy x xuất phát và dãy x đích CÙNG
-           TĂNG DẦN theo một thứ tự:
-             246 326 559 627 777  999 1106 1206
-             227 427 477 527 727  947 1007 1227
-           Đổi đích một cạnh mà phá thứ tự đó là lập tức sinh điểm cắt. Đây
-           cũng là lý do link duy nhất còn lại vào "In decal giấy" phải là
-           của PINTEREST chứ không phải GitHub hay Behance: giấy nằm ở slot
-           trái nhất, mà Pinterest là nguồn trái nhất. Để GitHub (559) hay
-           Behance (627) giữ link đó thì chúng phải bắn ngược về bên trái,
-           cắt qua hai cạnh Pinterest — 2 đến 3 điểm cắt. -->
+           Ba ô nhận 2 link thì 2 đầu mũi tên rải cách nhau 60 quanh tâm ô
+           (447/507 · 697/757 · 947/1007), hai ô nhận 1 link cắm đúng tâm.
+           CÒN ĐÚNG 1 ĐIỂM CẮT, và nó bắt buộc. Thứ tự hai đầu:
+             xuất phát: 246 326 559 627 777  999 1106 1206
+             đích:      227 447 697 507 757  947 1007 1227
+           Cặp duy nhất đảo thứ tự là 559->697 với 627->507: GitHub xuất
+           phát BÊN TRÁI Behance (hành lang x=559 nằm trong khe 436-577,
+           còn ô Behance bắt đầu ở 577) nhưng lại nhắm ô XA HƠN SANG PHẢI.
+           Không xếp lại được: hành lang dọc của GitHub bị kẹp bởi ô
+           Pinterest (hết ở 436) và ô Behance (bắt đầu 577), nên x xuất
+           phát của nó không thể lớn hơn 577.
+           Sáu cạnh còn lại giữ đúng thứ tự tăng dần ở cả hai đầu. Đổi đích
+           thêm cạnh nào mà phá thứ tự đó là sinh thêm điểm cắt. -->
       <g class="edge-back" marker-end="url(#ar-navy)">
         <!-- Tier 1: bezier một mạch, dy=206 -> lệch điểm điều khiển 113.3 -->
         <path d="M246,448 C246,334.7 227,355.3 227,242"/>
-        <path d="M326,448 C326,334.7 427,355.3 427,242"/>
-        <path d="M627,448 C627,334.7 527,355.3 527,242"/>
-        <path d="M777,448 C777,334.7 727,355.3 727,242"/>
+        <path d="M326,448 C326,334.7 447,355.3 447,242"/>
+        <path d="M627,448 C627,334.7 507,355.3 507,242"/>
+        <path d="M777,448 C777,334.7 757,355.3 757,242"/>
         <path d="M1106,448 C1106,334.7 1007,355.3 1007,242"/>
         <path d="M1206,448 C1206,334.7 1227,355.3 1227,242"/>
         <!-- Tier 2: leo hành lang tới y=430 rồi cong, dy=188 -> lệch 103.4 -->
-        <path d="M559,628 L559,430 C559,326.6 477,345.4 477,242"/>
+        <path d="M559,628 L559,430 C559,326.6 697,345.4 697,242"/>
         <path d="M999,628 L999,430 C999,326.6 947,345.4 947,242"/>
       </g>
 
