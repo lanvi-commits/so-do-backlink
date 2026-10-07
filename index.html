@@ -151,6 +151,11 @@ body{
 .dg .m-slug{  fill:var(--brand-navy-muted); font-family:var(--brand-body);    font-size:11.5px; font-weight:500}
 .dg .a-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:17px;   font-weight:700}
 .dg .a-dom{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:12px;   font-weight:500}
+/* Viên nhãn DR trong ô tài sản. Cùng công thức với .vb-badge của mục 2 nhưng
+   để class RIÊNG: tiền tố vb- là của mục 2, mượn chéo sang mục 1 là mất luôn
+   ý nghĩa phạm vi của tiền tố. Nếu sau này mục 2 cũng gắn DR thì gộp lại. */
+.dg .dr-badge{fill:var(--brand-bg);         stroke:var(--brand-border); stroke-width:1}
+.dg .dr-tx{   fill:var(--brand-muted);      font-family:var(--brand-heading); font-size:10px;   font-weight:700}
 .dg .e-eye{   fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:10px;   font-weight:700; letter-spacing:1.4px}
 .dg .x-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:14px;   font-weight:700}
 .dg .e-sub{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
@@ -436,6 +441,21 @@ footer.ft{
        CSS .dg .edge-int và .lg-int KHÔNG xoá: cả hai svg đều mang class
        `dg`, mục 2 vẫn gọi hai class này (path 673-674 và legend).
 
+       V24 (07/10/2026) — GẮN DR vào 5 ô tài sản: Pinterest 97 · Behance 94
+       · Webflow 92 · GitHub Pages 94 · Substack 94.
+       KHÔNG thêm dòng thứ ba vào ô, mà làm viên nhãn neo PHẢI ở hàng trên
+       cùng trong ô. Thêm dòng là ô phải cao trở lại 80 -> 100+, mà V12 đã
+       hạ 112 -> 80 đúng vì ô chỉ còn 2 dòng; cao lên là kéo theo cả tầng
+       tier 2, vạch chia, caption, viewBox và 8 cạnh backlink. Viên nhãn
+       nằm trong 80 đơn vị sẵn có nên KHÔNG đụng một toạ độ nào khác.
+       Neo phải chứ không neo trái vì nửa trái hàng đó đã có chấm màu nền
+       tảng + tên. Đo bằng getBBox: chỗ hẹp nhất là ô GitHub Pages (tên dài
+       nhất) — tên kết thúc ở x=522, viên nhãn bắt đầu ở x=592, hở 70. Bốn
+       ô kia hở 110-114. Viên nhãn rộng 50 mà chữ "DR 9x" chỉ chiếm ~32 nên
+       còn dư ~18 cho số DR 3 chữ số sau này.
+       Class .dr-badge/.dr-tx để riêng, không mượn .vb-badge của mục 2, lý
+       do ghi tại chỗ khai báo CSS.
+
        V23 (07/10/2026) — GitHub Pages đổi đích: bài chính -> In decal dán
        khổ lớn (user vẽ mũi tên). Phân bố nay ĐỀU hơn hẳn: bài chính 2 ·
        dán khổ lớn 2 · cuộn 2 · giấy 1 · trong chữ trắng 1.
@@ -556,7 +576,7 @@ footer.ft{
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 832" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal giấy và bài chính In decal; Behance trỏ bài chính In decal và In decal dán khổ lớn; Webflow trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating: Pinterest DR 97, Behance DR 94, Webflow DR 92, GitHub Pages DR 94, Substack DR 94. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal giấy và bài chính In decal; Behance trỏ bài chính In decal và In decal dán khổ lớn; Webflow trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -717,27 +737,37 @@ footer.ft{
       <circle class="dot-pinterest" cx="162" cy="479" r="6.5"/>
       <text class="a-name"     x="180" y="485">Pinterest</text>
       <text class="a-dom"      x="158" y="507">pinterest.com</text>
+      <rect class="dr-badge" x="372" y="462" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="397" y="476" text-anchor="middle">DR 97</text>
 
       <rect class="node-asset" x="577" y="448" width="300" height="80" rx="12"/>
       <circle class="dot-behance" cx="603" cy="479" r="6.5"/>
       <text class="a-name"     x="621" y="485">Behance</text>
       <text class="a-dom"      x="599" y="507">behance.net</text>
+      <rect class="dr-badge" x="813" y="462" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="838" y="476" text-anchor="middle">DR 94</text>
 
       <rect class="node-asset" x="1016" y="448" width="300" height="80" rx="12"/>
       <circle class="dot-webflow" cx="1042" cy="479" r="6.5"/>
       <text class="a-name"     x="1060" y="485">Webflow</text>
       <text class="a-dom"      x="1038" y="507">webflow.io</text>
+      <rect class="dr-badge" x="1252" y="462" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="1277" y="476" text-anchor="middle">DR 92</text>
 
       <!-- ============ TIER 2: 2 nền tảng nuôi tier 1 ======================= -->
       <rect class="node-asset" x="356" y="628" width="300" height="80" rx="12"/>
       <circle class="dot-github" cx="382" cy="659" r="6.5"/>
       <text class="a-name"     x="400" y="665">GitHub Pages</text>
       <text class="a-dom"      x="378" y="687">github.io</text>
+      <rect class="dr-badge" x="592" y="642" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="617" y="656" text-anchor="middle">DR 94</text>
 
       <rect class="node-asset" x="797" y="628" width="300" height="80" rx="12"/>
       <circle class="dot-substack" cx="823" cy="659" r="6.5"/>
       <text class="a-name"     x="841" y="665">Substack</text>
       <text class="a-dom"      x="819" y="687">substack.com</text>
+      <rect class="dr-badge" x="1033" y="642" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="1058" y="656" text-anchor="middle">DR 94</text>
 
       <!-- ============ NGUỒN NGOÀI — textlink =============================
            Đặt NGOÀI dải nền insieutoc.vn. Dải nền ở sơ đồ này gánh nghĩa
