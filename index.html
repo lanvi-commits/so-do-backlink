@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sơ đồ backlink dự án — In Siêu Tốc · ViBIM</title>
-<meta name="description" content="Hai sơ đồ backlink cùng dựng trên mô hình TAS: (1) In Siêu Tốc — 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site.">
+<meta name="description" content="Hai sơ đồ backlink: (1) In Siêu Tốc — mô hình DAS, 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site, mô hình TAS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -169,7 +169,7 @@ body{
 .dg .lb-tier{ fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:11.5px; font-weight:700; letter-spacing:1.3px}
 .dg .lb-sub{  fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:11px;   font-weight:500}
 
-/* Khung gộp + vạch chia tier của mô hình TAS ở mục 1. Cố ý KHÔNG dùng lại
+/* Khung gộp + vạch chia tier của mô hình DAS ở mục 1. Cố ý KHÔNG dùng lại
    .vb-group / .vb-div của mục 2: hai mục phải sửa được độc lập. */
 .dg .grp-band{fill:var(--brand-bg-elev); stroke:var(--brand-border); stroke-width:1.4}
 .dg .tier-div{stroke:var(--brand-border); stroke-width:1; stroke-dasharray:3 5}
@@ -478,6 +478,27 @@ footer.ft{
        CSS .dg .edge-int và .lg-int KHÔNG xoá: cả hai svg đều mang class
        `dg`, mục 2 vẫn gọi hai class này (path 673-674 và legend).
 
+       V29 (08/10/2026) — DOMAIN KHỚP TỪ KHOÁ + nhãn [Tool].
+       (a) Dòng domain đổi từ tên miền trần sang địa chỉ tài sản thật, slug
+           lấy từ chính chủ đề của ô — cùng nếp mục 2 đang dùng
+           (point-cloud-density-calculator.pages.dev, bim-model-review.github.io):
+             Webflow      webflow.io       -> decal-quang-cao.webflow.io
+             Strikingly   mystrikingly.com -> decal-dan.mystrikingly.com
+             Pinterest    pinterest.com    -> pinterest.com/decalsticker
+             GitHub Pages github.io        -> tinh-dan-tem-decal.github.io
+             Substack     substack.com     -> decal-cuon.substack.com
+           Slug KHÔNG DẤU vì subdomain phải là ASCII. Pinterest không có
+           subdomain nên dùng đường dẫn hồ sơ pinterest.com/<user>, và bỏ
+           dấu gạch ngang vì username Pinterest chỉ nhận chữ-số-gạch dưới.
+           ĐÂY LÀ SLUG ĐỀ XUẤT, chưa đăng ký. Trang này là "mô hình mô
+           phỏng" (ghi ngay ở khối note đầu mục) và 5 ô bài vẫn để "chờ điền
+           URL", nên để slug mẫu là nhất quán — nhưng khi dựng thật mà tên
+           bị trùng thì phải sửa lại ở đây.
+       (b) Chủ đề ô GitHub Pages thêm hậu tố "[Tool]": nó là trang công cụ
+           chứ không phải bài viết, mục 2 đánh dấu loại này bằng viên nhãn
+           "ẩn danh · tool". Ở mục 1 dùng chữ trong dòng chủ đề thay vì
+           thêm viên nhãn thứ hai — góc phải ô đã có nhãn DR.
+
        V27 (08/10/2026) — THÊM DÒNG CHỦ ĐỀ CHÍNH vào 5 ô tài sản:
        Webflow "Decal quảng cáo" · Strikingly "Decal dán" · Pinterest
        "Decal sticker" · GitHub Pages "Tính dàn tem decal" · Substack
@@ -640,8 +661,8 @@ footer.ft{
        ================================================================== -->
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 880" role="img" aria-labelledby="dg-title dg-desc">
-      <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating và một chủ đề chính: Webflow DR 92 chủ đề Decal quảng cáo, Strikingly DR 89 chủ đề Decal dán, Pinterest DR 73 chủ đề Decal sticker, GitHub Pages DR 94 chủ đề Tính dàn tem decal, Substack DR 94 chủ đề Decal cuộn. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Webflow trỏ In decal giấy và bài chính In decal; Strikingly trỏ bài chính In decal và In decal dán khổ lớn; Pinterest trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Webflow sang Strikingly sang Pinterest. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Webflow và Strikingly, Substack nuôi Strikingly và Pinterest; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
+      <title id="dg-title">Mô hình DAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
+      <desc id="dg-desc">Mô hình DAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating và một chủ đề chính: Webflow DR 92 chủ đề Decal quảng cáo, Strikingly DR 89 chủ đề Decal dán, Pinterest DR 73 chủ đề Decal sticker, GitHub Pages DR 94 chủ đề Tính dàn tem decal dạng tool, Substack DR 94 chủ đề Decal cuộn. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Webflow trỏ In decal giấy và bài chính In decal; Strikingly trỏ bài chính In decal và In decal dán khổ lớn; Pinterest trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Webflow sang Strikingly sang Pinterest. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Webflow và Strikingly, Substack nuôi Strikingly và Pinterest; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -654,12 +675,15 @@ footer.ft{
         </marker>
       </defs>
 
-      <!-- Nhãn mô hình, lề trái phía trên. Mục 1 và mục 2 nay CÙNG mang nhãn
-           TAS — đúng chủ đích: cùng một mô hình áp cho hai dự án. Lề trái chỉ
-           rộng 118 đơn vị nên "MÔ HÌNH TAS" phải xuống 2 dòng (1 dòng ở 17px
+      <!-- Nhãn mô hình, lề trái phía trên. V28 (08/10/2026): user đổi TÊN nhãn
+           mục 1 TAS → DAS. Chỉ đổi TÊN — cấu trúc vẫn là link stack hai tier,
+           y hệt mục 2, và mục 2 vẫn mang nhãn TAS. Tức hai sơ đồ cùng một
+           hình dạng nhưng nay gọi hai tên; đó là chủ đích của user, đừng
+           "sửa cho nhất quán" khi thấy lệch. Lề trái chỉ
+           rộng 118 đơn vị nên "MÔ HÌNH DAS" phải xuống 2 dòng (1 dòng ở 17px
            là khoảng 130 đơn vị, tràn vào dải nền bắt đầu ở x=118). -->
       <text class="method-tag" x="14" y="38">MÔ HÌNH</text>
-      <text class="method-tag" x="14" y="60">TAS</text>
+      <text class="method-tag" x="14" y="60">DAS</text>
       <text class="w-sub"      x="14" y="80">5 tài sản web 2.0</text>
       <text class="w-sub"      x="14" y="96">2 tier · 14 link</text>
 
@@ -804,7 +828,7 @@ footer.ft{
       <rect class="node-asset" x="136" y="448" width="300" height="104" rx="12"/>
       <circle class="dot-webflow" cx="162" cy="479" r="6.5"/>
       <text class="a-name"     x="180" y="485">Webflow</text>
-      <text class="a-dom"      x="158" y="507">webflow.io</text>
+      <text class="a-dom"      x="158" y="507">decal-quang-cao.webflow.io</text>
       <text class="a-topic"    x="158" y="529">Decal quảng cáo</text>
       <rect class="dr-badge" x="372" y="462" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="397" y="476" text-anchor="middle">DR 92</text>
@@ -812,7 +836,7 @@ footer.ft{
       <rect class="node-asset" x="577" y="448" width="300" height="104" rx="12"/>
       <circle class="dot-strikingly" cx="603" cy="479" r="6.5"/>
       <text class="a-name"     x="621" y="485">Strikingly</text>
-      <text class="a-dom"      x="599" y="507">mystrikingly.com</text>
+      <text class="a-dom"      x="599" y="507">decal-dan.mystrikingly.com</text>
       <text class="a-topic"    x="599" y="529">Decal dán</text>
       <rect class="dr-badge" x="813" y="462" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="838" y="476" text-anchor="middle">DR 89</text>
@@ -820,7 +844,7 @@ footer.ft{
       <rect class="node-asset" x="1016" y="448" width="300" height="104" rx="12"/>
       <circle class="dot-pinterest" cx="1042" cy="479" r="6.5"/>
       <text class="a-name"     x="1060" y="485">Pinterest</text>
-      <text class="a-dom"      x="1038" y="507">pinterest.com</text>
+      <text class="a-dom"      x="1038" y="507">pinterest.com/decalsticker</text>
       <text class="a-topic"    x="1038" y="529">Decal sticker</text>
       <rect class="dr-badge" x="1252" y="462" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="1277" y="476" text-anchor="middle">DR 73</text>
@@ -829,15 +853,15 @@ footer.ft{
       <rect class="node-asset" x="356" y="652" width="300" height="104" rx="12"/>
       <circle class="dot-github" cx="382" cy="683" r="6.5"/>
       <text class="a-name"     x="400" y="689">GitHub Pages</text>
-      <text class="a-dom"      x="378" y="711">github.io</text>
-      <text class="a-topic"    x="378" y="733">Tính dàn tem decal</text>
+      <text class="a-dom"      x="378" y="711">tinh-dan-tem-decal.github.io</text>
+      <text class="a-topic"    x="378" y="733">Tính dàn tem decal [Tool]</text>
       <rect class="dr-badge" x="592" y="666" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="617" y="680" text-anchor="middle">DR 94</text>
 
       <rect class="node-asset" x="797" y="652" width="300" height="104" rx="12"/>
       <circle class="dot-substack" cx="823" cy="683" r="6.5"/>
       <text class="a-name"     x="841" y="689">Substack</text>
-      <text class="a-dom"      x="819" y="711">substack.com</text>
+      <text class="a-dom"      x="819" y="711">decal-cuon.substack.com</text>
       <text class="a-topic"    x="819" y="733">Decal cuộn</text>
       <rect class="dr-badge" x="1033" y="666" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="1058" y="680" text-anchor="middle">DR 94</text>
