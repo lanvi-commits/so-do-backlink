@@ -151,6 +151,11 @@ body{
 .dg .m-slug{  fill:var(--brand-navy-muted); font-family:var(--brand-body);    font-size:11.5px; font-weight:500}
 .dg .a-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:17px;   font-weight:700}
 .dg .a-dom{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:12px;   font-weight:500}
+/* Dòng chủ đề chính của tài sản. Navy/600 chứ KHÔNG muted như .a-dom: hai
+   dòng cùng muted nằm sát nhau thì mắt đọc thành một khối, không tách được
+   "tài sản ở đâu" với "tài sản viết về gì". Mục 2 tách bằng cách cho dòng
+   URL màu accent; mục 1 giữ URL muted nên phải nhấn ở dòng chủ đề. */
+.dg .a-topic{ fill:var(--brand-navy);       font-family:var(--brand-body);    font-size:12px;   font-weight:600}
 /* Viên nhãn DR trong ô tài sản. Cùng công thức với .vb-badge của mục 2 nhưng
    để class RIÊNG vì tiền tố vb- là của mục 2. Từ V25 thì CẢ HAI MỤC đều gọi
    cặp class này — cả hai svg cùng mang class dg nên không phải khai lại.
@@ -473,6 +478,34 @@ footer.ft{
        CSS .dg .edge-int và .lg-int KHÔNG xoá: cả hai svg đều mang class
        `dg`, mục 2 vẫn gọi hai class này (path 673-674 và legend).
 
+       V27 (08/10/2026) — THÊM DÒNG CHỦ ĐỀ CHÍNH vào 5 ô tài sản:
+       Webflow "Decal quảng cáo" · Strikingly "Decal dán" · Pinterest
+       "Decal sticker" · GitHub Pages "Tính dàn tem decal" · Substack
+       "Decal cuộn". Bỏ phần trong ngoặc của bảng user gửi theo yêu cầu
+       ("theo bề mặt và thi công", "tool đặt ở trang chủ", "in theo sản
+       lượng") — chúng là ghi chú triển khai, không phải tên chủ đề.
+       Lần này KHÔNG né được việc nâng ô như V24: dòng thứ ba là chữ thật,
+       không nhét vừa viên nhãn. Ô 80 -> 104, và vì mép TRÊN ô tier 1 giữ
+       nguyên y=448 nên 6 cạnh backlink của tier 1 không phải tính lại —
+       chỉ tầng dưới dịch 24:
+         tier 2      628 -> 652 (kèm toàn bộ nội dung trong ô)
+         vạch chia   578 -> 602
+         khung       cao 330 -> 378
+         caption     728 -> 776
+         nhãn tầng   TIER 1 480/500 -> 492/512 · TIER 2 660/680 -> 696/716
+         cạnh backlink tier 2: nguồn 628 -> 652
+         chuỗi ngang tier 1: 488 -> 500 (giữa ô mới)
+         4 link stack tier 2->1: 628/569/587/528 -> 652/593/611/552, giữ
+           nguyên hệ số bezier 0.59 của bản cũ
+         2 đường vòng textlink: rãnh 778/802 -> 826/850, đầu cắm 712 -> 760
+           và 532 -> 556 (mép dưới ô mới + 4, đúng quy ước cũ)
+         viewBox 832 -> 880
+       Dòng chủ đề dùng class .a-topic MỚI, navy/600 chứ không muted như
+       .a-dom — lý do ghi tại chỗ khai báo CSS.
+       Kiểm bằng máy sau khi dịch: 14 cạnh x 201 điểm mẫu đối chiếu 11 ô ->
+       0 cạnh xuyên ô; 0 dòng chữ tràn ô; 0 viên nhãn DR đè chữ; nội dung
+       chạm đáy ở y=850, viewBox 880.
+
        V24 (07/10/2026) — GẮN DR vào 5 ô tài sản: Pinterest 97 · Behance 94
        · Webflow 92 · GitHub Pages 94 · Substack 94.
        KHÔNG thêm dòng thứ ba vào ô, mà làm viên nhãn neo PHẢI ở hàng trên
@@ -606,9 +639,9 @@ footer.ft{
            xuyên ô.
        ================================================================== -->
   <div class="canvas" id="so-do">
-    <svg class="dg" viewBox="0 0 1600 832" role="img" aria-labelledby="dg-title dg-desc">
+    <svg class="dg" viewBox="0 0 1600 880" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating: Webflow DR 92, Strikingly DR 89, Pinterest DR 73, GitHub Pages DR 94, Substack DR 94. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Webflow trỏ In decal giấy và bài chính In decal; Strikingly trỏ bài chính In decal và In decal dán khổ lớn; Pinterest trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Webflow sang Strikingly sang Pinterest. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Webflow và Strikingly, Substack nuôi Strikingly và Pinterest; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating và một chủ đề chính: Webflow DR 92 chủ đề Decal quảng cáo, Strikingly DR 89 chủ đề Decal dán, Pinterest DR 73 chủ đề Decal sticker, GitHub Pages DR 94 chủ đề Tính dàn tem decal, Substack DR 94 chủ đề Decal cuộn. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Webflow trỏ In decal giấy và bài chính In decal; Strikingly trỏ bài chính In decal và In decal dán khổ lớn; Pinterest trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Webflow sang Strikingly sang Pinterest. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Webflow và Strikingly, Substack nuôi Strikingly và Pinterest; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -646,11 +679,11 @@ footer.ft{
       <text class="lb-tier" x="14" y="196">CẦN ĐẨY</text>
       <text class="lb-sub"  x="14" y="216">insieutoc.vn</text>
 
-      <text class="lb-tier" x="14" y="480">TIER 1</text>
-      <text class="lb-sub"  x="14" y="500">trỏ thẳng · 6</text>
+      <text class="lb-tier" x="14" y="492">TIER 1</text>
+      <text class="lb-sub"  x="14" y="512">trỏ thẳng · 6</text>
 
-      <text class="lb-tier" x="14" y="660">TIER 2</text>
-      <text class="lb-sub"  x="14" y="680">nuôi tier 1 · 2</text>
+      <text class="lb-tier" x="14" y="696">TIER 2</text>
+      <text class="lb-sub"  x="14" y="716">nuôi tier 1 · 2</text>
 
       <!-- ============ HÀNG TRÊN: 5 bài =====================================
            V13: thứ tự ĐẢO LẠI — phantom key lùi về cuối bên PHẢI. Năm slot
@@ -687,9 +720,9 @@ footer.ft{
       <!-- ==================================================================
            HỆ TÀI SẢN — khung gộp + vạch chia hai tier, cùng ngữ pháp mục 2.
            ================================================================== -->
-      <rect class="grp-band" x="118" y="410" width="1216" height="330" rx="14"/>
-      <line class="tier-div" x1="134" y1="578" x2="1318" y2="578"/>
-      <text class="grp-tx" x="1318" y="728" text-anchor="end">HỆ TÀI SẢN · 5 WEB 2.0</text>
+      <rect class="grp-band" x="118" y="410" width="1216" height="378" rx="14"/>
+      <line class="tier-div" x1="134" y1="602" x2="1318" y2="602"/>
+      <text class="grp-tx" x="1318" y="776" text-anchor="end">HỆ TÀI SẢN · 5 WEB 2.0</text>
 
       <!-- ====== CẠNH: backlink về bài =====================================
            V19 — vẽ theo ĐÚNG CÁCH CỦA MỤC 2 (ViBIM), bỏ hẳn kiểu đường gãy
@@ -749,8 +782,8 @@ footer.ft{
         <path d="M1106,448 C1106,334.7 1007,355.3 1007,242"/>
         <path d="M1206,448 C1206,334.7 1227,355.3 1227,242"/>
         <!-- Tier 2: leo hành lang tới y=430 rồi cong, dy=188 -> lệch 103.4 -->
-        <path d="M559,628 L559,430 C559,326.6 697,345.4 697,242"/>
-        <path d="M999,628 L999,430 C999,326.6 947,345.4 947,242"/>
+        <path d="M559,652 L559,430 C559,326.6 697,345.4 697,242"/>
+        <path d="M999,652 L999,430 C999,326.6 947,345.4 947,242"/>
       </g>
 
       <!-- ====== CẠNH: link stack ==========================================
@@ -759,50 +792,55 @@ footer.ft{
            vẫn phải chừa, nhưng ràng buộc "nhãn lùi về nửa trái của khe"
            đã hết hiệu lực — không còn nhãn nào ở đó. -->
       <g class="edge-chain" marker-end="url(#ar-accent)">
-        <path d="M436 488C483 488 530 488 577 488"/>
-        <path d="M877 488C923 488 970 488 1016 488"/>
-        <path d="M420 628C420 569 346 587 346 528"/>
-        <path d="M616 628C616 569 660 587 660 528"/>
-        <path d="M861 628C861 569 800 587 800 528"/>
-        <path d="M1057 628C1057 569 1100 587 1100 528"/>
+        <path d="M436 500C483 500 530 500 577 500"/>
+        <path d="M877 500C923 500 970 500 1016 500"/>
+        <path d="M420 652C420 593 346 611 346 552"/>
+        <path d="M616 652C616 593 660 611 660 552"/>
+        <path d="M861 652C861 593 800 611 800 552"/>
+        <path d="M1057 652C1057 593 1100 611 1100 552"/>
       </g>
 
       <!-- ============ TIER 1: 3 nền tảng trỏ thẳng lên bài ================= -->
-      <rect class="node-asset" x="136" y="448" width="300" height="80" rx="12"/>
+      <rect class="node-asset" x="136" y="448" width="300" height="104" rx="12"/>
       <circle class="dot-webflow" cx="162" cy="479" r="6.5"/>
       <text class="a-name"     x="180" y="485">Webflow</text>
       <text class="a-dom"      x="158" y="507">webflow.io</text>
+      <text class="a-topic"    x="158" y="529">Decal quảng cáo</text>
       <rect class="dr-badge" x="372" y="462" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="397" y="476" text-anchor="middle">DR 92</text>
 
-      <rect class="node-asset" x="577" y="448" width="300" height="80" rx="12"/>
+      <rect class="node-asset" x="577" y="448" width="300" height="104" rx="12"/>
       <circle class="dot-strikingly" cx="603" cy="479" r="6.5"/>
       <text class="a-name"     x="621" y="485">Strikingly</text>
       <text class="a-dom"      x="599" y="507">mystrikingly.com</text>
+      <text class="a-topic"    x="599" y="529">Decal dán</text>
       <rect class="dr-badge" x="813" y="462" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="838" y="476" text-anchor="middle">DR 89</text>
 
-      <rect class="node-asset" x="1016" y="448" width="300" height="80" rx="12"/>
+      <rect class="node-asset" x="1016" y="448" width="300" height="104" rx="12"/>
       <circle class="dot-pinterest" cx="1042" cy="479" r="6.5"/>
       <text class="a-name"     x="1060" y="485">Pinterest</text>
       <text class="a-dom"      x="1038" y="507">pinterest.com</text>
+      <text class="a-topic"    x="1038" y="529">Decal sticker</text>
       <rect class="dr-badge" x="1252" y="462" width="50" height="20" rx="10"/>
       <text class="dr-tx" x="1277" y="476" text-anchor="middle">DR 73</text>
 
       <!-- ============ TIER 2: 2 nền tảng nuôi tier 1 ======================= -->
-      <rect class="node-asset" x="356" y="628" width="300" height="80" rx="12"/>
-      <circle class="dot-github" cx="382" cy="659" r="6.5"/>
-      <text class="a-name"     x="400" y="665">GitHub Pages</text>
-      <text class="a-dom"      x="378" y="687">github.io</text>
-      <rect class="dr-badge" x="592" y="642" width="50" height="20" rx="10"/>
-      <text class="dr-tx" x="617" y="656" text-anchor="middle">DR 94</text>
+      <rect class="node-asset" x="356" y="652" width="300" height="104" rx="12"/>
+      <circle class="dot-github" cx="382" cy="683" r="6.5"/>
+      <text class="a-name"     x="400" y="689">GitHub Pages</text>
+      <text class="a-dom"      x="378" y="711">github.io</text>
+      <text class="a-topic"    x="378" y="733">Tính dàn tem decal</text>
+      <rect class="dr-badge" x="592" y="666" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="617" y="680" text-anchor="middle">DR 94</text>
 
-      <rect class="node-asset" x="797" y="628" width="300" height="80" rx="12"/>
-      <circle class="dot-substack" cx="823" cy="659" r="6.5"/>
-      <text class="a-name"     x="841" y="665">Substack</text>
-      <text class="a-dom"      x="819" y="687">substack.com</text>
-      <rect class="dr-badge" x="1033" y="642" width="50" height="20" rx="10"/>
-      <text class="dr-tx" x="1058" y="656" text-anchor="middle">DR 94</text>
+      <rect class="node-asset" x="797" y="652" width="300" height="104" rx="12"/>
+      <circle class="dot-substack" cx="823" cy="683" r="6.5"/>
+      <text class="a-name"     x="841" y="689">Substack</text>
+      <text class="a-dom"      x="819" y="711">substack.com</text>
+      <text class="a-topic"    x="819" y="733">Decal cuộn</text>
+      <rect class="dr-badge" x="1033" y="666" width="50" height="20" rx="10"/>
+      <text class="dr-tx" x="1058" y="680" text-anchor="middle">DR 94</text>
 
       <!-- ============ NGUỒN NGOÀI — textlink =============================
            Đặt NGOÀI dải nền insieutoc.vn. Dải nền ở sơ đồ này gánh nghĩa
@@ -823,8 +861,8 @@ footer.ft{
       <text class="e-sub"      x="1475" y="549" text-anchor="middle">→ GitHub Pages · Webflow</text>
 
       <g class="edge-back" marker-end="url(#ar-navy)">
-        <path d="M1430 568V778H506V712"/>
-        <path d="M1460 568V802H200V532"/>
+        <path d="M1430 568V826H506V760"/>
+        <path d="M1460 568V850H200V556"/>
       </g>
 
     </svg>
