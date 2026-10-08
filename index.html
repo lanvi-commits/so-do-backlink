@@ -261,7 +261,7 @@ footer.ft{
    navy đậm liền = link về money · accent mảnh = link stack · xám đứt = GSA.
    Mọi class mới mang tiền tố vb- để không đụng class của mục 1.
    ===================================================================== */
-:root{ --dg-cloudflare:#F38020; --dg-wordpress:#21759B; --dg-archidiary:#023958 }
+:root{ --dg-cloudflare:#F38020; --dg-devto:#0A0A0A; --dg-archidiary:#023958 }
 
 .sec--top{ margin-top:0 }
 .sec h2{ font-family:var(--brand-heading); font-weight:800; color:var(--brand-navy);
@@ -288,7 +288,7 @@ footer.ft{
 .dg .vb-f-accent{ fill:var(--brand-accent) }
 .dg .vb-f-muted{ fill:var(--brand-muted) }
 .dg .dot-cloudflare{ fill:var(--dg-cloudflare) }
-.dg .dot-wordpress{ fill:var(--dg-wordpress) }
+.dg .dot-devto{ fill:var(--dg-devto) }
 .dg .dot-archidiary{ fill:var(--dg-archidiary) }
 .lg-warn{ fill:none; stroke:var(--brand-alert); stroke-width:1.6; stroke-dasharray:5 3 }
 
@@ -863,8 +863,8 @@ footer.ft{
        MỤC 2 — ViBIM. Hình học lấy nguyên từ bản dựng đã kiểm: 97 điểm mẫu
        trên mỗi cạnh đối chiếu bounding box cả 11 node, 0 cạnh đâm xuyên ô.
        Hai link Tier 2 bắn thẳng lên money đi qua hai hành lang dọc trống
-       giữa các ô Tier 1 (x=515 giữa Cloudflare–WordPress, x=885 giữa
-       WordPress–The Architects Diary). Vì vậy KHÔNG được kéo ba ô Tier 1 sát lại nhau:
+       giữa các ô Tier 1 (x=515 giữa Cloudflare–dev.to, x=885 giữa
+       dev.to–The Architects Diary). Vì vậy KHÔNG được kéo ba ô Tier 1 sát lại nhau:
        khe hở ở đây là chỗ đi dây, không phải khoảng trống thừa.
 
        V25 (08/10/2026) — CẬP NHẬT THEO ẢNH LINK GRAPH user gửi.
@@ -882,6 +882,24 @@ footer.ft{
        (b) Ô GitHub đổi tài sản: architectural-scale-converter.github.io ->
            bim-model-review.github.io, dòng meta đổi theo cho khớp tên tool
            (cùng nếp với ô Cloudflare: meta = tên tool suy từ URL).
+       V26 (08/10/2026) — WORDPRESS -> DEV.TO ở ô Tier 1 giữa. Thay thuần
+       nội dung: giữ nguyên vị trí ô và cả 6 cạnh nối vào/ra, vẫn 5 phantom,
+       vẫn 15 link. Token --dg-wordpress -> --dg-devto, class .dot-wordpress
+       -> .dot-devto. DR 75 -> 73 (số của dev.to, user cấp).
+       URL rút còn 1 DÒNG nên nhịp dọc trong ô phải dịch: meta 358 -> 342,
+       viên nhãn DR 344 -> 328 — bằng đúng ô Cloudflare, ô kia cũng 1 dòng
+       URL. Giữ 358 là hở một khoảng trắng ngay giữa ô.
+       URL ghi "dev.to/best-scan-to-bim-services-in-usa" theo user chốt (bỏ
+       phần username). LƯU Ý bài viết trên dev.to luôn có dạng
+       dev.to/<username>/<slug>, nên đường dẫn này KHÔNG phân giải được —
+       có username thật thì chèn lại vào giữa.
+       Chấm #0A0A0A là đen logo dev.to, gần trùng chấm GitHub #181717 ở
+       tier 2. Chấp nhận được theo khối token (chấm chỉ trang trí, tên nền
+       tảng đã viết bằng chữ); muốn tách bạch thì đổi sang chàm #3B49DF —
+       cũng là màu brand dev.to, dùng cho nút trên site họ.
+       Dòng meta GIỮ NGUYÊN "best scan to bim services in us": đổi nền tảng
+       chứ không đổi chủ đề nhắm tới.
+
        (c) GẮN DR cho cả 5 ô: Cloudflare 93 · WordPress 75 · The Architects
            Diary 47 · GitHub 94 · Substack 87. Dùng LẠI .dr-badge/.dr-tx của
            mục 1 (cả hai svg cùng class dg) nên không thêm CSS nào.
@@ -898,7 +916,7 @@ footer.ft{
     <div class="canvas">
       <svg class="dg" viewBox="0 -52 1240 852" role="img" aria-labelledby="vb-title vb-desc">
         <title id="vb-title">Mô hình TAS — sơ đồ link stack ba tầng cho ViBIM</title>
-        <desc id="vb-desc">Mô hình TAS, một sơ đồ ba tầng. Trên cùng là tầng đích gồm năm URL của vibimglobal.com: trang blog bim level of development, trang dịch vụ point cloud to bim services, trang chủ, bài what is scan to bim, và bài convert point cloud to revit model. Giữa là hệ phantom năm tài sản chia hai tier, mỗi tài sản kèm chỉ số Domain Rating: Cloudflare DR 93, WordPress DR 75, The Architects Diary DR 47, GitHub DR 94, Substack DR 87. Tier 1 ba tài sản trỏ thẳng vào money site: Cloudflare, WordPress, The Architects Diary, nối chuỗi ngang từ Cloudflare sang WordPress sang The Architects Diary. Tier 2 hai tài sản nuôi Tier 1: GitHub nuôi Cloudflare và WordPress, Substack nuôi WordPress và The Architects Diary; mỗi tài sản Tier 2 còn giữ một link trỏ thẳng lên money site. Dưới cùng, nằm ngoài hệ phantom, GSA và PBN đẩy vào hai tài sản ẩn danh là GitHub và Cloudflare. Tổng cộng mười lăm link: chín link về money site và sáu link stack giữa các phantom. Substack được viền đỏ đứt vì chưa có link nào trỏ vào nó.</desc>
+        <desc id="vb-desc">Mô hình TAS, một sơ đồ ba tầng. Trên cùng là tầng đích gồm năm URL của vibimglobal.com: trang blog bim level of development, trang dịch vụ point cloud to bim services, trang chủ, bài what is scan to bim, và bài convert point cloud to revit model. Giữa là hệ phantom năm tài sản chia hai tier, mỗi tài sản kèm chỉ số Domain Rating: Cloudflare DR 93, dev.to DR 73, The Architects Diary DR 47, GitHub DR 94, Substack DR 87. Tier 1 ba tài sản trỏ thẳng vào money site: Cloudflare, dev.to, The Architects Diary, nối chuỗi ngang từ Cloudflare sang dev.to sang The Architects Diary. Tier 2 hai tài sản nuôi Tier 1: GitHub nuôi Cloudflare và dev.to, Substack nuôi dev.to và The Architects Diary; mỗi tài sản Tier 2 còn giữ một link trỏ thẳng lên money site. Dưới cùng, nằm ngoài hệ phantom, GSA và PBN đẩy vào hai tài sản ẩn danh là GitHub và Cloudflare. Tổng cộng mười lăm link: chín link về money site và sáu link stack giữa các phantom. Substack được viền đỏ đứt vì chưa có link nào trỏ vào nó.</desc>
       <defs>
         <marker id="vb-ah-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="vb-f-navy"/></marker>
         <marker id="vb-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="vb-f-accent"/></marker>
@@ -949,13 +967,16 @@ footer.ft{
       </g>
       <g>
         <rect class="vb-box" x="550" y="260" width="300" height="108" rx="10"/>
-        <circle class="dot-wordpress" cx="572" cy="289" r="5.5"/>
-        <text class="vb-name" x="586" y="294">WordPress</text>
-        <text class="vb-url" x="566" y="316">vibim.wordpress.com/2026/04/12/</text>
-        <text class="vb-url" x="566" y="332">best-scan-to-bim-services-in-usa/</text>
-        <text class="vb-meta" x="566" y="358">best scan to bim services in us</text>
-        <rect class="dr-badge" x="790" y="344" width="46" height="20" rx="10"/>
-        <text class="dr-tx" x="813" y="358" text-anchor="middle">DR 75</text>
+        <circle class="dot-devto" cx="572" cy="289" r="5.5"/>
+        <text class="vb-name" x="586" y="294">dev.to</text>
+        <!-- URL 1 DÒNG, không 2 như ô WordPress cũ: slug vừa đủ một dòng.
+             Mất dòng thứ hai thì meta phải LÊN 358 -> 342 và viên nhãn DR
+             lên 344 -> 328, bằng đúng ô Cloudflare (ô kia cũng 1 dòng URL).
+             Giữ 358 là ô hở một khoảng trắng ngay giữa, lệch nhịp 2 ô kia. -->
+        <text class="vb-url" x="566" y="316">dev.to/best-scan-to-bim-services-in-usa</text>
+        <text class="vb-meta" x="566" y="342">best scan to bim services in us</text>
+        <rect class="dr-badge" x="790" y="328" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="813" y="342" text-anchor="middle">DR 73</text>
         <rect class="vb-badge" x="790" y="273" width="48" height="20" rx="10"/>
         <text class="vb-badge-tx" x="814" y="287" text-anchor="middle">ViBIM</text>
       </g>
