@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sơ đồ backlink dự án — In Siêu Tốc · ViBIM</title>
-<meta name="description" content="Hai sơ đồ backlink cùng dựng trên mô hình TAS: (1) In Siêu Tốc — 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 11 link về 5 bài In decal bằng anchor khớp chính xác; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site.">
+<meta name="description" content="Hai sơ đồ backlink cùng dựng trên mô hình TAS: (1) In Siêu Tốc — 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@
      ------------------------------------------------------------------- */
   --dg-pinterest:#E60023;
   --dg-webflow:#4353FF;
-  --dg-behance:#1769FF;
+  --dg-strikingly:#7241AD;
   --dg-github:#181717;
   --dg-substack:#FF6719;
 }
@@ -172,7 +172,7 @@ body{
 
 .dg .dot-pinterest{fill:var(--dg-pinterest)}
 .dg .dot-webflow{fill:var(--dg-webflow)}
-.dg .dot-behance{fill:var(--dg-behance)}
+.dg .dot-strikingly{fill:var(--dg-strikingly)}
 .dg .dot-github{fill:var(--dg-github)}
 .dg .dot-substack{fill:var(--dg-substack)}
 
@@ -318,6 +318,36 @@ footer.ft{
   </div>
 
   <!-- ==================================================================
+       V26 (08/10/2026) — HOÁN NỀN TẢNG 3 Ô TIER 1, theo thứ tự user chốt
+       trái -> phải: Webflow · Strikingly · Pinterest. Behance RỜI sơ đồ,
+       mystrikingly.com vào thay. DR: Webflow 92 (giữ) · Strikingly 89 (mới)
+       · Pinterest 97 -> 73 (user cấp số mới). Thứ tự này là DR GIẢM DẦN.
+       (a) ĐÂY LÀ THAY ĐỔI THUẦN NỘI DUNG Ô — đúng nếp V13/V21: giữ nguyên
+           toạ độ 3 ô, không cạnh nào đổi nguồn/đích/đường đi, tổng vẫn 14
+           link. Nhờ vậy hình học đã kiểm (0 cạnh xuyên ô, đúng 1 điểm cắt
+           bắt buộc) còn nguyên hiệu lực, không phải tính lại.
+       (b) HỆ QUẢ PHẢI BIẾT: vì cạnh bám Ô chứ không bám NỀN TẢNG, mỗi nền
+           tảng nay thừa kế đích của ô nó dọn vào, KHÔNG mang đích cũ theo:
+             Webflow    (ô 1): In decal giấy + bài chính   (đích cũ của Pinterest)
+             Strikingly (ô 2): bài chính + dán khổ lớn     (đích cũ của Behance)
+             Pinterest  (ô 3): In decal cuộn + chữ trắng   (đích cũ của Webflow)
+           Chuỗi ngang tier 1 nay đọc Webflow -> Strikingly -> Pinterest;
+           GitHub nuôi Webflow + Strikingly, Substack nuôi Strikingly +
+           Pinterest; ô textlink ngoài nay trỏ GitHub Pages + Webflow.
+           Muốn link ĐI THEO nền tảng thay vì theo ô thì phải vẽ lại cả 6
+           cạnh tier 1 — Webflow ở rìa trái mà đích cũ của nó ở rìa phải và
+           ngược lại, nên 6 cạnh sẽ cắt nhau dày; đó là việc khác, không
+           phải việc V26.
+       (c) CHẤM MÀU Strikingly #7241AD: lấy bằng cách đếm pixel favicon
+           chính chủ (static-assets.strikinglycdn.com/images/icons/favicon.ico,
+           650/1024 pixel đục là đúng màu này), KHÔNG ước lượng mắt — cùng
+           cách đã dùng cho chấm The Architects Diary ở mục 2. Token
+           --dg-behance và class .dot-behance XOÁ theo vì hết nơi gọi
+           (Behance chỉ xuất hiện ở mục 1).
+       (d) Các nhật ký V9-V24 bên dưới giữ nguyên TÊN CŨ vì chúng kể việc
+           đã xảy ra lúc đó. Riêng bảng ánh xạ 8 cạnh ở nhóm edge-back là
+           bảng TRA CỨU HIỆN HÀNH nên đã đổi tên theo V26.
+
        V9 (06/10/2026) — ĐỔI MÔ HÌNH: chuỗi DAS → link stack TAS hai tier.
        User chốt chuyển mục 1 sang đúng mô hình của mục 2 (ViBIM) và giữ
        nguyên mọi dữ liệu đã có: 5 bài, 5 nền tảng, 5 anchor khớp chính xác,
@@ -578,7 +608,7 @@ footer.ft{
   <div class="canvas" id="so-do">
     <svg class="dg" viewBox="0 0 1600 832" role="img" aria-labelledby="dg-title dg-desc">
       <title id="dg-title">Mô hình TAS — sơ đồ backlink hai tier cho In Siêu Tốc</title>
-      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating: Pinterest DR 97, Behance DR 94, Webflow DR 92, GitHub Pages DR 94, Substack DR 94. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Pinterest trỏ In decal giấy và bài chính In decal; Behance trỏ bài chính In decal và In decal dán khổ lớn; Webflow trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Pinterest sang Behance sang Webflow. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Pinterest và Behance, Substack nuôi Behance và Webflow; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Pinterest.</desc>
+      <desc id="dg-desc">Mô hình TAS, sơ đồ link stack hai tier. Trên cùng là năm bài cần đẩy của insieutoc.vn: In decal giấy đứng đầu bên trái, rồi bài chính In decal, In decal dán khổ lớn, In decal cuộn, và In decal trong chữ trắng ngoài cùng bên phải. Giữa là hệ tài sản năm nền tảng web 2.0 chia hai tier, mỗi nền tảng kèm chỉ số Domain Rating: Webflow DR 92, Strikingly DR 89, Pinterest DR 73, GitHub Pages DR 94, Substack DR 94. Tier 1 ba nền tảng, mỗi nền tảng trỏ hai link lên bài: một anchor khớp chính xác và một anchor partial match. Webflow trỏ In decal giấy và bài chính In decal; Strikingly trỏ bài chính In decal và In decal dán khổ lớn; Pinterest trỏ In decal cuộn và In decal trong chữ trắng. Ba nền tảng này nối chuỗi ngang từ Webflow sang Strikingly sang Pinterest. Tier 2 hai nền tảng nuôi tier 1: GitHub Pages nuôi Webflow và Strikingly, Substack nuôi Strikingly và Pinterest; mỗi nền tảng tier 2 còn giữ đúng một link thẳng lên bài, GitHub Pages lên In decal dán khổ lớn và Substack lên In decal cuộn. Bài chính In decal, In decal dán khổ lớn và In decal cuộn mỗi bài nhận hai link; In decal giấy và In decal trong chữ trắng mỗi bài một link. Tổng cộng mười bốn link: tám backlink về bài và sáu link stack giữa các tài sản. Bên phải là một nguồn textlink ngoài: textlink sidebar ít liên quan, trỏ vào GitHub Pages và Webflow.</desc>
 
       <defs>
         <marker id="ar-navy" viewBox="0 0 10 10" refX="9.5" refY="5"
@@ -685,25 +715,28 @@ footer.ft{
 
            V21 — ánh xạ nguồn-đích do user chốt (vẽ tay 8 mũi tên lên hình).
            Cột "slot" là tâm ô bài theo bố cục HIỆN TẠI, user chỉ định theo
-           TÊN BÀI nên nếu sau này lại hoán chỗ ô thì bám tên, đừng bám slot:
-             Pinterest -> In decal giấy          246 -> 227   (slot 227)
-             Pinterest -> bài chính In decal     326 -> 447   (slot 477)
-             GitHub    -> In decal dán khổ lớn   559 -> 697   (slot 727)
-             Behance   -> bài chính In decal     627 -> 507   (slot 477)
-             Behance   -> In decal dán khổ lớn   777 -> 757   (slot 727)
-             Substack  -> In decal cuộn          999 -> 947   (slot 977)
-             Webflow   -> In decal cuộn         1106 -> 1007  (slot 977)
-             Webflow   -> In decal trong chữ trắng 1206 -> 1227 (slot 1227)
+           TÊN BÀI nên nếu sau này lại hoán chỗ ô thì bám tên, đừng bám slot.
+           TÊN NGUỒN dưới đây đã cập nhật theo V26 (hoán nền tảng giữa 3 ô
+           tier 1); toạ độ và số cạnh KHÔNG đổi. Tên V21 gốc: ô1 Pinterest ·
+           ô2 Behance · ô3 Webflow.
+             Webflow    -> In decal giấy          246 -> 227   (slot 227)
+             Webflow    -> bài chính In decal     326 -> 447   (slot 477)
+             GitHub     -> In decal dán khổ lớn   559 -> 697   (slot 727)
+             Strikingly -> bài chính In decal     627 -> 507   (slot 477)
+             Strikingly -> In decal dán khổ lớn   777 -> 757   (slot 727)
+             Substack   -> In decal cuộn          999 -> 947   (slot 977)
+             Pinterest  -> In decal cuộn         1106 -> 1007  (slot 977)
+             Pinterest  -> In decal trong chữ trắng 1206 -> 1227 (slot 1227)
            Ba ô nhận 2 link thì 2 đầu mũi tên rải cách nhau 60 quanh tâm ô
            (447/507 · 697/757 · 947/1007), hai ô nhận 1 link cắm đúng tâm.
            CÒN ĐÚNG 1 ĐIỂM CẮT, và nó bắt buộc. Thứ tự hai đầu:
              xuất phát: 246 326 559 627 777  999 1106 1206
              đích:      227 447 697 507 757  947 1007 1227
            Cặp duy nhất đảo thứ tự là 559->697 với 627->507: GitHub xuất
-           phát BÊN TRÁI Behance (hành lang x=559 nằm trong khe 436-577,
-           còn ô Behance bắt đầu ở 577) nhưng lại nhắm ô XA HƠN SANG PHẢI.
-           Không xếp lại được: hành lang dọc của GitHub bị kẹp bởi ô
-           Pinterest (hết ở 436) và ô Behance (bắt đầu 577), nên x xuất
+           phát BÊN TRÁI ô tier 1 số 2 (hành lang x=559 nằm trong khe
+           436-577, còn ô số 2 bắt đầu ở 577) nhưng lại nhắm ô XA HƠN SANG
+           PHẢI. Không xếp lại được: hành lang dọc của GitHub bị kẹp bởi ô
+           tier 1 số 1 (hết ở 436) và ô số 2 (bắt đầu 577), nên x xuất
            phát của nó không thể lớn hơn 577.
            Sáu cạnh còn lại giữ đúng thứ tự tăng dần ở cả hai đầu. Đổi đích
            thêm cạnh nào mà phá thứ tự đó là sinh thêm điểm cắt. -->
@@ -736,25 +769,25 @@ footer.ft{
 
       <!-- ============ TIER 1: 3 nền tảng trỏ thẳng lên bài ================= -->
       <rect class="node-asset" x="136" y="448" width="300" height="80" rx="12"/>
-      <circle class="dot-pinterest" cx="162" cy="479" r="6.5"/>
-      <text class="a-name"     x="180" y="485">Pinterest</text>
-      <text class="a-dom"      x="158" y="507">pinterest.com</text>
+      <circle class="dot-webflow" cx="162" cy="479" r="6.5"/>
+      <text class="a-name"     x="180" y="485">Webflow</text>
+      <text class="a-dom"      x="158" y="507">webflow.io</text>
       <rect class="dr-badge" x="372" y="462" width="50" height="20" rx="10"/>
-      <text class="dr-tx" x="397" y="476" text-anchor="middle">DR 97</text>
+      <text class="dr-tx" x="397" y="476" text-anchor="middle">DR 92</text>
 
       <rect class="node-asset" x="577" y="448" width="300" height="80" rx="12"/>
-      <circle class="dot-behance" cx="603" cy="479" r="6.5"/>
-      <text class="a-name"     x="621" y="485">Behance</text>
-      <text class="a-dom"      x="599" y="507">behance.net</text>
+      <circle class="dot-strikingly" cx="603" cy="479" r="6.5"/>
+      <text class="a-name"     x="621" y="485">Strikingly</text>
+      <text class="a-dom"      x="599" y="507">mystrikingly.com</text>
       <rect class="dr-badge" x="813" y="462" width="50" height="20" rx="10"/>
-      <text class="dr-tx" x="838" y="476" text-anchor="middle">DR 94</text>
+      <text class="dr-tx" x="838" y="476" text-anchor="middle">DR 89</text>
 
       <rect class="node-asset" x="1016" y="448" width="300" height="80" rx="12"/>
-      <circle class="dot-webflow" cx="1042" cy="479" r="6.5"/>
-      <text class="a-name"     x="1060" y="485">Webflow</text>
-      <text class="a-dom"      x="1038" y="507">webflow.io</text>
+      <circle class="dot-pinterest" cx="1042" cy="479" r="6.5"/>
+      <text class="a-name"     x="1060" y="485">Pinterest</text>
+      <text class="a-dom"      x="1038" y="507">pinterest.com</text>
       <rect class="dr-badge" x="1252" y="462" width="50" height="20" rx="10"/>
-      <text class="dr-tx" x="1277" y="476" text-anchor="middle">DR 92</text>
+      <text class="dr-tx" x="1277" y="476" text-anchor="middle">DR 73</text>
 
       <!-- ============ TIER 2: 2 nền tảng nuôi tier 1 ======================= -->
       <rect class="node-asset" x="356" y="628" width="300" height="80" rx="12"/>
@@ -776,7 +809,8 @@ footer.ft{
            "trong site / ngoài site", nên vị trí so với dải là một phát biểu,
            không phải chuyện bố cục. -->
       <!-- Sidebar ít liên quan: hai đích nay là GitHub Pages (tier 2) và
-           Pinterest (tier 1, ở RÌA TRÁI sơ đồ trong khi ô này ở rìa phải).
+           Ô TIER 1 SỐ 1 ở RÌA TRÁI (V20 gọi nó là Pinterest; từ V26 ô đó là
+           Webflow — mũi tên KHÔNG dời, nó bám ô chứ không bám nền tảng).
            CẢ HAI đi đường vòng xuống DƯỚI khung hệ tài sản rồi mới ngoi
            lên — đi thẳng ngang là xuyên qua ô. Hai đường chạy hai rãnh
            riêng (y=778 và y=802) và rời ô ở hai điểm x khác nhau (1430 và
@@ -786,7 +820,7 @@ footer.ft{
       <text class="e-eye"      x="1475" y="480" text-anchor="middle">NGUỒN NGOÀI · SIDEBAR</text>
       <text class="x-name"     x="1475" y="506" text-anchor="middle">Textlink sidebar</text>
       <text class="x-name"     x="1475" y="526" text-anchor="middle">ít liên quan</text>
-      <text class="e-sub"      x="1475" y="549" text-anchor="middle">→ GitHub Pages · Pinterest</text>
+      <text class="e-sub"      x="1475" y="549" text-anchor="middle">→ GitHub Pages · Webflow</text>
 
       <g class="edge-back" marker-end="url(#ar-navy)">
         <path d="M1430 568V778H506V712"/>
