@@ -930,16 +930,27 @@ footer.ft{
         <circle class="dot-archidiary" cx="942" cy="289" r="5.5"/>
         <text class="vb-name" x="956" y="294">The Architects Diary</text>
         <text class="vb-url" x="936" y="316">thearchitectsdiary.com</text>
-        <text class="vb-meta" x="936" y="342">as-built drawings vs construction drawing</text>
-        <!-- Ô này ĐẶT NHÃN Ở HÀNG URL, khác 4 ô kia (hàng meta). Lý do: dòng
-             meta ở đây vẫn là anchor cũ của Tumblr, dài tới x=1176 nên đè lên
-             viên nhãn ở 1160. Hàng URL chỉ tới 1066 nên còn chỗ. Khi có anchor
-             thật của The Architects Diary thì đo lại, ngắn hơn 1146 là dời
-             nhãn xuống hàng meta cho đồng bộ với 4 ô kia. -->
-        <rect class="dr-badge" x="1160" y="302" width="46" height="20" rx="10"/>
-        <text class="dr-tx" x="1183" y="316" text-anchor="middle">DR 47</text>
-        <rect class="vb-badge" x="1160" y="273" width="48" height="20" rx="10"/>
-        <text class="vb-badge-tx" x="1184" y="287" text-anchor="middle">ViBIM</text>
+        <text class="vb-meta" x="936" y="342">what is a federated model in bim</text>
+        <!-- V25 (08/10/2026) — ĐIỀU KIỆN GỠ ĐÃ THOẢ. Anchor cũ của Tumblr
+             ("as-built drawings vs construction drawing") dài tới x=1176 nên
+             viên DR phải lánh lên hàng URL, lệch quy ước 4 ô kia. Anchor mới
+             "what is a federated model in bim" chỉ tới x=1120 < 1146, nên
+             viên DR TRẢ VỀ HÀNG META (y=328) cho đồng bộ với 4 ô kia. Đổi
+             anchor dài hơn 1146 thì phải đẩy ngược lên hàng URL như cũ.
+             Nhãn vai trò đổi ViBIM -> PR phantom. Nhãn neo PHẢI (mép phải ô
+             1220 trừ 12) nên rộng ra là phải lùi x, giữ nguyên x là tràn
+             khỏi ô: "PR phantom" rộng 65,5 + padding 15 mỗi bên (đo theo
+             nhãn mẫu "ẩn danh · tool") = 96, x = 1208 - 96 = 1112.
+             VÌ VẬY NHÃN VAI TRÒ Ở ĐÂY NẰM HÀNG URL, không phải hàng tên như
+             4 ô kia: tên "The Architects Diary" là tên DÀI NHẤT trong 5 ô,
+             kết thúc ở x=1116, mà nhãn rộng 96 bắt đầu ở 1112 — chồng 4 đơn
+             vị. Hàng URL chỉ tới 1076,6 nên hở 35. Thu hẹp nhãn còn 80 thì
+             vừa hàng tên nhưng padding lệch hẳn nhãn mẫu, nên chọn dời hàng.
+             Đổi tên ô ngắn lại thì mới trả nhãn về hàng tên được. -->
+        <rect class="dr-badge" x="1160" y="328" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="1183" y="342" text-anchor="middle">DR 47</text>
+        <rect class="vb-badge" x="1112" y="302" width="96" height="20" rx="10"/>
+        <text class="vb-badge-tx" x="1160" y="316" text-anchor="middle">PR phantom</text>
       </g>
       <g>
         <rect class="vb-box" x="365" y="500" width="300" height="108" rx="10"/>
