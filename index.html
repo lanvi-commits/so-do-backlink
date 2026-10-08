@@ -152,8 +152,10 @@ body{
 .dg .a-name{  fill:var(--brand-navy);       font-family:var(--brand-heading); font-size:17px;   font-weight:700}
 .dg .a-dom{   fill:var(--brand-muted);      font-family:var(--brand-body);    font-size:12px;   font-weight:500}
 /* Viên nhãn DR trong ô tài sản. Cùng công thức với .vb-badge của mục 2 nhưng
-   để class RIÊNG: tiền tố vb- là của mục 2, mượn chéo sang mục 1 là mất luôn
-   ý nghĩa phạm vi của tiền tố. Nếu sau này mục 2 cũng gắn DR thì gộp lại. */
+   để class RIÊNG vì tiền tố vb- là của mục 2. Từ V25 thì CẢ HAI MỤC đều gọi
+   cặp class này — cả hai svg cùng mang class dg nên không phải khai lại.
+   Mục 1 đặt nhãn ở hàng TRÊN (ô chỉ 2 dòng, hàng trên còn chỗ); mục 2 đặt ở
+   hàng META vì hàng trên đã có .vb-badge chiếm góc phải. */
 .dg .dr-badge{fill:var(--brand-bg);         stroke:var(--brand-border); stroke-width:1}
 .dg .dr-tx{   fill:var(--brand-muted);      font-family:var(--brand-heading); font-size:10px;   font-weight:700}
 .dg .e-eye{   fill:var(--brand-accent);     font-family:var(--brand-heading); font-size:10px;   font-weight:700; letter-spacing:1.4px}
@@ -259,7 +261,7 @@ footer.ft{
    navy đậm liền = link về money · accent mảnh = link stack · xám đứt = GSA.
    Mọi class mới mang tiền tố vb- để không đụng class của mục 1.
    ===================================================================== */
-:root{ --dg-cloudflare:#F38020; --dg-wordpress:#21759B; --dg-tumblr:#36465D }
+:root{ --dg-cloudflare:#F38020; --dg-wordpress:#21759B; --dg-archidiary:#023958 }
 
 .sec--top{ margin-top:0 }
 .sec h2{ font-family:var(--brand-heading); font-weight:800; color:var(--brand-navy);
@@ -287,7 +289,7 @@ footer.ft{
 .dg .vb-f-muted{ fill:var(--brand-muted) }
 .dg .dot-cloudflare{ fill:var(--dg-cloudflare) }
 .dg .dot-wordpress{ fill:var(--dg-wordpress) }
-.dg .dot-tumblr{ fill:var(--dg-tumblr) }
+.dg .dot-archidiary{ fill:var(--dg-archidiary) }
 .lg-warn{ fill:none; stroke:var(--brand-alert); stroke-width:1.6; stroke-dasharray:5 3 }
 
 
@@ -828,8 +830,33 @@ footer.ft{
        trên mỗi cạnh đối chiếu bounding box cả 11 node, 0 cạnh đâm xuyên ô.
        Hai link Tier 2 bắn thẳng lên money đi qua hai hành lang dọc trống
        giữa các ô Tier 1 (x=515 giữa Cloudflare–WordPress, x=885 giữa
-       WordPress–Tumblr). Vì vậy KHÔNG được kéo ba ô Tier 1 sát lại nhau:
+       WordPress–The Architects Diary). Vì vậy KHÔNG được kéo ba ô Tier 1 sát lại nhau:
        khe hở ở đây là chỗ đi dây, không phải khoảng trống thừa.
+
+       V25 (08/10/2026) — CẬP NHẬT THEO ẢNH LINK GRAPH user gửi.
+       (a) TUMBLR -> THE ARCHITECTS DIARY ở ô Tier 1 thứ ba. Thay thuần nội
+           dung: giữ nguyên vị trí ô và cả 6 cạnh nối vào/ra, vẫn 5 phantom,
+           vẫn 15 link. Token --dg-tumblr -> --dg-archidiary, class
+           .dot-tumblr -> .dot-archidiary.
+           DOMAIN: thearchitectsdiary.com, KHÔNG phải thearchidiary.com.
+           thearchidiary.com không phân giải được DNS; thearchitectsdiary.com
+           có thật, logo khớp ảnh và khớp nhãn bị cắt "https://thearchi…".
+           Chấm màu #023958 lấy từ brand thật của site (đọc bằng firecrawl),
+           không phải ước lượng mắt. Màu này gần trùng --brand-navy nên chấm
+           trông như chấm đen — chấp nhận được, cùng tình huống với chấm
+           GitHub #181717, và khối token đã chốt chấm chỉ là trang trí.
+       (b) Ô GitHub đổi tài sản: architectural-scale-converter.github.io ->
+           bim-model-review.github.io, dòng meta đổi theo cho khớp tên tool
+           (cùng nếp với ô Cloudflare: meta = tên tool suy từ URL).
+       (c) GẮN DR cho cả 5 ô: Cloudflare 93 · WordPress 75 · The Architects
+           Diary 47 · GitHub 94 · Substack 87. Dùng LẠI .dr-badge/.dr-tx của
+           mục 1 (cả hai svg cùng class dg) nên không thêm CSS nào.
+           ĐẶT Ở HÀNG META chứ không hàng trên như mục 1, vì hàng trên của ô
+           mục 2 đã có .vb-badge chiếm góc phải. Ngoại lệ ô The Architects
+           Diary — xem ghi chú tại chỗ.
+       LỆCH SỐ CẦN BIẾT: Substack ở mục 1 ghi DR 94 còn ở đây 87, GitHub thì
+       cả hai cùng 94. Hai số Substack lấy từ hai nguồn user cấp ở hai thời
+       điểm khác nhau nên GIỮ NGUYÊN cả hai, không tự ý hoà về một số.
        ================================================================== -->
   <section class="sec" id="so-do-vibim">
     <h2>2. Sơ đồ backlink ViBIM</h2>
@@ -837,7 +864,7 @@ footer.ft{
     <div class="canvas">
       <svg class="dg" viewBox="0 -52 1240 852" role="img" aria-labelledby="vb-title vb-desc">
         <title id="vb-title">Mô hình TAS — sơ đồ link stack ba tầng cho ViBIM</title>
-        <desc id="vb-desc">Mô hình TAS, một sơ đồ ba tầng. Trên cùng là tầng đích gồm năm URL của vibimglobal.com: trang blog bim level of development, trang dịch vụ point cloud to bim services, trang chủ, bài what is scan to bim, và bài convert point cloud to revit model. Giữa là hệ phantom năm tài sản chia hai tier. Tier 1 ba tài sản trỏ thẳng vào money site: Cloudflare, WordPress, Tumblr, nối chuỗi ngang từ Cloudflare sang WordPress sang Tumblr. Tier 2 hai tài sản nuôi Tier 1: GitHub nuôi Cloudflare và WordPress, Substack nuôi WordPress và Tumblr; mỗi tài sản Tier 2 còn giữ một link trỏ thẳng lên money site. Dưới cùng, nằm ngoài hệ phantom, GSA và PBN đẩy vào hai tài sản ẩn danh là GitHub và Cloudflare. Tổng cộng mười lăm link: chín link về money site và sáu link stack giữa các phantom. Substack được viền đỏ đứt vì chưa có link nào trỏ vào nó.</desc>
+        <desc id="vb-desc">Mô hình TAS, một sơ đồ ba tầng. Trên cùng là tầng đích gồm năm URL của vibimglobal.com: trang blog bim level of development, trang dịch vụ point cloud to bim services, trang chủ, bài what is scan to bim, và bài convert point cloud to revit model. Giữa là hệ phantom năm tài sản chia hai tier, mỗi tài sản kèm chỉ số Domain Rating: Cloudflare DR 93, WordPress DR 75, The Architects Diary DR 47, GitHub DR 94, Substack DR 87. Tier 1 ba tài sản trỏ thẳng vào money site: Cloudflare, WordPress, The Architects Diary, nối chuỗi ngang từ Cloudflare sang WordPress sang The Architects Diary. Tier 2 hai tài sản nuôi Tier 1: GitHub nuôi Cloudflare và WordPress, Substack nuôi WordPress và The Architects Diary; mỗi tài sản Tier 2 còn giữ một link trỏ thẳng lên money site. Dưới cùng, nằm ngoài hệ phantom, GSA và PBN đẩy vào hai tài sản ẩn danh là GitHub và Cloudflare. Tổng cộng mười lăm link: chín link về money site và sáu link stack giữa các phantom. Substack được viền đỏ đứt vì chưa có link nào trỏ vào nó.</desc>
       <defs>
         <marker id="vb-ah-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="vb-f-navy"/></marker>
         <marker id="vb-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="vb-f-accent"/></marker>
@@ -881,6 +908,8 @@ footer.ft{
         <text class="vb-name" x="216" y="294">Cloudflare</text>
         <text class="vb-url" x="196" y="316">point-cloud-density-calculator.pages.dev</text>
         <text class="vb-meta" x="196" y="342">point cloud density calculator</text>
+        <rect class="dr-badge" x="420" y="328" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="443" y="342" text-anchor="middle">DR 93</text>
         <rect class="vb-badge" x="366" y="273" width="102" height="20" rx="10"/>
         <text class="vb-badge-tx" x="417" y="287" text-anchor="middle">ẩn danh · tool</text>
       </g>
@@ -891,15 +920,24 @@ footer.ft{
         <text class="vb-url" x="566" y="316">vibim.wordpress.com/2026/04/12/</text>
         <text class="vb-url" x="566" y="332">best-scan-to-bim-services-in-usa/</text>
         <text class="vb-meta" x="566" y="358">best scan to bim services in us</text>
+        <rect class="dr-badge" x="790" y="344" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="813" y="358" text-anchor="middle">DR 75</text>
         <rect class="vb-badge" x="790" y="273" width="48" height="20" rx="10"/>
         <text class="vb-badge-tx" x="814" y="287" text-anchor="middle">ViBIM</text>
       </g>
       <g>
         <rect class="vb-box" x="920" y="260" width="300" height="108" rx="10"/>
-        <circle class="dot-tumblr" cx="942" cy="289" r="5.5"/>
-        <text class="vb-name" x="956" y="294">Tumblr</text>
-        <text class="vb-url" x="936" y="316">vibim.tumblr.com</text>
+        <circle class="dot-archidiary" cx="942" cy="289" r="5.5"/>
+        <text class="vb-name" x="956" y="294">The Architects Diary</text>
+        <text class="vb-url" x="936" y="316">thearchitectsdiary.com</text>
         <text class="vb-meta" x="936" y="342">as-built drawings vs construction drawing</text>
+        <!-- Ô này ĐẶT NHÃN Ở HÀNG URL, khác 4 ô kia (hàng meta). Lý do: dòng
+             meta ở đây vẫn là anchor cũ của Tumblr, dài tới x=1176 nên đè lên
+             viên nhãn ở 1160. Hàng URL chỉ tới 1066 nên còn chỗ. Khi có anchor
+             thật của The Architects Diary thì đo lại, ngắn hơn 1146 là dời
+             nhãn xuống hàng meta cho đồng bộ với 4 ô kia. -->
+        <rect class="dr-badge" x="1160" y="302" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="1183" y="316" text-anchor="middle">DR 47</text>
         <rect class="vb-badge" x="1160" y="273" width="48" height="20" rx="10"/>
         <text class="vb-badge-tx" x="1184" y="287" text-anchor="middle">ViBIM</text>
       </g>
@@ -907,8 +945,10 @@ footer.ft{
         <rect class="vb-box" x="365" y="500" width="300" height="108" rx="10"/>
         <circle class="dot-github" cx="387" cy="529" r="5.5"/>
         <text class="vb-name" x="401" y="534">GitHub</text>
-        <text class="vb-url" x="381" y="556">architectural-scale-converter.github.io</text>
-        <text class="vb-meta" x="381" y="582">architectural scale converter</text>
+        <text class="vb-url" x="381" y="556">bim-model-review.github.io</text>
+        <text class="vb-meta" x="381" y="582">bim model review</text>
+        <rect class="dr-badge" x="605" y="568" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="628" y="582" text-anchor="middle">DR 94</text>
         <rect class="vb-badge" x="551" y="513" width="102" height="20" rx="10"/>
         <text class="vb-badge-tx" x="602" y="527" text-anchor="middle">ẩn danh · tool</text>
       </g>
@@ -918,6 +958,8 @@ footer.ft{
         <text class="vb-name" x="771" y="534">Substack</text>
         <text class="vb-url" x="751" y="556">substack.com</text>
         <text class="vb-meta" x="751" y="582">scan to bim revit plugin</text>
+        <rect class="dr-badge" x="975" y="568" width="46" height="20" rx="10"/>
+        <text class="dr-tx" x="998" y="582" text-anchor="middle">DR 87</text>
         <rect class="vb-warn" x="951" y="513" width="72" height="20" rx="10"/>
         <text class="vb-warn-tx" x="987" y="527" text-anchor="middle">0 inbound</text>
       </g>
