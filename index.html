@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sơ đồ backlink dự án — In Siêu Tốc · ViBIM · Bảo vệ Ngày &amp; Đêm</title>
-<meta name="description" content="Ba sơ đồ backlink: (1) In Siêu Tốc — mô hình DAS, 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site, mô hình TAS; (3) Bảo vệ Ngày &amp; Đêm Tây Bắc — 5 parasite chia hai tier, 16 link (10 về 8 trang của website, 6 stack), mô hình TAS.">
+<meta name="description" content="Ba sơ đồ backlink: (1) In Siêu Tốc — mô hình DAS, 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site, mô hình TAS; (3) Bảo vệ Ngày &amp; Đêm Tây Bắc — 5 parasite chia hai tier, 16 link (10 về 8 trang của website, 6 stack) + 2 textlink sidebar bắn vào Google Sites và GitHub Pages, mô hình TAS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -314,6 +314,9 @@ footer.ft{
 .dg .bv-grp-tx{ fill:var(--brand-muted); font-family:var(--brand-heading); font-size:10.5px; font-weight:700; letter-spacing:1.2px }
 .dg .bv-f-navy{ fill:var(--brand-navy) }
 .dg .bv-f-accent{ fill:var(--brand-accent) }
+.dg .bv-f-muted{ fill:var(--brand-muted) }
+.dg .bv-box--src{ fill:var(--brand-bg-elev); stroke:var(--brand-muted); stroke-dasharray:5 4 }
+.dg .bv-eye{ fill:var(--brand-accent); font-family:var(--brand-heading); font-size:10px; font-weight:700; letter-spacing:1.4px }
 .dg .dot-gsites{ fill:var(--dg-gsites) }
 .dg .dot-site123{ fill:var(--dg-site123) }
 
@@ -1209,17 +1212,25 @@ footer.ft{
        x=250) để không cắt chùm 3 link của Webflow. Hai link Tier 2 này
        không cắt cạnh nào; chỉ còn GitHub cắt chuỗi Google Sites → Webflow.
        Toạ độ + kiểm "không cạnh nào xuyên ô" sinh bằng build_bv.py.
+       V7 (20/10): thêm NGUỒN NGOÀI "Textlink sidebar ít liên quan" bắn 2
+       link vào Google Sites + GitHub Pages. Nét XÁM ĐỨT (edge-int, cùng
+       ngữ pháp "nguồn đẩy ngoài" của mục 2), KHÔNG navy như ô sidebar ở
+       mục 1: ở mục này navy đã nghĩa là "link về website". Ô đặt NGOÀI
+       khung hệ parasite, hàng mới y=690. Link vào Google Sites lên ở x=240
+       (lách mép trái ô GitHub 260); cả hai cắt làn Substack y=650 — được
+       phép, không cạnh nào xuyên ô. viewBox cao 724 → 862.
        ================================================================== -->
   <section class="sec" id="so-do-bao-ve">
     <h2>3. Sơ đồ backlink Bảo vệ Ngày &amp; Đêm Tây Bắc</h2>
 
     <div class="canvas">
-      <svg class="dg" viewBox="0 -52 1536 724" role="img" aria-labelledby="bv-title bv-desc">
+      <svg class="dg" viewBox="0 -52 1536 862" role="img" aria-labelledby="bv-title bv-desc">
         <title id="bv-title">Mô hình TAS — sơ đồ link stack hai tier cho Bảo vệ Ngày &amp; Đêm Tây Bắc Sài Gòn</title>
-        <desc id="bv-desc">Mô hình TAS, sơ đồ ba tầng. Trên cùng là tầng đích gồm tám trang của baovengayvademtaybacsg.com: bài công ty bảo vệ TP.HCM, trang giá dịch vụ bảo vệ, và sáu trang dịch vụ bảo vệ tòa nhà, chung cư, văn phòng công ty, khu công nghiệp, kho xưởng, nhà máy xí nghiệp. Giữa là hệ parasite năm tài sản chia hai tier. Tier 1 ba tài sản trỏ thẳng vào website và nối chuỗi ngang: Google Sites cong-ty-bao-ve trỏ vào bài công ty bảo vệ TP.HCM và trang giá dịch vụ bảo vệ; Webflow baovetoanhachungcu trỏ vào ba trang tòa nhà, chung cư, văn phòng; Site123 baovekhucongnghiep trỏ vào ba trang khu công nghiệp, kho xưởng, nhà máy; chuỗi Google Sites sang Webflow sang Site123. Tier 2 hai tài sản nuôi Tier 1: GitHub Pages giadichvubaove, công cụ tính chi phí thuê bảo vệ, nuôi Google Sites và Webflow, Substack anninhdoanhnghiep nuôi Webflow và Site123; mỗi tài sản Tier 2 giữ một link trỏ thẳng vào website: GitHub Pages vào trang giá dịch vụ bảo vệ, Substack vào bài công ty bảo vệ TP.HCM. Tổng cộng mười sáu link: mười link về website và sáu link stack giữa các parasite.</desc>
+        <desc id="bv-desc">Mô hình TAS, sơ đồ ba tầng. Trên cùng là tầng đích gồm tám trang của baovengayvademtaybacsg.com: bài công ty bảo vệ TP.HCM, trang giá dịch vụ bảo vệ, và sáu trang dịch vụ bảo vệ tòa nhà, chung cư, văn phòng công ty, khu công nghiệp, kho xưởng, nhà máy xí nghiệp. Giữa là hệ parasite năm tài sản chia hai tier. Tier 1 ba tài sản trỏ thẳng vào website và nối chuỗi ngang: Google Sites cong-ty-bao-ve trỏ vào bài công ty bảo vệ TP.HCM và trang giá dịch vụ bảo vệ; Webflow baovetoanhachungcu trỏ vào ba trang tòa nhà, chung cư, văn phòng; Site123 baovekhucongnghiep trỏ vào ba trang khu công nghiệp, kho xưởng, nhà máy; chuỗi Google Sites sang Webflow sang Site123. Tier 2 hai tài sản nuôi Tier 1: GitHub Pages giadichvubaove, công cụ tính chi phí thuê bảo vệ, nuôi Google Sites và Webflow, Substack anninhdoanhnghiep nuôi Webflow và Site123; mỗi tài sản Tier 2 giữ một link trỏ thẳng vào website: GitHub Pages vào trang giá dịch vụ bảo vệ, Substack vào bài công ty bảo vệ TP.HCM. Tổng cộng mười sáu link: mười link về website và sáu link stack giữa các parasite. Dưới cùng, nằm ngoài hệ parasite, một nguồn textlink sidebar ít liên quan bắn hai link vào Google Sites và GitHub Pages.</desc>
       <defs>
         <marker id="bv-ah-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-navy"/></marker>
         <marker id="bv-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-accent"/></marker>
+        <marker id="bv-ah-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-muted"/></marker>
       </defs>
       <text class="method-tag" x="14" y="-24">MÔ HÌNH TAS</text>
       <text class="lb-sub"     x="14" y="-6">5 tài sản parasite · 2 tier · mỗi nền tảng chỉ đặt link ở 1 trang chính (Substack: bài ghim)</text>
@@ -1263,6 +1274,18 @@ footer.ft{
       <path class="edge-chain" d="M940,500 C940,419.4 870,419.4 870,370" marker-end="url(#bv-ah-accent)"/>
       <!-- Substack → Site123 -->
       <path class="edge-chain" d="M1130,500 C1130,419.4 1200,419.4 1200,370" marker-end="url(#bv-ah-accent)"/>
+      <text class="lb-tier" x="16" y="728">NGUỒN NGOÀI</text><text class="lb-sub" x="16" y="748">ngoài hệ parasite</text>
+      <!-- Textlink sidebar → GitHub Pages (thẳng lên đáy ô) -->
+      <path class="edge-int" d="M450,690 V610" marker-end="url(#bv-ah-muted)"/>
+      <!-- Textlink sidebar → Google Sites (lách mép trái ô GitHub ở x=240) -->
+      <path class="edge-int" d="M320,690 V670 H240 V370" marker-end="url(#bv-ah-muted)"/>
+      <g>
+        <rect class="bv-box bv-box--src" x="300" y="690" width="250" height="104" rx="10"/>
+        <text class="bv-eye" x="316" y="714">NGUỒN NGOÀI · SIDEBAR</text>
+        <text class="bv-name" x="316" y="738">Textlink sidebar</text>
+        <text class="bv-name" x="316" y="757">ít liên quan</text>
+        <text class="bv-meta" x="316" y="779">→ Google Sites · GitHub Pages</text>
+      </g>
       <g>
         <rect class="bv-box" x="225" y="260" width="265" height="108" rx="10"/>
         <circle class="dot-gsites" cx="247" cy="289" r="5.5"/>
@@ -1374,6 +1397,13 @@ footer.ft{
           <path class="ah-accent" d="M37,3 L45,7 L37,11 Z"/>
         </svg>
         <span><b>Link stack</b> — 6 link, parasite nuôi parasite</span>
+      </li>
+      <li>
+        <svg width="46" height="14" aria-hidden="true" focusable="false">
+          <line class="lg-int" x1="1" y1="7" x2="37" y2="7"/>
+          <path class="ah-muted" d="M37,3 L45,7 L37,11 Z"/>
+        </svg>
+        <span><b>Textlink sidebar ít liên quan</b> — 2 link, nguồn ngoài bắn vào Google Sites và GitHub Pages</span>
       </li>
     </ul>
   </section>
