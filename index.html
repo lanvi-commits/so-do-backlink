@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sơ đồ backlink dự án — In Siêu Tốc · ViBIM</title>
-<meta name="description" content="Hai sơ đồ backlink: (1) In Siêu Tốc — mô hình DAS, 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site, mô hình TAS.">
+<title>Sơ đồ backlink dự án — In Siêu Tốc · ViBIM · Bảo vệ Ngày &amp; Đêm</title>
+<meta name="description" content="Ba sơ đồ backlink: (1) In Siêu Tốc — mô hình DAS, 5 tài sản web 2.0 chia hai tier, Tier 1 trỏ thẳng và Tier 2 nuôi Tier 1, 14 link về 5 bài In decal; (2) ViBIM — 5 phantom chia hai tier, 15 link về 5 URL money site, mô hình TAS; (3) Bảo vệ Ngày &amp; Đêm Tây Bắc — 5 parasite chia hai tier, 15 link (9 về 7 trang của website, 6 stack), mô hình TAS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -297,6 +297,26 @@ footer.ft{
 .dg .dot-archidiary{ fill:var(--dg-archidiary) }
 .lg-warn{ fill:none; stroke:var(--brand-alert); stroke-width:1.6; stroke-dasharray:5 3 }
 
+/* =====================================================================
+   MỤC 3 — Bảo vệ Ngày & Đêm Tây Bắc. Bản sao riêng của bộ vb- (mục 2),
+   tiền tố bv-, để sửa mục này không âm thầm đổi mục 2. Không bê màu brand
+   khách vào --brand-* (sẽ ghi đè cả trang). Chỉ thêm 3 chấm nền tảng.
+   ===================================================================== */
+:root{ --dg-gsites:#4285F4; --dg-wix:#000000; --dg-site123:#0583F2 }
+.dg .bv-box{ fill:var(--brand-bg); stroke:var(--brand-navy); stroke-width:1.6 }
+.dg .bv-box--money{ fill:var(--brand-bg-band); stroke:var(--brand-accent) }
+.dg .bv-group{ fill:var(--brand-bg-elev); stroke:var(--brand-border); stroke-width:1.4 }
+.dg .bv-div{ stroke:var(--brand-border); stroke-width:1; stroke-dasharray:3 5 }
+.dg .bv-name{ fill:var(--brand-navy);  font-family:var(--brand-heading); font-size:15px;   font-weight:700 }
+.dg .bv-url{ fill:var(--brand-accent); font-family:var(--brand-body);    font-size:12px;   font-weight:500 }
+.dg .bv-meta{ fill:var(--brand-muted); font-family:var(--brand-body);    font-size:11.5px; font-weight:500 }
+.dg .bv-mname{ fill:var(--brand-navy); font-family:var(--brand-heading); font-size:13px;   font-weight:700 }
+.dg .bv-grp-tx{ fill:var(--brand-muted); font-family:var(--brand-heading); font-size:10.5px; font-weight:700; letter-spacing:1.2px }
+.dg .bv-f-navy{ fill:var(--brand-navy) }
+.dg .bv-f-accent{ fill:var(--brand-accent) }
+.dg .dot-gsites{ fill:var(--dg-gsites) }
+.dg .dot-wix{ fill:var(--dg-wix) }
+.dg .dot-site123{ fill:var(--dg-site123) }
 
 </style>
 </head>
@@ -1156,6 +1176,179 @@ footer.ft{
           <rect class="lg-warn" x="3" y="2" width="40" height="10" rx="4"/>
         </svg>
         <span><b>Viền đỏ đứt</b> — tài sản chưa có link nào trỏ vào</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ==================================================================
+       MỤC 3 — Bảo vệ Ngày & Đêm Tây Bắc Sài Gòn (V1, 20/10/2026)
+       Vẽ theo phác thảo tay của user 20/10. Cùng topo với mục 2 (TAS):
+       Tier 1 nối chuỗi ngang Google Sites → Wix → Site123; Tier 2
+       Substack và Webflow mỗi tài sản nuôi 2 ô Tier 1 và giữ ĐÚNG 1 link
+       thẳng lên website. 15 link = 9 về website + 6 stack.
+       Class mới mang tiền tố bv- (không dùng lại vb- của mục 2) để sửa
+       mỗi mục độc lập. Chấm Substack/Webflow dùng lại .dot-substack /
+       .dot-webflow vì đó là màu thương hiệu nền tảng, không đổi theo mục.
+       Hình học: hành lang x=515 giữa Google Sites (mép 490) và Wix (540)
+       dành cho Substack → TP.HCM. Webflow → TP.HCM đi VÒNG NGOÀI (làn
+       y=650 dưới tier 2, lên ở x=203 sát mép trái khung) để không cắt
+       chùm 3 link của Wix. Đổi vị trí ô thì phải chạy lại kiểm "không
+       cạnh nào xuyên ô" (scratchpad build_bv.py).
+       ================================================================== -->
+  <section class="sec" id="so-do-bao-ve">
+    <h2>3. Sơ đồ backlink Bảo vệ Ngày &amp; Đêm Tây Bắc</h2>
+
+    <div class="canvas">
+      <svg class="dg" viewBox="0 -52 1440 724" role="img" aria-labelledby="bv-title bv-desc">
+        <title id="bv-title">Mô hình TAS — sơ đồ link stack hai tier cho Bảo vệ Ngày &amp; Đêm Tây Bắc Sài Gòn</title>
+        <desc id="bv-desc">Mô hình TAS, sơ đồ ba tầng. Trên cùng là tầng đích gồm bảy trang của baovengayvademtaybacsg.com: bài công ty bảo vệ TP.HCM, và sáu trang dịch vụ bảo vệ tòa nhà, chung cư, văn phòng công ty, khu công nghiệp, kho xưởng, nhà máy xí nghiệp. Giữa là hệ parasite năm tài sản chia hai tier. Tier 1 ba tài sản trỏ thẳng vào website và nối chuỗi ngang: Google Sites cong-ty-bao-ve-tphcm trỏ vào bài công ty bảo vệ TP.HCM; Wix baovetoanhachungcu trỏ vào ba trang tòa nhà, chung cư, văn phòng; Site123 baovekhucongnghiepvanhamay trỏ vào ba trang khu công nghiệp, kho xưởng, nhà máy; chuỗi Google Sites sang Wix sang Site123. Tier 2 hai tài sản nuôi Tier 1: Substack anninhdoanhnghiep nuôi Google Sites và Wix, Webflow choncongtybaove nuôi Wix và Site123; mỗi tài sản Tier 2 giữ một link trỏ thẳng vào bài công ty bảo vệ TP.HCM. Tổng cộng mười lăm link: chín link về website và sáu link stack giữa các parasite.</desc>
+      <defs>
+        <marker id="bv-ah-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-navy"/></marker>
+        <marker id="bv-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-accent"/></marker>
+      </defs>
+      <text class="method-tag" x="14" y="-24">MÔ HÌNH TAS</text>
+      <text class="lb-sub"     x="14" y="-6">5 tài sản parasite · 2 tier</text>
+
+      <rect class="bv-group" x="210" y="228" width="1222" height="400" rx="14"/>
+      <line class="bv-div" x1="210" y1="200" x2="1432" y2="200"/>
+      <line class="bv-div" x1="226" y1="440" x2="1416" y2="440"/>
+      <text class="bv-grp-tx" x="1416" y="616" text-anchor="end">HỆ PARASITE · 5 TÀI SẢN</text>
+      <text class="lb-tier" x="16" y="80">TẦNG ĐÍCH</text><text class="lb-sub" x="16" y="100">website · 7 trang</text>
+      <text class="lb-tier" x="16" y="306">TIER 1</text><text class="lb-sub" x="16" y="326">trỏ thẳng · 3</text>
+      <text class="lb-tier" x="16" y="546">TIER 2</text><text class="lb-sub" x="16" y="566">nuôi tier 1 · 2</text>
+      <!-- Google Sites → TP.HCM -->
+      <path class="edge-back" d="M330,260 C330,196.8 299.0,196.8 299.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Wix → tòa nhà -->
+      <path class="edge-back" d="M600,260 C600,196.8 474.0,196.8 474.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Wix → chung cư -->
+      <path class="edge-back" d="M675,260 C675,196.8 649.0,196.8 649.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Wix → văn phòng -->
+      <path class="edge-back" d="M750,260 C750,196.8 824.0,196.8 824.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Site123 → KCN -->
+      <path class="edge-back" d="M1104,260 C1104,196.8 999.0,196.8 999.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Site123 → kho xưởng -->
+      <path class="edge-back" d="M1174,260 C1174,196.8 1174.0,196.8 1174.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Site123 → nhà máy -->
+      <path class="edge-back" d="M1244,260 C1244,196.8 1349.0,196.8 1349.0,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Substack → TP.HCM (leo hành lang x=515) -->
+      <path class="edge-back" d="M515,500 L515,214 C515,182 350,192 350,158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Webflow → TP.HCM (vòng ngoài, đi dưới và mép trái) -->
+      <path class="edge-back" d="M925,608 V650 H203 V178 H250 V158" marker-end="url(#bv-ah-navy)"/>
+      <!-- Substack → Google Sites -->
+      <path class="edge-chain" d="M352,500 L352,370" marker-end="url(#bv-ah-accent)"/>
+      <!-- Substack → Wix -->
+      <path class="edge-chain" d="M545,500 C545,419.4 580,419.4 580,370" marker-end="url(#bv-ah-accent)"/>
+      <!-- Google Sites → Wix -->
+      <path class="edge-chain" d="M490,314 L538,314" marker-end="url(#bv-ah-accent)"/>
+      <!-- Wix → Site123 -->
+      <path class="edge-chain" d="M810,314 L1027,314" marker-end="url(#bv-ah-accent)"/>
+      <!-- Webflow → Wix -->
+      <path class="edge-chain" d="M830,500 C830,419.4 760,419.4 760,370" marker-end="url(#bv-ah-accent)"/>
+      <!-- Webflow → Site123 -->
+      <path class="edge-chain" d="M1030,500 C1030,419.4 1100,419.4 1100,370" marker-end="url(#bv-ah-accent)"/>
+      <g>
+        <rect class="bv-box" x="225" y="260" width="265" height="108" rx="10"/>
+        <circle class="dot-gsites" cx="247" cy="289" r="5.5"/>
+        <text class="bv-name" x="261" y="294">Google Sites</text>
+        <text class="bv-url" x="241" y="316">…/view/cong-ty-bao-ve-tphcm</text>
+        <text class="bv-meta" x="241" y="342">toplist công ty bảo vệ TP.HCM</text>
+      </g>
+      <g>
+        <rect class="bv-box" x="540" y="260" width="270" height="108" rx="10"/>
+        <circle class="dot-wix" cx="562" cy="289" r="5.5"/>
+        <text class="bv-name" x="576" y="294">Wix</text>
+        <text class="bv-url" x="556" y="316">baovetoanhachungcu.wixsite.com</text>
+        <text class="bv-meta" x="556" y="342">tòa nhà · chung cư · văn phòng</text>
+      </g>
+      <g>
+        <rect class="bv-box" x="1029" y="260" width="290" height="108" rx="10"/>
+        <circle class="dot-site123" cx="1051" cy="289" r="5.5"/>
+        <text class="bv-name" x="1065" y="294">Site123</text>
+        <text class="bv-url" x="1045" y="316">baovekhucongnghiepvanhamay.site123.me</text>
+        <text class="bv-meta" x="1045" y="342">KCN · nhà máy · kho xưởng</text>
+      </g>
+      <g>
+        <rect class="bv-box" x="300" y="500" width="270" height="108" rx="10"/>
+        <circle class="dot-substack" cx="322" cy="529" r="5.5"/>
+        <text class="bv-name" x="336" y="534">Substack</text>
+        <text class="bv-url" x="316" y="556">anninhdoanhnghiep.substack.com</text>
+        <text class="bv-meta" x="316" y="582">nghiệp vụ bảo vệ</text>
+      </g>
+      <g>
+        <rect class="bv-box" x="790" y="500" width="270" height="108" rx="10"/>
+        <circle class="dot-webflow" cx="812" cy="529" r="5.5"/>
+        <text class="bv-name" x="826" y="534">Webflow</text>
+        <text class="bv-url" x="806" y="556">choncongtybaove.webflow.io</text>
+        <text class="bv-meta" x="806" y="582">tiêu chí chọn công ty bảo vệ</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="220" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="232" y="66">Công ty bảo vệ</text>
+        <text class="bv-mname" x="232" y="82">TP.HCM</text>
+        <text class="bv-url" x="232" y="106">/blog/cong-ty-dich-</text>
+        <text class="bv-url" x="232" y="121">vu-bao-ve-tphcm/</text>
+        <text class="bv-meta" x="232" y="144">3 link vào</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="395" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="407" y="66">Bảo vệ tòa nhà</text>
+        <text class="bv-url" x="407" y="106">/dich-vu/</text>
+        <text class="bv-url" x="407" y="121">bao-ve-toa-nha/</text>
+        <text class="bv-meta" x="407" y="144">1 link vào</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="570" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="582" y="66">Bảo vệ chung cư</text>
+        <text class="bv-url" x="582" y="106">/dich-vu/</text>
+        <text class="bv-url" x="582" y="121">bao-ve-chung-cu/</text>
+        <text class="bv-meta" x="582" y="144">1 link vào</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="745" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="757" y="66">Bảo vệ văn phòng</text>
+        <text class="bv-url" x="757" y="106">/dich-vu/bao-ve-</text>
+        <text class="bv-url" x="757" y="121">van-phong-cong-ty/</text>
+        <text class="bv-meta" x="757" y="144">1 link vào</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="920" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="932" y="66">Bảo vệ KCN</text>
+        <text class="bv-url" x="932" y="106">/dich-vu/bao-ve-</text>
+        <text class="bv-url" x="932" y="121">khu-cong-nghiep/</text>
+        <text class="bv-meta" x="932" y="144">1 link vào</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="1095" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="1107" y="66">Bảo vệ kho xưởng</text>
+        <text class="bv-url" x="1107" y="106">/dich-vu/</text>
+        <text class="bv-url" x="1107" y="121">bao-ve-kho-xuong/</text>
+        <text class="bv-meta" x="1107" y="144">1 link vào</text>
+      </g>
+      <g>
+        <rect class="bv-box bv-box--money" x="1270" y="40" width="158" height="118" rx="10"/>
+        <text class="bv-mname" x="1282" y="66">Bảo vệ nhà máy</text>
+        <text class="bv-url" x="1282" y="106">/dich-vu/bao-ve-</text>
+        <text class="bv-url" x="1282" y="121">nha-may-xi-nghiep/</text>
+        <text class="bv-meta" x="1282" y="144">1 link vào</text>
+      </g>
+      </svg>
+    </div>
+    <p class="scroll-hint">↔ Cuộn ngang để xem hết sơ đồ.</p>
+
+    <ul class="legend">
+      <li>
+        <svg width="46" height="14" aria-hidden="true" focusable="false">
+          <line class="lg-back" x1="1" y1="7" x2="37" y2="7"/>
+          <path class="ah-navy" d="M37,2.5 L45,7 L37,11.5 Z"/>
+        </svg>
+        <span><b>Link về website</b> — 9 link, trỏ thẳng vào baovengayvademtaybacsg.com</span>
+      </li>
+      <li>
+        <svg width="46" height="14" aria-hidden="true" focusable="false">
+          <line class="lg-chain" x1="1" y1="7" x2="37" y2="7"/>
+          <path class="ah-accent" d="M37,3 L45,7 L37,11 Z"/>
+        </svg>
+        <span><b>Link stack</b> — 6 link, parasite nuôi parasite</span>
       </li>
     </ul>
   </section>
