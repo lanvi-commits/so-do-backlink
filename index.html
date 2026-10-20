@@ -1180,12 +1180,15 @@ footer.ft{
   </section>
 
   <!-- ==================================================================
-       MỤC 3 — Bảo vệ Ngày & Đêm Tây Bắc Sài Gòn (V2, 20/10/2026)
+       MỤC 3 — Bảo vệ Ngày & Đêm Tây Bắc Sài Gòn (V3, 20/10/2026)
        V1 vẽ theo phác thảo tay của user 20/10. V2 user chốt cùng ngày:
        Wix → Webflow ở Tier 1, Webflow → GitHub Pages ở Tier 2, thêm link
        Google Sites → trang giá dịch vụ (/gia-dich-vu-bao-ve/) nên tầng
        đích lên 8 ô; viewBox nới 1440 → 1536, ô money 158 → 152 (chữ dài
        nhất "van-phong-cong-ty/" đo được 129px trong Chrome).
+       V3: ô GitHub Pages thành công cụ tính chi phí, URL
+       giadichvubaove.github.io/tinh-chi-phi-thue-bao-ve/ (323px) nên ô
+       nới 270 → 356, giữ tâm x=1034 để các cạnh xuất phát không đổi.
        Topo TAS như mục 2: Tier 1 nối chuỗi ngang Google Sites → Webflow →
        Site123; Tier 2 Substack và GitHub Pages mỗi tài sản nuôi 2 ô Tier 1
        và giữ ĐÚNG 1 link thẳng lên website. 16 link = 10 về website + 6 stack.
@@ -1204,7 +1207,7 @@ footer.ft{
     <div class="canvas">
       <svg class="dg" viewBox="0 -52 1536 724" role="img" aria-labelledby="bv-title bv-desc">
         <title id="bv-title">Mô hình TAS — sơ đồ link stack hai tier cho Bảo vệ Ngày &amp; Đêm Tây Bắc Sài Gòn</title>
-        <desc id="bv-desc">Mô hình TAS, sơ đồ ba tầng. Trên cùng là tầng đích gồm tám trang của baovengayvademtaybacsg.com: trang giá dịch vụ bảo vệ, bài công ty bảo vệ TP.HCM, và sáu trang dịch vụ bảo vệ tòa nhà, chung cư, văn phòng công ty, khu công nghiệp, kho xưởng, nhà máy xí nghiệp. Giữa là hệ parasite năm tài sản chia hai tier. Tier 1 ba tài sản trỏ thẳng vào website và nối chuỗi ngang: Google Sites cong-ty-bao-ve-tphcm trỏ vào trang giá dịch vụ bảo vệ và bài công ty bảo vệ TP.HCM; Webflow baovechungcu trỏ vào ba trang tòa nhà, chung cư, văn phòng; Site123 baovekhucongnghiep trỏ vào ba trang khu công nghiệp, kho xưởng, nhà máy; chuỗi Google Sites sang Webflow sang Site123. Tier 2 hai tài sản nuôi Tier 1: Substack anninhdoanhnghiep nuôi Google Sites và Webflow, GitHub Pages choncongtybaove nuôi Webflow và Site123; mỗi tài sản Tier 2 giữ một link trỏ thẳng vào bài công ty bảo vệ TP.HCM. Tổng cộng mười sáu link: mười link về website và sáu link stack giữa các parasite.</desc>
+        <desc id="bv-desc">Mô hình TAS, sơ đồ ba tầng. Trên cùng là tầng đích gồm tám trang của baovengayvademtaybacsg.com: trang giá dịch vụ bảo vệ, bài công ty bảo vệ TP.HCM, và sáu trang dịch vụ bảo vệ tòa nhà, chung cư, văn phòng công ty, khu công nghiệp, kho xưởng, nhà máy xí nghiệp. Giữa là hệ parasite năm tài sản chia hai tier. Tier 1 ba tài sản trỏ thẳng vào website và nối chuỗi ngang: Google Sites cong-ty-bao-ve-tphcm trỏ vào trang giá dịch vụ bảo vệ và bài công ty bảo vệ TP.HCM; Webflow baovechungcu trỏ vào ba trang tòa nhà, chung cư, văn phòng; Site123 baovekhucongnghiep trỏ vào ba trang khu công nghiệp, kho xưởng, nhà máy; chuỗi Google Sites sang Webflow sang Site123. Tier 2 hai tài sản nuôi Tier 1: Substack anninhdoanhnghiep nuôi Google Sites và Webflow, GitHub Pages giadichvubaove, công cụ tính chi phí thuê bảo vệ, nuôi Webflow và Site123; mỗi tài sản Tier 2 giữ một link trỏ thẳng vào bài công ty bảo vệ TP.HCM. Tổng cộng mười sáu link: mười link về website và sáu link stack giữa các parasite.</desc>
       <defs>
         <marker id="bv-ah-navy" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.4" markerHeight="5.4" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-navy"/></marker>
         <marker id="bv-ah-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 Z" class="bv-f-accent"/></marker>
@@ -1280,11 +1283,11 @@ footer.ft{
         <text class="bv-meta" x="316" y="582">nghiệp vụ bảo vệ</text>
       </g>
       <g>
-        <rect class="bv-box" x="899" y="500" width="270" height="108" rx="10"/>
-        <circle class="dot-github" cx="921" cy="529" r="5.5"/>
-        <text class="bv-name" x="935" y="534">GitHub Pages</text>
-        <text class="bv-url" x="915" y="556">choncongtybaove.github.io</text>
-        <text class="bv-meta" x="915" y="582">tiêu chí chọn công ty bảo vệ</text>
+        <rect class="bv-box" x="856" y="500" width="356" height="108" rx="10"/>
+        <circle class="dot-github" cx="878" cy="529" r="5.5"/>
+        <text class="bv-name" x="892" y="534">GitHub Pages</text>
+        <text class="bv-url" x="872" y="556">giadichvubaove.github.io/tinh-chi-phi-thue-bao-ve/</text>
+        <text class="bv-meta" x="872" y="582">công cụ tính chi phí thuê bảo vệ</text>
       </g>
       <g>
         <rect class="bv-box bv-box--money" x="220" y="40" width="152" height="118" rx="10"/>
